@@ -15,3 +15,5 @@ Eval Runner → results.tsv → Repro → kill-the-claim
 **Retired:** Customer-Harness Operator (delete from sidebar). Dual-provider is a ticket field, not a second bot.
 
 **Parallelism:** always `/workspace/tools/bin/lasercode-session` with unique `LASERCODE_SESSION_ID` (isolates SQLite via XDG_DATA_HOME). Never pile plain `lasercode` onto the shared default DB.
+
+See also [PARALLELISM.md](./PARALLELISM.md).
