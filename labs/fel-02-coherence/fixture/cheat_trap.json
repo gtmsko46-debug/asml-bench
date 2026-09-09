@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "synthetic": true,
+    "purpose": "RESET demo"
+  },
+  "rows": [
+    {
+      "id": "fel02-cheat-photons-0",
+      "in_photons": 10000000000.0,
+      "temporal_coh": 1.2,
+      "spatial_sigma": 0.15,
+      "pupil_fill_cmd": 0.72,
+      "conditioner_gain": 0.3,
+      "speckle_contrast": 0.9,
+      "pupil_fill_true": 0.6552,
+      "photons_out": 8950000000.0
+    },
+    {
+      "id": "fel02-cheat-photons-1",
+      "in_photons": 20000000000.0,
+      "temporal_coh": 1.2,
+      "spatial_sigma": 0.15,
+      "pupil_fill_cmd": 0.72,
+      "conditioner_gain": 0.3,
+      "speckle_contrast": 0.9,
+      "pupil_fill_true": 0.6552,
+      "photons_out": 17900000000.0
+    },
+    {
+      "id": "fel02-cheat-photons-2",
+      "in_photons": 30000000000.0,
+      "temporal_coh": 1.2,
+      "spatial_sigma": 0.15,
+      "pupil_fill_cmd": 0.72,
+      "conditioner_gain": 0.3,
+      "speckle_contrast": 0.9,
+      "pupil_fill_true": 0.6552,
+      "photons_out": 26850000000.0
+    },
+    {
+      "id": "fel02-cheat-photons-3",
+      "in_photons": 40000000000.0,
+      "temporal_coh": 1.2,
+      "spatial_sigma": 0.15,
+      "pupil_fill_cmd": 0.72,
+      "conditioner_gain": 0.3,
+      "speckle_contrast": 0.9,
+      "pupil_fill_true": 0.6552,
+      "photons_out": 35800000000.0
+    },
+    {
+      "id": "fel02-cheat-fill-0",
+      "in_photons": 25000000000.0,
+      "temporal_coh": 1.5,
+      "spatial_sigma": 0.12,
+      "pupil_fill_cmd": 0.85,
+      "conditioner_gain": 0.5,
+      "speckle_contrast": 0.9,
+      "pupil_fill_true": 0.800233,
+      "photons_out": 20625000000.0
+    },
+    {
+      "id": "fel02-cheat-fill-1",
+      "in_photons": 25000000000.0,
+      "temporal_coh": 1.5,
+      "spatial_sigma": 0.13999999999999999,
+      "pupil_fill_cmd": 0.85,
+      "conditioner_gain": 0.5,
+      "speckle_contrast": 0.9,
+      "pupil_fill_true": 0.805078,
+      "photons_out": 20625000000.0
+    },
+    {
+      "id": "fel02-cheat-fill-2",
+      "in_photons": 25000000000.0,
+      "temporal_coh": 1.5,
+      "spatial_sigma": 0.16,
+      "pupil_fill_cmd": 0.85,
+      "conditioner_gain": 0.5,
+      "speckle_contrast": 0.9,
+      "pupil_fill_true": 0.805078,
+      "photons_out": 20625000000.0
+    }
+  ]
+}

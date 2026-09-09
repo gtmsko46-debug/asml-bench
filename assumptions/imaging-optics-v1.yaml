@@ -1,0 +1,24 @@
+id: imaging-optics-v1
+version: "1.0.0"
+title: Imaging / NA / pupil proxies
+scope: Optical imaging toys (not product NA roadmaps)
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: na_proxy
+    value: 0.33
+    unit: "1"
+    source: "Publicly discussed EUV NA class (historical); synthetic lab constant"
+    confidence: med
+    flags: [open-proxy, synthetic, not-asml-confidential]
+  - name: wavelength_nm
+    value: 13.5
+    unit: "nm"
+    source: "Public EUV wavelength"
+    confidence: high
+    flags: [open-proxy, not-asml-confidential]
+  - name: flare_frac
+    value: 0.05
+    unit: "1"
+    source: "Synthetic flare fraction for imaging toys"
+    confidence: low
+    flags: [synthetic]

@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "synthetic": true,
+    "purpose": "RESET demo"
+  },
+  "rows": [
+    {
+      "id": "th04-cheat-therm-0",
+      "power_w": 80.0,
+      "absorb_frac": 0.25,
+      "cte_ppm_k": 0.7,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 3.5,
+      "scan_speed": 2.0,
+      "platform": "GENERIC",
+      "overlay_nm": 6.565
+    },
+    {
+      "id": "th04-cheat-therm-1",
+      "power_w": 160.0,
+      "absorb_frac": 0.25,
+      "cte_ppm_k": 0.7,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 3.5,
+      "scan_speed": 2.0,
+      "platform": "GENERIC",
+      "overlay_nm": 12.445
+    },
+    {
+      "id": "th04-cheat-therm-2",
+      "power_w": 240.0,
+      "absorb_frac": 0.25,
+      "cte_ppm_k": 0.7,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 3.5,
+      "scan_speed": 2.0,
+      "platform": "GENERIC",
+      "overlay_nm": 18.325
+    },
+    {
+      "id": "th04-cheat-therm-3",
+      "power_w": 280.0,
+      "absorb_frac": 0.25,
+      "cte_ppm_k": 0.7,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 3.5,
+      "scan_speed": 2.0,
+      "platform": "GENERIC",
+      "overlay_nm": 21.265
+    },
+    {
+      "id": "th04-cheat-nxe-0",
+      "power_w": 200.0,
+      "absorb_frac": 0.18,
+      "cte_ppm_k": 0.5,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 2.0,
+      "scan_speed": 5.0,
+      "platform": "NXE",
+      "overlay_nm": 9.76
+    },
+    {
+      "id": "th04-cheat-nxe-1",
+      "power_w": 210.0,
+      "absorb_frac": 0.18,
+      "cte_ppm_k": 0.5,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 2.0,
+      "scan_speed": 5.0,
+      "platform": "NXE",
+      "overlay_nm": 10.138
+    },
+    {
+      "id": "th04-cheat-nxe-2",
+      "power_w": 220.0,
+      "absorb_frac": 0.18,
+      "cte_ppm_k": 0.5,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 2.0,
+      "scan_speed": 5.0,
+      "platform": "NXE",
+      "overlay_nm": 10.516
+    },
+    {
+      "id": "th04-cheat-nxe-3",
+      "power_w": 230.0,
+      "absorb_frac": 0.18,
+      "cte_ppm_k": 0.5,
+      "overlay_scale": 1.0,
+      "delta_t_hint": 2.0,
+      "scan_speed": 5.0,
+      "platform": "NXE",
+      "overlay_nm": 10.894
+    }
+  ]
+}

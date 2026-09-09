@@ -1,0 +1,31 @@
+id: overlay-thermal-v1
+version: "1.0.0"
+title: Reticle / overlay thermal proxies
+scope: TH-04 reticle heat synthetic overlay
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: reticle_absorb_frac
+    value: 0.18
+    unit: "1"
+    source: "Synthetic absorber fraction for heat toy (not mask-shop data)"
+    confidence: low
+    flags: [synthetic]
+  - name: thermal_expansion_ppm_k
+    value: 0.5
+    unit: "ppm/K"
+    source: "Order-of-magnitude low-expansion substrate CTE (open materials data); toy"
+    confidence: med
+    flags: [open-proxy, synthetic]
+  - name: delta_t_k_nom
+    value: 2.0
+    unit: "K"
+    source: "Synthetic reticle ΔT under load for demo"
+    confidence: low
+    flags: [synthetic]
+  - name: overlay_scale_nm_per_ppm
+    value: 1.0
+    unit: "nm/ppm"
+    source: "Synthetic mapping from expansion to overlay-nm for RMSE metric"
+    confidence: low
+    flags: [synthetic]
+notes: "Guards: thermal term must be non-zero; no platform==NXE forks."

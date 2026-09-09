@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gtmsko46-debug/asml-bench/schemas/thesis.schema.json",
+  "title": "Thesis",
+  "type": "object",
+  "required": ["id", "title", "lab_path", "primary_metric", "guards", "assumption_cards"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "lab_path": { "type": "string" },
+    "primary_metric": { "type": "string" },
+    "guards": { "type": "array", "items": { "type": "string" } },
+    "assumption_cards": { "type": "array", "items": { "type": "string" } },
+    "status": {
+      "type": "string",
+      "enum": ["scaffold", "live", "frozen", "retired"]
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

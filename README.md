@@ -32,6 +32,8 @@ python scripts/hash_holdout.py
 | `dashboards/` | Generated leaderboard |
 | `scripts/` | Holdout hashing + leaderboard generation |
 | `LAB_RULES.md` | Foreman choke point, dual-provider, no eval edits |
+| `DUAL_PROVIDER.md` | Diplomat router + demo contract (grok / mock-mistral) |
+| `PROGRAM_TEMPLATE.md` | program.md brief template for lab runs |
 | `BRANCHING.md` | `exp/<thesis>-<ticket>` branch policy |
 | `HARNESS_TICKET.md` | Ticket contract for lasercode |
 | `ASSUMPTIONS.md` | How assumption cards are authored and frozen |

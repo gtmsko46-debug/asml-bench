@@ -1,0 +1,24 @@
+id: stochastics-resist-v1
+version: "1.0.0"
+title: Resist stochastics proxies
+scope: LCDU / photon shot-noise toys for p5-stochastics
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: lcdu_nm_3sigma
+    value: 1.2
+    unit: "nm"
+    source: "Public EUV stochastics papers order-of-magnitude; synthetic"
+    confidence: low
+    flags: [open-proxy, synthetic]
+  - name: acid_diffusion_length_nm
+    value: 8.0
+    unit: "nm"
+    source: "Open CAR resist literature typical range; toy"
+    confidence: med
+    flags: [open-proxy, synthetic]
+  - name: dose_to_size_mj_cm2
+    value: 30.0
+    unit: "mJ/cm^2"
+    source: "Public EUV resist dose ballpark; not customer process"
+    confidence: low
+    flags: [synthetic, not-asml-confidential]

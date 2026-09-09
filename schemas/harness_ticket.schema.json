@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gtmsko46-debug/asml-bench/schemas/harness_ticket.schema.json",
+  "title": "HarnessTicket",
+  "type": "object",
+  "required": [
+    "ticket_id",
+    "thesis",
+    "hypothesis",
+    "provider",
+    "assumption_cards",
+    "lab_path",
+    "metric",
+    "decision",
+    "guards",
+    "created_at",
+    "sandbox",
+    "budget",
+    "must_not_touch"
+  ],
+  "properties": {
+    "ticket_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "thesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "type": "string",
+      "enum": [
+        "grok",
+        "mock-mistral"
+      ],
+      "description": "Diplomat router: grok = STEM/long-loop/thesis; mock-mistral = docs/scaffold/weak island"
+    },
+    "assumption_cards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "lab_path": {
+      "type": "string"
+    },
+    "metric": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "SEED",
+        "RUN",
+        "PROMOTE",
+        "REJECT",
+        "RESET"
+      ]
+    },
+    "guards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "baseline_solver": {
+      "type": "string"
+    },
+    "cheat_trap_expected": {
+      "type": "boolean"
+    },
+    "sandbox": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Single editable file under the lab (e.g. solver.py)"
+    },
+    "budget": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Max ratchets / minutes"
+    },
+    "must_not_touch": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Always includes eval.py, fixture/holdout*, assumption cards"
+    }
+  },
+  "additionalProperties": false
+}

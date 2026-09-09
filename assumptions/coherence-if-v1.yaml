@@ -1,0 +1,24 @@
+id: coherence-if-v1
+version: "1.0.0"
+title: Illumination-filler / coherence IF
+scope: Pupil fill and IF shim proxies (P10 / FEL-02)
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: pupil_fill_target
+    value: 0.72
+    unit: "1"
+    source: "Synthetic pupil-fill fraction for conditioner eval"
+    confidence: med
+    flags: [synthetic]
+  - name: if_loss_db
+    value: 0.8
+    unit: "dB"
+    source: "Toy IF insertion-loss proxy"
+    confidence: low
+    flags: [synthetic]
+  - name: spatial_sigma
+    value: 0.15
+    unit: "1"
+    source: "Mack-style partial coherence sigma order-of-magnitude; toy"
+    confidence: med
+    flags: [open-proxy, synthetic]

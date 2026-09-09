@@ -1,0 +1,24 @@
+id: tco-v1
+version: "1.0.0"
+title: TCO toy model
+scope: p9-tco cost proxies from public narratives
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: tool_capital_proxy_m_usd
+    value: 150.0
+    unit: "MUSD"
+    source: "Public press order-of-magnitude EUV tool price chatter; synthetic"
+    confidence: low
+    flags: [synthetic, not-asml-confidential]
+  - name: wafers_per_day
+    value: 1000.0
+    unit: "wpd"
+    source: "Synthetic throughput for TCO demos"
+    confidence: low
+    flags: [synthetic]
+  - name: consumables_per_wafer_usd
+    value: 5.0
+    unit: "USD"
+    source: "Toy consumables line"
+    confidence: low
+    flags: [synthetic]

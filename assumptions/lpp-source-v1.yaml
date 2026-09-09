@@ -1,0 +1,25 @@
+id: lpp-source-v1
+version: "1.0.0"
+title: LPP EUV source proxies (synthetic)
+scope: Source brightness / conversion-efficiency toys for LPP pathways
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: ce_percent
+    value: 4.5
+    unit: "%"
+    source: "Public EUV LPP CE discussion order-of-magnitude (Bakshi / SPIE surveys); not a product spec"
+    confidence: low
+    flags: [synthetic, open-proxy]
+  - name: in_band_power_proxy_w
+    value: 250.0
+    unit: "W"
+    source: "Public investor-deck class power targets (order-of-magnitude); synthetic lab proxy only"
+    confidence: low
+    flags: [synthetic, not-asml-confidential]
+  - name: droplet_rate_khz
+    value: 50.0
+    unit: "kHz"
+    source: "Open literature droplet-generator rates (approx.); toy"
+    confidence: med
+    flags: [open-proxy, synthetic]
+notes: "Never treat as EXE/NXE internal CE. For harness demos only."

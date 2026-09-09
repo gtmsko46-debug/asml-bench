@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gtmsko46-debug/asml-bench/schemas/results_row.schema.json",
+  "title": "ResultsRow",
+  "description": "One TSV row: thesis, run, hypothesis, provider, metric, decision, card",
+  "type": "object",
+  "required": [
+    "thesis",
+    "run",
+    "hypothesis",
+    "provider",
+    "metric",
+    "decision",
+    "card"
+  ],
+  "properties": {
+    "thesis": {
+      "type": "string"
+    },
+    "run": {
+      "type": "string"
+    },
+    "hypothesis": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string",
+      "enum": [
+        "grok",
+        "mock-mistral"
+      ],
+      "description": "Actual provider used; Diplomat enum only"
+    },
+    "metric": {
+      "type": "string",
+      "description": "Serialized metric summary e.g. rmse=1.23"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "SEED",
+        "RUN",
+        "PROMOTE",
+        "REJECT",
+        "RESET"
+      ]
+    },
+    "card": {
+      "type": "string",
+      "description": "Primary assumption card id"
+    }
+  },
+  "additionalProperties": false
+}

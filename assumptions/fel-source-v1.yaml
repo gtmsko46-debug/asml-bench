@@ -1,0 +1,25 @@
+id: fel-source-v1
+version: "1.0.0"
+title: FEL / alternate-source coherence proxies
+scope: Free-electron / alternate source coherence toys for FEL-02
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: temporal_coherence_length_um
+    value: 12.0
+    unit: "um"
+    source: "Order-of-magnitude FEL coherence lengths from open accelerator literature; scaled toy"
+    confidence: low
+    flags: [synthetic, open-proxy]
+  - name: photon_budget_nom
+    value: 1.0e12
+    unit: "photons/s"
+    source: "Synthetic photon budget for conditioner demos; not a fab measurement"
+    confidence: low
+    flags: [synthetic]
+  - name: baseline_speckle_contrast
+    value: 0.35
+    unit: "1"
+    source: "Synthetic partial-coherence speckle contrast target for FEL-02"
+    confidence: med
+    flags: [synthetic]
+notes: "FEL path is exploratory; numbers are lab toys."
