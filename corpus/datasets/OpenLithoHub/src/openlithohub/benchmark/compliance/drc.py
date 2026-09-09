@@ -1,0 +1,294 @@
+"""Design Rule Check (DRC) — layout-level geometric constraint validation."""
+
+from __future__ import annotations
+
+import math
+from dataclasses import dataclass, field
+
+import torch
+
+from openlithohub._utils.morphology import binary_dilation, binary_erosion, connected_components
+from openlithohub._utils.sampling import evenly_spaced_indices
+from openlithohub._utils.tensor_ops import ensure_2d
+
+
+@dataclass
+class DRCRuleDeck:
+    """Configuration for DRC rules."""
+
+    min_width_nm: float = 40.0
+    min_spacing_nm: float = 40.0
+    min_area_nm2: float = 100.0
+    min_notch_nm: float = 30.0
+
+
+@dataclass
+class DRCResult:
+    """Result of a Design Rule Check.
+
+    .. note::
+        ``violation_count`` is the **number of reported violations**,
+        i.e. ``len(violations)``. Each rule check caps how many
+        per-component reports it adds (typically ``max_reports`` = 50,
+        evenly sampled), so on a heavily-violating layout this number
+        is clipped, not the true total. Use ``rule_summary`` for the
+        per-rule reported counts and treat ``passed`` (any violation
+        at all) as the only sound binary signal.
+
+        DRC ``violation_count`` is **not directly comparable** to MRC
+        ``violation_count`` — the latter counts violating *pixels*, an
+        unclipped scalar that scales with feature area, while DRC
+        counts (clipped) connected components. ``passed`` / ``passed``
+        comparisons are well-defined; magnitude comparisons are not.
+    """
+
+    passed: bool
+    violation_count: int
+    violations: list[dict[str, float]]
+    rule_summary: dict[str, int] = field(default_factory=dict)
+
+    def _repr_html_(self) -> str:
+        from openlithohub.jupyter._html import (
+            kv_table,
+            panel,
+            pass_fail_badge,
+            violation_table,
+        )
+
+        rows: list[tuple[str, str]] = [("Total violations", str(self.violation_count))]
+        rows.extend((rule, str(count)) for rule, count in sorted(self.rule_summary.items()))
+        body = kv_table(rows) + violation_table(self.violations)
+        return panel(title="DRC", header_html=pass_fail_badge(self.passed), body_html=body)
+
+
+_DEFAULT_RULES = DRCRuleDeck()
+
+_RULE_DECKS: dict[str, DRCRuleDeck] = {
+    "default": _DEFAULT_RULES,
+    "aggressive": DRCRuleDeck(
+        min_width_nm=20.0, min_spacing_nm=20.0, min_area_nm2=50.0, min_notch_nm=15.0
+    ),
+}
+
+
+def check_drc(
+    mask: torch.Tensor,
+    rule_deck: str | DRCRuleDeck = "default",
+    pixel_size_nm: float = 1.0,
+) -> DRCResult:
+    """Run Design Rule Check on a mask layout.
+
+    Checks: minimum width, minimum spacing, minimum area, notch detection.
+
+    Notch semantics. ``min_notch_nm`` flags only **fully-enclosed** background
+    concavities — small bg pockets surrounded on all sides by foreground —
+    that a closing of the foreground at radius ``min_notch_nm / 2`` would fill
+    in. Through-channels (narrow bg gaps that touch the image border) and the
+    open exterior background are intentionally excluded; those are spacing
+    violations and are reported by ``min_spacing_nm`` instead. This split
+    avoids double-counting the same physical defect under two rules.
+    """
+    m = ensure_2d(mask)
+    binary = (m > 0.5).float()
+
+    if isinstance(rule_deck, str):
+        if rule_deck not in _RULE_DECKS:
+            raise ValueError(f"Unknown rule deck {rule_deck!r}. Available: {sorted(_RULE_DECKS)}")
+        rules = _RULE_DECKS[rule_deck]
+    else:
+        rules = rule_deck
+
+    violations: list[dict[str, float]] = []
+    rule_summary: dict[str, int] = {}
+
+    width_violations = _check_width(binary, rules.min_width_nm, pixel_size_nm)
+    rule_summary["min_width"] = len(width_violations)
+    violations.extend(width_violations)
+
+    spacing_violations = _check_spacing(binary, rules.min_spacing_nm, pixel_size_nm)
+    rule_summary["min_spacing"] = len(spacing_violations)
+    violations.extend(spacing_violations)
+
+    area_violations = _check_min_area(binary, rules.min_area_nm2, pixel_size_nm)
+    rule_summary["min_area"] = len(area_violations)
+    violations.extend(area_violations)
+
+    notch_violations = _check_notch(binary, rules.min_notch_nm, pixel_size_nm)
+    rule_summary["notch"] = len(notch_violations)
+    violations.extend(notch_violations)
+
+    violation_count = len(violations)
+    return DRCResult(
+        passed=violation_count == 0,
+        violation_count=violation_count,
+        violations=violations,
+        rule_summary=rule_summary,
+    )
+
+
+def _check_width(
+    binary: torch.Tensor, min_width_nm: float, pixel_size_nm: float
+) -> list[dict[str, float]]:
+    # Opening kernel is the largest disk that fits inside a feature exactly
+    # ``min_width_nm`` wide; ``2r+1 == floor(min_width / pixel)`` so a
+    # legitimate min-width feature is preserved.
+    radius = max(0, (int(math.floor(min_width_nm / pixel_size_nm)) - 1) // 2)
+    if radius < 1 or binary.sum() == 0:
+        return []
+
+    opened = binary_dilation(binary_erosion(binary, radius=radius), radius=radius)
+    violation_mask = (binary > 0.5) & (opened < 0.5)
+    return _sample_violations(violation_mask, "width", min_width_nm, pixel_size_nm)
+
+
+def _check_spacing(
+    binary: torch.Tensor, min_spacing_nm: float, pixel_size_nm: float
+) -> list[dict[str, float]]:
+    radius = max(0, (int(math.floor(min_spacing_nm / pixel_size_nm)) - 1) // 2)
+    bg = (binary < 0.5).float()
+    if radius < 1 or bg.sum() == 0 or binary.sum() == 0:
+        return []
+
+    opened_bg = binary_dilation(binary_erosion(bg, radius=radius), radius=radius)
+    violation_mask = (bg > 0.5) & (opened_bg < 0.5)
+    return _sample_violations(violation_mask, "spacing", min_spacing_nm, pixel_size_nm)
+
+
+def _check_min_area(
+    binary: torch.Tensor, min_area_nm2: float, pixel_size_nm: float
+) -> list[dict[str, float]]:
+    pixel_area_nm2 = pixel_size_nm * pixel_size_nm
+    min_area_px = min_area_nm2 / pixel_area_nm2
+
+    labels, num = connected_components(binary, connectivity=4)
+    if num == 0:
+        return []
+
+    fg = labels >= 0
+    flat_labels = labels[fg]
+    ys, xs = torch.where(fg)
+    unique_labels, inverse = torch.unique(flat_labels, return_inverse=True)
+    n_comp = unique_labels.numel()
+
+    counts = torch.zeros(n_comp, dtype=torch.float64, device=binary.device)
+    counts.scatter_add_(0, inverse, torch.ones_like(inverse, dtype=torch.float64))
+    sum_y = torch.zeros(n_comp, dtype=torch.float64, device=binary.device)
+    sum_y.scatter_add_(0, inverse, ys.to(torch.float64))
+    sum_x = torch.zeros(n_comp, dtype=torch.float64, device=binary.device)
+    sum_x.scatter_add_(0, inverse, xs.to(torch.float64))
+
+    counts_cpu = counts.tolist()
+    cy_cpu = (sum_y / counts).tolist()
+    cx_cpu = (sum_x / counts).tolist()
+
+    # Express the area threshold as an equivalent edge length in nm so
+    # every violation dict (width, spacing, area, notch) carries a
+    # ``threshold_nm`` key. Renderers (``violation_table``,
+    # MCP exports) can then iterate uniformly without
+    # branching on the rule code.
+    threshold_nm_equiv = math.sqrt(min_area_nm2)
+
+    violations: list[dict[str, float]] = []
+    for i in range(n_comp):
+        if len(violations) >= 50:
+            break
+        area_px = counts_cpu[i]
+        if area_px >= min_area_px:
+            continue
+        violations.append(
+            {
+                "rule": 2.0,
+                "type": 2.0,
+                "x_nm": cx_cpu[i] * pixel_size_nm,
+                "y_nm": cy_cpu[i] * pixel_size_nm,
+                "threshold_nm": threshold_nm_equiv,
+                "actual_nm2": area_px * pixel_area_nm2,
+                "required_nm2": min_area_nm2,
+            }
+        )
+    return violations
+
+
+def _check_notch(
+    binary: torch.Tensor, min_notch_nm: float, pixel_size_nm: float
+) -> list[dict[str, float]]:
+    """Detect notches: narrow bg concavities enclosed by foreground.
+
+    A notch is a small region of background that closing of the
+    foreground at radius ``min_notch_nm / 2`` fills back in, AND that
+    does not touch the image boundary (i.e. it is enclosed by features).
+    Through-channels and the open exterior background are excluded —
+    those are the domain of ``_check_spacing`` and not relevant here.
+
+    Border asymmetry vs EPE: this routine evaluates pixels right up to
+    the image frame (only excluding bg components that *touch* the border
+    as "open exterior"). The EPE metric (``_extract_edges``) zeros its
+    1-pixel image border to suppress Sobel phantom edges, so a feature
+    whose edge sits on the frame can produce a DRC violation while being
+    invisible to EPE. The two metrics are intentionally not symmetric:
+    DRC cares about manufacturability of every printed pixel; EPE cares
+    about edge-placement of detectable contours.
+    """
+    radius = int(math.floor(min_notch_nm / (2.0 * pixel_size_nm)))
+    if radius < 1:
+        return []
+
+    bg = binary < 0.5
+    if not bg.any():
+        return []
+
+    # Closing of foreground fills any bg concavity narrower than 2*radius.
+    closed_fg = binary_erosion(binary_dilation(binary, radius=radius), radius=radius)
+    notch_candidate = (closed_fg > 0.5) & bg
+
+    if not notch_candidate.any():
+        return []
+
+    # Drop bg components that touch the image border — those are open
+    # exterior, not enclosed notches.
+    labels, num = connected_components(bg.float(), connectivity=4)
+    if num == 0:
+        return []
+    border_labels: set[int] = set()
+    border_labels.update(int(v) for v in torch.unique(labels[0, :]).tolist() if int(v) != -1)
+    border_labels.update(int(v) for v in torch.unique(labels[-1, :]).tolist() if int(v) != -1)
+    border_labels.update(int(v) for v in torch.unique(labels[:, 0]).tolist() if int(v) != -1)
+    border_labels.update(int(v) for v in torch.unique(labels[:, -1]).tolist() if int(v) != -1)
+
+    enclosed_bg = bg.clone()
+    for lbl in border_labels:
+        enclosed_bg &= labels != lbl
+
+    notch_mask = notch_candidate & enclosed_bg
+    return _sample_violations(notch_mask, "notch", min_notch_nm, pixel_size_nm)
+
+
+def _sample_violations(
+    violation_mask: torch.Tensor,
+    rule_name: str,
+    threshold_nm: float,
+    pixel_size_nm: float,
+    max_reports: int = 50,
+) -> list[dict[str, float]]:
+    if not violation_mask.any():
+        return []
+
+    ys, xs = torch.where(violation_mask)
+    total = int(len(ys))
+    indices = evenly_spaced_indices(total, max_reports)
+
+    rule_code = {"width": 0.0, "spacing": 1.0, "area": 2.0, "notch": 3.0}.get(rule_name, 9.0)
+    violations: list[dict[str, float]] = []
+
+    for idx in indices:
+        violations.append(
+            {
+                "rule": rule_code,
+                "type": rule_code,
+                "x_nm": float(xs[idx].item()) * pixel_size_nm,
+                "y_nm": float(ys[idx].item()) * pixel_size_nm,
+                "threshold_nm": threshold_nm,
+            }
+        )
+
+    return violations

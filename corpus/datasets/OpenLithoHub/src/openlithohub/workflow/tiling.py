@@ -1,0 +1,377 @@
+"""Full-chip tiling strategy for distributed processing."""
+
+from __future__ import annotations
+
+from collections.abc import Callable
+from dataclasses import dataclass
+
+import torch
+import torch.nn.functional as functional
+
+
+@dataclass
+class Tile:
+    """A single tile from a layout partition."""
+
+    tensor: torch.Tensor
+    origin_x: int
+    origin_y: int
+    width: int
+    height: int
+    overlap: int
+
+
+def tile_layout(
+    layout_tensor: torch.Tensor,
+    tile_size: int = 2048,
+    overlap: int = 128,
+) -> list[Tile]:
+    """Partition a full-chip layout tensor into overlapping tiles.
+
+    Uses a sliding window with configurable overlap. Boundary tiles are
+    *anchored* to the layout edge (origin pulled back so the tile fits
+    entirely inside the layout) so the model sees real layout context
+    instead of zero-padding artefacts. The resulting boundary tiles overlap
+    further with their neighbours, which ``stitch_tiles`` blends correctly
+    via its weight-map normalization.
+
+    Args:
+        layout_tensor: Full layout as tensor (H, W).
+        tile_size: Size of each square tile in pixels.
+        overlap: Overlap between adjacent tiles for seamless stitching.
+
+    Returns:
+        List of Tile objects covering the full layout.
+
+    Raises:
+        ValueError: If overlap >= tile_size or tile_size <= 0.
+    """
+    if tile_size <= 0:
+        raise ValueError(f"tile_size must be positive, got {tile_size}")
+    if overlap < 0:
+        raise ValueError(f"overlap must be non-negative, got {overlap}")
+    if overlap >= tile_size:
+        raise ValueError(f"overlap ({overlap}) must be less than tile_size ({tile_size})")
+
+    h, w = layout_tensor.shape[-2], layout_tensor.shape[-1]
+    step = tile_size - overlap
+    tiles: list[Tile] = []
+    seen_origins: set[tuple[int, int]] = set()
+
+    # Layout smaller than tile_size in an axis ⇒ a single tile in that axis
+    # is sufficient. Without this guard, the sliding window still emits one
+    # tile per `step` along the axis, all zero-padded duplicates of the
+    # entire layout, multiplying forward-model work for no coverage gain.
+    h_iter_cap = 1 if h < tile_size else h
+    w_iter_cap = 1 if w < tile_size else w
+
+    y = 0
+    while y < h_iter_cap:
+        x = 0
+        while x < w_iter_cap:
+            y_end = min(y + tile_size, h)
+            x_end = min(x + tile_size, w)
+            actual_h = y_end - y
+            actual_w = x_end - x
+
+            if actual_h < tile_size and h >= tile_size:
+                # Anchor the tile to the bottom edge so its full extent is
+                # filled with real layout, not zero pad. This pulls the
+                # origin back; the extra coverage overlaps the previous row
+                # and is handled by stitch_tiles' weight-map blending.
+                y_origin = h - tile_size
+                tile_h_real = tile_size
+            else:
+                y_origin = y
+                tile_h_real = actual_h
+
+            if actual_w < tile_size and w >= tile_size:
+                x_origin = w - tile_size
+                tile_w_real = tile_size
+            else:
+                x_origin = x
+                tile_w_real = actual_w
+
+            y_real_end = y_origin + tile_h_real
+            x_real_end = x_origin + tile_w_real
+            tile_data = layout_tensor[..., y_origin:y_real_end, x_origin:x_real_end]
+
+            if tile_h_real < tile_size or tile_w_real < tile_size:
+                # Layout smaller than tile_size in some axis — must zero-pad,
+                # there is no real layout to anchor to.
+                pad_bottom = tile_size - tile_h_real
+                pad_right = tile_size - tile_w_real
+                tile_data = functional.pad(tile_data, (0, pad_right, 0, pad_bottom), value=0.0)
+
+            # When the sliding window's last position past the layout edge
+            # gets anchored back to the same origin as a previous tile, skip
+            # it — emitting two tiles with identical origins doubles forward-
+            # model work and does not change the stitched output.
+            origin_key = (x_origin, y_origin)
+            if origin_key not in seen_origins:
+                seen_origins.add(origin_key)
+                tiles.append(
+                    Tile(
+                        tensor=tile_data,
+                        origin_x=x_origin,
+                        origin_y=y_origin,
+                        width=tile_w_real,
+                        height=tile_h_real,
+                        overlap=overlap,
+                    )
+                )
+
+            x += step
+        y += step
+
+    return tiles
+
+
+def stitch_tiles(
+    tiles: list[tuple[Tile, torch.Tensor]],
+    output_shape: tuple[int, int],
+) -> torch.Tensor:
+    """Reassemble optimized tiles into a full-chip tensor.
+
+    Uses linear blending in overlap regions to avoid seam artifacts.
+
+    Args:
+        tiles: List of (original_tile, optimized_tensor) pairs.
+        output_shape: (H, W) of the full output tensor.
+
+    Returns:
+        Stitched tensor of shape output_shape.
+    """
+    h, w = output_shape
+    device = tiles[0][1].device if tiles else torch.device("cpu")
+    output = torch.zeros(h, w, device=device)
+    weight_map = torch.zeros(h, w, device=device)
+
+    for tile, result in tiles:
+        tile_h = tile.height
+        tile_w = tile.width
+        result_2d = result[..., :tile_h, :tile_w]
+        if result_2d.ndim > 2:
+            result_2d = result_2d.squeeze()
+
+        blend = torch.ones(tile_h, tile_w, device=device)
+
+        # A single-column overlap cannot be blended (the linear ramp would
+        # assign weight 0 to both sides, leaving a black seam); fall back
+        # to unblended averaging via the weight map.
+        if tile.overlap > 1:
+            ramp = torch.linspace(0.0, 1.0, tile.overlap, device=device)
+
+            if tile.origin_x > 0:
+                left_ramp = ramp.unsqueeze(0).expand(tile_h, -1)
+                ol = min(tile.overlap, tile_w)
+                blend[:, :ol] *= left_ramp[:, :ol]
+
+            if tile.origin_y > 0:
+                top_ramp = ramp.unsqueeze(1).expand(-1, tile_w)
+                ol = min(tile.overlap, tile_h)
+                blend[:ol, :] *= top_ramp[:ol, :]
+
+            if tile.origin_x + tile_w < w:
+                right_ramp = ramp.flip(0).unsqueeze(0).expand(tile_h, -1)
+                ol = min(tile.overlap, tile_w)
+                blend[:, -ol:] *= right_ramp[:, -ol:]
+
+            if tile.origin_y + tile_h < h:
+                bottom_ramp = ramp.flip(0).unsqueeze(1).expand(-1, tile_w)
+                ol = min(tile.overlap, tile_h)
+                blend[-ol:, :] *= bottom_ramp[-ol:, :]
+
+        y_end = tile.origin_y + tile_h
+        x_end = tile.origin_x + tile_w
+        output[tile.origin_y : y_end, tile.origin_x : x_end] += result_2d * blend
+        weight_map[tile.origin_y : y_end, tile.origin_x : x_end] += blend
+
+    nonzero = weight_map > 0
+    output[nonzero] /= weight_map[nonzero]
+    return output
+
+
+def tiled_ilt_with_consistency(
+    mask: torch.Tensor,
+    tile_size: int,
+    ilt_fn: Callable[[torch.Tensor], torch.Tensor],
+    overlap: int = 16,
+    n_iterations: int = 10,
+) -> dict[str, object]:
+    """Run tiled ILT and measure cross-tile consistency.
+
+    Partitions ``mask`` into tiles, applies ``ilt_fn`` independently to each
+    tile for ``n_iterations``, stitches the results back together, and
+    evaluates boundary consistency metrics.
+
+    Args:
+        mask: Full-chip mask tensor ``(H, W)``.
+        tile_size: Tile size in pixels.
+        ilt_fn: Callable that takes a tile mask ``(H_tile, W_tile)`` and
+            returns an optimised mask of the same shape. Called once per tile
+            (not iteratively — ``n_iterations`` controls a simple iterative
+            refinement loop if the caller passes a stateless function).
+        overlap: Overlap between adjacent tiles.
+        n_iterations: Number of refinement iterations per tile. Each iteration
+            applies ``ilt_fn`` to the current tile result.
+
+    Returns:
+        Dictionary with:
+
+        - ``'mask'``: stitched optimised mask ``(H, W)``.
+        - ``'tiles'``: list of original ``Tile`` objects.
+        - ``'tile_results'``: list of per-tile optimised tensors.
+        - ``'consistency'``: output of :func:`tile_boundary_consistency`.
+    """
+    from openlithohub.benchmark.metrics.tiling_consistency import tile_boundary_consistency
+
+    if mask.ndim > 2:
+        mask = mask.squeeze()
+
+    h, w = mask.shape
+    tiles = tile_layout(mask, tile_size=tile_size, overlap=overlap)
+
+    tile_results: list[torch.Tensor] = []
+    for tile in tiles:
+        current = tile.tensor.clone()
+        for _ in range(n_iterations):
+            current = ilt_fn(current)
+        tile_results.append(current)
+
+    stitched = stitch_tiles(
+        [(t, r) for t, r in zip(tiles, tile_results, strict=False)],
+        (h, w),
+    )
+
+    consistency = tile_boundary_consistency(tiles, tile_results, overlap=overlap)
+
+    return {
+        "mask": stitched,
+        "tiles": tiles,
+        "tile_results": tile_results,
+        "consistency": consistency,
+    }
+
+
+def schwarz_tiled_ilt(
+    mask: torch.Tensor,
+    tile_size: int,
+    ilt_fn: Callable[[torch.Tensor], torch.Tensor],
+    overlap: int = 64,
+    n_schwarz_iters: int = 3,
+    n_inner_iters: int = 5,
+    convergence_tol: float = 1e-3,
+) -> dict[str, object]:
+    """Schwarz alternating iteration for tiled ILT.
+
+    After each round of per-tile ILT optimization, the overlap regions are
+    exchanged between adjacent tiles (multiplicative Schwarz), providing
+    boundary conditions from the latest neighbouring solutions.  This reduces
+    the boundary inconsistency that arises from fully independent tile
+    optimization.
+
+    Convergence is measured by the max boundary MSE across adjacent tile pairs.
+    The loop terminates early when this drops below *convergence_tol*.
+
+    Args:
+        mask: Full-chip mask ``(H, W)``.
+        tile_size: Square tile size in pixels.
+        ilt_fn: Per-tile ILT callable ``(H_t, W_t) → (H_t, W_t)``.
+        overlap: Overlap width in pixels.
+        n_schwarz_iters: Maximum Schwarz exchange iterations.
+        n_inner_iters: ILT steps per tile per Schwarz iteration.
+        convergence_tol: Stop early when boundary MSE < this value.
+
+    Returns:
+        Dict with ``'mask'``, ``'tiles'``, ``'tile_results'``,
+        ``'consistency'``, and ``'schwarz_history'`` (boundary MSE per round).
+    """
+    from openlithohub.benchmark.metrics.tiling_consistency import tile_boundary_consistency
+
+    if mask.ndim > 2:
+        mask = mask.squeeze()
+
+    h, w = mask.shape
+    tiles = tile_layout(mask, tile_size=tile_size, overlap=overlap)
+    tile_results = [t.tensor.clone() for t in tiles]
+
+    history: list[float] = []
+
+    for _schwarz_it in range(n_schwarz_iters):
+        new_results: list[torch.Tensor] = []
+        for idx, tile in enumerate(tiles):
+            current = _inject_boundary_data(tile, tile_results, idx, tiles, overlap)
+            for _ in range(n_inner_iters):
+                current = ilt_fn(current)
+            new_results.append(current)
+
+        tile_results = new_results
+
+        metrics = tile_boundary_consistency(tiles, tile_results, overlap=overlap)
+        mse = metrics["boundary_mse"]
+        history.append(mse)
+
+        if mse < convergence_tol:
+            break
+
+    stitched = stitch_tiles(
+        [(t, r) for t, r in zip(tiles, tile_results, strict=False)],
+        (h, w),
+    )
+
+    return {
+        "mask": stitched,
+        "tiles": tiles,
+        "tile_results": tile_results,
+        "consistency": tile_boundary_consistency(tiles, tile_results, overlap=overlap),
+        "schwarz_history": history,
+    }
+
+
+def _inject_boundary_data(
+    tile: Tile,
+    all_results: list[torch.Tensor],
+    idx: int,
+    all_tiles: list[Tile],
+    overlap: int,
+) -> torch.Tensor:
+    """Copy overlap-region data from neighbours into the current tile.
+
+    For every other tile whose extent intersects this tile's extent, the
+    neighbour's most recent result inside the shared region is written into
+    the current tile's tensor. Overlap geometry is derived from tile
+    origins and extents, so anchored edge tiles (whose origin is pulled
+    back to fit the layout and which therefore overlap their neighbour by
+    more than ``overlap``) exchange boundary data too. This implements the
+    multiplicative Schwarz information exchange.
+
+    The iteration starts from the tile's own latest solution
+    (``all_results[idx]``) so successive Schwarz rounds accumulate instead
+    of restarting from the input layout.
+    """
+    current = all_results[idx].clone()
+    th, tw = current.shape[-2], current.shape[-1]
+
+    x0, y0 = tile.origin_x, tile.origin_y
+    x1, y1 = x0 + tw, y0 + th
+
+    for jdx, other in enumerate(all_tiles):
+        if jdx == idx:
+            continue
+
+        ox0, oy0 = other.origin_x, other.origin_y
+        ox1, oy1 = ox0 + other.width, oy0 + other.height
+
+        ix0, iy0 = max(x0, ox0), max(y0, oy0)
+        ix1, iy1 = min(x1, ox1), min(y1, oy1)
+        if ix1 <= ix0 or iy1 <= iy0:
+            continue
+
+        current[..., iy0 - y0 : iy1 - y0, ix0 - x0 : ix1 - x0] = all_results[jdx][
+            ...,
+            iy0 - oy0 : iy1 - oy0,
+            ix0 - ox0 : ix1 - ox0,
+        ]
+
+    return current

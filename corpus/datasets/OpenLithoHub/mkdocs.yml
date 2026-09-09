@@ -1,0 +1,101 @@
+site_name: OpenLithoHub
+site_url: https://docs.openlithohub.com
+site_description: Open-source computational lithography benchmarking and workflow tool
+repo_url: https://github.com/OpenLithoHub/OpenLithoHub
+repo_name: OpenLithoHub/OpenLithoHub
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_source: true
+            docstring_style: google
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architecture: architecture.md
+  - For AI Engineers: lithography-for-ai-engineers.md
+  - Benchmarks: benchmarks.md
+  - Capability Matrix: capability_matrix.md
+  - Resist Capability Matrix: resist_capability_matrix.md
+  - CLI Reference: cli-reference.md
+  - Halo and Tiling: halo-and-tiling.md
+  - Networking & Proxies: networking.md
+  - Self-Hosted Deployment: self_hosted_deployment.md
+  - HuggingFace Authentication: hf-auth.md
+  - References: references.md
+  - Citation Map: citations.md
+  - Audits:
+    - "Neural-ILT Architecture": audits/neural-ilt-architecture.md
+    - "GAN-OPC Architecture": audits/gan-opc-architecture.md
+    - "OpenILT Architecture": audits/openilt-architecture.md
+    - "LevelSet-ILT Architecture": audits/levelset-ilt-architecture.md
+    - "Layout-MAE Architecture": audits/layout-mae-architecture.md
+  - Notes:
+    - "ASAP7 cell-name format": notes/asap7-cell-naming.md
+    - "OpenRAM → FreePDK45": notes/openram-freepdk45.md
+    - "Cell rasterization gallery": notes/data-show-gallery.md
+  - API Reference:
+    - "Object-oriented API": api/oo_api.md
+    - Data Adapters: api/data.md
+    - Benchmark Metrics: api/benchmark.md
+    - Model Interface: api/models.md
+    - Workflow Engine: api/workflow.md
+    - Simulator Backends: api/simulators.md
+    - Visualization: api/vis.md
+    - Leaderboard: api/leaderboard.md
+  - Leaderboard Submissions: leaderboard-submission.md
+  - Hackathon (2026-Q3): hackathon.md
+  - Community: community.md
+  - Announcements:
+    - "v0.1 Launch (2026-05)": announcements/2026-05-launch.md
+  - RFCs:
+    - "Lifecycle": rfcs/lifecycle.md
+    - "0001 — Layout-MAE Base Model": rfcs/0001-base-model.md
+    - "0002 — Layout Tokens": rfcs/0002-layout-tokens.md
+    - "0003 — MRC Rule-Deck Schema": rfcs/0003-mrc-rule-deck-schema.md
+    - "0004 — Multi-GPU Tile Pipeline": rfcs/0004-multi-gpu-tile-pipeline.md
+    - "0005 — Process-Node-Aware Tile Halo Sizing": rfcs/0005-process-node-halo-sizing.md
+    - "0006 — MCP (Model Context Protocol) Bridge": rfcs/0006-mcp-bridge.md
+  - Contributing: contributing.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/branding.css

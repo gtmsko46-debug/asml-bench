@@ -1,0 +1,61 @@
+name: Sync spaces/ to HuggingFace
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "spaces/**"
+      - ".github/workflows/sync-hf-space.yml"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push spaces/ subtree to HuggingFace Space
+        env:
+          HF_USERNAME: ${{ secrets.HF_USERNAME }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${HF_USERNAME:-}" ] || [ -z "${HF_TOKEN:-}" ]; then
+            echo "::error::HF_USERNAME and HF_TOKEN secrets must be set on this repository."
+            exit 1
+          fi
+
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
+
+          # Build a clean orphan branch containing only spaces/* at the root,
+          # then force-push it to the HF Space repo's main branch.
+          tmpdir=$(mktemp -d)
+          cp -r spaces/. "$tmpdir/"
+          # Pin the openlithohub install to the exact commit being synced so
+          # the Space rebuild is reproducible and doesn't track a moving @main.
+          python3 - "$tmpdir/requirements.txt" "$GITHUB_SHA" <<'PY'
+          import re, sys
+          path, sha = sys.argv[1], sys.argv[2]
+          with open(path) as f:
+              text = f.read()
+          new = re.sub(
+              r"(openlithohub @ git\+https://github\.com/OpenLithoHub/OpenLithoHub\.git@)[^\s#]+",
+              r"\g<1>" + sha,
+              text,
+          )
+          with open(path, "w") as f:
+              f.write(new)
+          PY
+          cd "$tmpdir"
+          git init -b main
+          git add .
+          git commit -m "Sync from OpenLithoHub@${GITHUB_SHA::7}"
+          # Pass credentials via http.extraheader so they never land in
+          # .git/config or surface in `git remote -v` / `set -x` output.
+          git remote add space "https://huggingface.co/spaces/OpenLithoHub/playground"
+          AUTH_HEADER="Authorization: Basic $(printf '%s:%s' "$HF_USERNAME" "$HF_TOKEN" | base64 | tr -d '\n')"
+          git -c http.extraheader="$AUTH_HEADER" push --force space main
