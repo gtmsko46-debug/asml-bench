@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "synthetic": true,
+    "purpose": "RESET demo"
+  },
+  "rows": [
+    {
+      "id": "p4-cheat-pol-0",
+      "na": 0.55,
+      "pitch_nm": 40.0,
+      "pol_angle_deg": 45.0,
+      "dose": 1.0,
+      "defocus": 0.0,
+      "blur": 0.2,
+      "pol_degree": 0.0,
+      "pw_area": 0.5,
+      "epe_nm": 4.585455
+    },
+    {
+      "id": "p4-cheat-pol-1",
+      "na": 0.55,
+      "pitch_nm": 40.0,
+      "pol_angle_deg": 45.0,
+      "dose": 1.0,
+      "defocus": 0.0,
+      "blur": 0.2,
+      "pol_degree": 0.25,
+      "pw_area": 0.579545,
+      "epe_nm": 3.961569
+    },
+    {
+      "id": "p4-cheat-pol-2",
+      "na": 0.55,
+      "pitch_nm": 40.0,
+      "pol_angle_deg": 45.0,
+      "dose": 1.0,
+      "defocus": 0.0,
+      "blur": 0.2,
+      "pol_degree": 0.5,
+      "pw_area": 0.659091,
+      "epe_nm": 3.488276
+    },
+    {
+      "id": "p4-cheat-pol-3",
+      "na": 0.55,
+      "pitch_nm": 40.0,
+      "pol_angle_deg": 45.0,
+      "dose": 1.0,
+      "defocus": 0.0,
+      "blur": 0.2,
+      "pol_degree": 0.75,
+      "pw_area": 0.738636,
+      "epe_nm": 3.116923
+    },
+    {
+      "id": "p4-cheat-pol-4",
+      "na": 0.55,
+      "pitch_nm": 40.0,
+      "pol_angle_deg": 45.0,
+      "dose": 1.0,
+      "defocus": 0.0,
+      "blur": 0.2,
+      "pol_degree": 1.0,
+      "pw_area": 0.818182,
+      "epe_nm": 2.817778
+    },
+    {
+      "id": "p4-cheat-na-0",
+      "na": 0.33,
+      "pitch_nm": 36.0,
+      "pol_degree": 0.9,
+      "pol_angle_deg": 45.0,
+      "dose": 1.1,
+      "defocus": 0.2,
+      "blur": 0.15,
+      "pw_area": 0.702159,
+      "epe_nm": 3.29559
+    },
+    {
+      "id": "p4-cheat-na-1",
+      "na": 0.45,
+      "pitch_nm": 36.0,
+      "pol_degree": 0.9,
+      "pol_angle_deg": 45.0,
+      "dose": 1.1,
+      "defocus": 0.2,
+      "blur": 0.15,
+      "pw_area": 0.730705,
+      "epe_nm": 3.174265
+    },
+    {
+      "id": "p4-cheat-na-2",
+      "na": 0.55,
+      "pitch_nm": 36.0,
+      "pol_degree": 0.9,
+      "pol_angle_deg": 45.0,
+      "dose": 1.1,
+      "defocus": 0.2,
+      "blur": 0.15,
+      "pw_area": 0.754493,
+      "epe_nm": 3.080173
+    },
+    {
+      "id": "p4-cheat-na-3",
+      "na": 0.65,
+      "pitch_nm": 36.0,
+      "pol_degree": 0.9,
+      "pol_angle_deg": 45.0,
+      "dose": 1.1,
+      "defocus": 0.2,
+      "blur": 0.15,
+      "pw_area": 0.778282,
+      "epe_nm": 2.991834
+    },
+    {
+      "id": "p4-cheat-na-4",
+      "na": 0.75,
+      "pitch_nm": 36.0,
+      "pol_degree": 0.9,
+      "pol_angle_deg": 45.0,
+      "dose": 1.1,
+      "defocus": 0.2,
+      "blur": 0.15,
+      "pw_area": 0.80207,
+      "epe_nm": 2.908735
+    }
+  ]
+}

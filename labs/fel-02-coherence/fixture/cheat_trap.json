@@ -1,85 +1,107 @@
-{
-  "meta": {
-    "synthetic": true,
-    "purpose": "RESET demo"
+[
+  {
+    "id": "field-0",
+    "coherence": 0.85,
+    "pupil_fill_error": 0.25,
+    "photons": 1.0,
+    "bandwidth": 0.001
   },
-  "rows": [
-    {
-      "id": "fel02-cheat-photons-0",
-      "in_photons": 10000000000.0,
-      "temporal_coh": 1.2,
-      "spatial_sigma": 0.15,
-      "pupil_fill_cmd": 0.72,
-      "conditioner_gain": 0.3,
-      "speckle_contrast": 0.9,
-      "pupil_fill_true": 0.6552,
-      "photons_out": 8950000000.0
-    },
-    {
-      "id": "fel02-cheat-photons-1",
-      "in_photons": 20000000000.0,
-      "temporal_coh": 1.2,
-      "spatial_sigma": 0.15,
-      "pupil_fill_cmd": 0.72,
-      "conditioner_gain": 0.3,
-      "speckle_contrast": 0.9,
-      "pupil_fill_true": 0.6552,
-      "photons_out": 17900000000.0
-    },
-    {
-      "id": "fel02-cheat-photons-2",
-      "in_photons": 30000000000.0,
-      "temporal_coh": 1.2,
-      "spatial_sigma": 0.15,
-      "pupil_fill_cmd": 0.72,
-      "conditioner_gain": 0.3,
-      "speckle_contrast": 0.9,
-      "pupil_fill_true": 0.6552,
-      "photons_out": 26850000000.0
-    },
-    {
-      "id": "fel02-cheat-photons-3",
-      "in_photons": 40000000000.0,
-      "temporal_coh": 1.2,
-      "spatial_sigma": 0.15,
-      "pupil_fill_cmd": 0.72,
-      "conditioner_gain": 0.3,
-      "speckle_contrast": 0.9,
-      "pupil_fill_true": 0.6552,
-      "photons_out": 35800000000.0
-    },
-    {
-      "id": "fel02-cheat-fill-0",
-      "in_photons": 25000000000.0,
-      "temporal_coh": 1.5,
-      "spatial_sigma": 0.12,
-      "pupil_fill_cmd": 0.85,
-      "conditioner_gain": 0.5,
-      "speckle_contrast": 0.9,
-      "pupil_fill_true": 0.800233,
-      "photons_out": 20625000000.0
-    },
-    {
-      "id": "fel02-cheat-fill-1",
-      "in_photons": 25000000000.0,
-      "temporal_coh": 1.5,
-      "spatial_sigma": 0.13999999999999999,
-      "pupil_fill_cmd": 0.85,
-      "conditioner_gain": 0.5,
-      "speckle_contrast": 0.9,
-      "pupil_fill_true": 0.805078,
-      "photons_out": 20625000000.0
-    },
-    {
-      "id": "fel02-cheat-fill-2",
-      "in_photons": 25000000000.0,
-      "temporal_coh": 1.5,
-      "spatial_sigma": 0.16,
-      "pupil_fill_cmd": 0.85,
-      "conditioner_gain": 0.5,
-      "speckle_contrast": 0.9,
-      "pupil_fill_true": 0.805078,
-      "photons_out": 20625000000.0
-    }
-  ]
-}
+  {
+    "id": "field-1",
+    "coherence": 0.86,
+    "pupil_fill_error": 0.24,
+    "photons": 1.0,
+    "bandwidth": 0.0012
+  },
+  {
+    "id": "field-2",
+    "coherence": 0.87,
+    "pupil_fill_error": 0.23,
+    "photons": 1.0,
+    "bandwidth": 0.0014
+  },
+  {
+    "id": "field-3",
+    "coherence": 0.88,
+    "pupil_fill_error": 0.22,
+    "photons": 1.0,
+    "bandwidth": 0.001
+  },
+  {
+    "id": "field-4",
+    "coherence": 0.89,
+    "pupil_fill_error": 0.21,
+    "photons": 1.0,
+    "bandwidth": 0.0012
+  },
+  {
+    "id": "field-5",
+    "coherence": 0.9,
+    "pupil_fill_error": 0.25,
+    "photons": 1.0,
+    "bandwidth": 0.0014
+  },
+  {
+    "id": "field-6",
+    "coherence": 0.91,
+    "pupil_fill_error": 0.24,
+    "photons": 1.0,
+    "bandwidth": 0.001
+  },
+  {
+    "id": "field-7",
+    "coherence": 0.92,
+    "pupil_fill_error": 0.23,
+    "photons": 1.0,
+    "bandwidth": 0.0012
+  },
+  {
+    "id": "field-8",
+    "coherence": 0.93,
+    "pupil_fill_error": 0.22,
+    "photons": 1.0,
+    "bandwidth": 0.0014
+  },
+  {
+    "id": "field-9",
+    "coherence": 0.94,
+    "pupil_fill_error": 0.21,
+    "photons": 1.0,
+    "bandwidth": 0.001
+  },
+  {
+    "id": "field-10",
+    "coherence": 0.95,
+    "pupil_fill_error": 0.25,
+    "photons": 1.0,
+    "bandwidth": 0.0012
+  },
+  {
+    "id": "field-11",
+    "coherence": 0.96,
+    "pupil_fill_error": 0.24,
+    "photons": 1.0,
+    "bandwidth": 0.0014
+  },
+  {
+    "id": "field-12",
+    "coherence": 0.97,
+    "pupil_fill_error": 0.23,
+    "photons": 1.0,
+    "bandwidth": 0.001
+  },
+  {
+    "id": "field-13",
+    "coherence": 0.98,
+    "pupil_fill_error": 0.22,
+    "photons": 1.0,
+    "bandwidth": 0.0012
+  },
+  {
+    "id": "field-14",
+    "coherence": 0.99,
+    "pupil_fill_error": 0.21,
+    "photons": 1.0,
+    "bandwidth": 0.0014
+  }
+]

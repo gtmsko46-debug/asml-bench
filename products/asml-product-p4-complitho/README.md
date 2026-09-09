@@ -21,9 +21,18 @@ Owner: Comp-Litho Product PI.
 ## Status
 
 - [x] Lab `program.md` stubs
-- [ ] Assumption card files on disk (`imaging-optics-v1`, `commonality-v1`, …)
-- [ ] Frozen `eval.py` + holdout + cheat_trap per lab
-- [ ] Baseline `solver.py` scaffolds
+- [x] Assumption card files on disk (`imaging-optics-v1`, `commonality-v1`)
+- [x] Frozen `eval.py` + holdout + cheat_trap per lab
+- [x] Baseline `solver.py` scaffolds
 - [ ] Product GitHub/Origin repo (name reserved: `asml-product-p4-complitho`)
 - [ ] Harness keys live
 - [ ] First SEED tickets (paired mock-mistral + grok)
+
+## Local smoke
+
+```bash
+python labs/p4-polarization/eval.py
+python labs/p7-wavelength/eval.py
+```
+
+Fixtures are synthetic only (`meta.synthetic`). Regenerator: `products/asml-product-p4-complitho/gen_fixtures.py`.

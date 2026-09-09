@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "synthetic": true,
+    "purpose": "RESET demo"
+  },
+  "rows": [
+    {
+      "id": "p7-cheat-ml-0-135",
+      "wavelength_nm": 13.5,
+      "na": 0.55,
+      "multilayer_R": 0.4,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.221774,
+      "relative_to_135": 1.0
+    },
+    {
+      "id": "p7-cheat-ml-0-67",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.4,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.135314,
+      "relative_to_135": 0.610144
+    },
+    {
+      "id": "p7-cheat-ml-1-135",
+      "wavelength_nm": 13.5,
+      "na": 0.55,
+      "multilayer_R": 0.55,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.221774,
+      "relative_to_135": 1.0
+    },
+    {
+      "id": "p7-cheat-ml-1-67",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.55,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.147826,
+      "relative_to_135": 0.666561
+    },
+    {
+      "id": "p7-cheat-ml-2-135",
+      "wavelength_nm": 13.5,
+      "na": 0.55,
+      "multilayer_R": 0.7,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.221774,
+      "relative_to_135": 1.0
+    },
+    {
+      "id": "p7-cheat-ml-2-67",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.7,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.160338,
+      "relative_to_135": 0.722979
+    },
+    {
+      "id": "p7-cheat-ml-3-135",
+      "wavelength_nm": 13.5,
+      "na": 0.55,
+      "multilayer_R": 0.85,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.221774,
+      "relative_to_135": 1.0
+    },
+    {
+      "id": "p7-cheat-ml-3-67",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.85,
+      "resist_blur_nm": 3.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.17285,
+      "relative_to_135": 0.779397
+    },
+    {
+      "id": "p7-cheat-resist-0",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.8,
+      "resist_blur_nm": 1.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.215511,
+      "relative_to_135": 0.846369
+    },
+    {
+      "id": "p7-cheat-resist-1",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.8,
+      "resist_blur_nm": 2.5,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.17837,
+      "relative_to_135": 0.778341
+    },
+    {
+      "id": "p7-cheat-resist-2",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.8,
+      "resist_blur_nm": 4.0,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.152148,
+      "relative_to_135": 0.730312
+    },
+    {
+      "id": "p7-cheat-resist-3",
+      "wavelength_nm": 6.7,
+      "na": 0.55,
+      "multilayer_R": 0.8,
+      "resist_blur_nm": 5.5,
+      "dose": 1.0,
+      "k1_proxy": 0.5,
+      "pw_area": 0.132648,
+      "relative_to_135": 0.694594
+    }
+  ]
+}
