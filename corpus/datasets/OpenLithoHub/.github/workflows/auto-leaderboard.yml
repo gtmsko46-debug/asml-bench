@@ -1,0 +1,113 @@
+name: Auto-Leaderboard
+
+# Validate community leaderboard submissions and open a follow-up PR that
+# updates leaderboard/leaderboard.json. We use pull_request_target so the
+# workflow can write back, but we **only** check out the base ref — never
+# the PR author's code — and the only PR-supplied input that ever leaves
+# the sandbox is the submission YAML, which is parsed against a strict
+# schema.
+
+on:
+  pull_request_target:
+    # ``synchronize`` re-runs validation from scratch against the new
+    # head SHA — safe because the only PR-author input we ever read is
+    # the submission YAML (allow-listed by the regex in the fetch step
+    # below) and validated by the strict ``BenchmarkResult`` schema.
+    types: [opened, reopened, synchronize, labeled]
+    paths:
+      - "submissions/**.yaml"
+      - "submissions/**.yml"
+
+permissions:
+  # contents: write is required so peter-evans/create-pull-request can
+  # push the auto-leaderboard/pr-N branch back to the repo. The base
+  # ref checkout still uses persist-credentials: false to avoid the
+  # duplicate-Authorization-header issue against the create-PR action.
+  contents: write
+  pull-requests: write
+
+jobs:
+  validate-submission:
+    if: contains(github.event.pull_request.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout base ref (never PR head)
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          # peter-evans/create-pull-request can't compose with the
+          # Authorization header that actions/checkout persists by
+          # default — git emits "Duplicate header: Authorization" and
+          # fails with HTTP 400. Disable credential persistence here;
+          # the create-PR action passes its own token in step env.
+          persist-credentials: false
+
+      - name: Fetch only the submission YAMLs from the PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          mkdir -p _pr_submissions
+          # Pin the head SHA once, before iterating, so a force-push mid-run
+          # can't yield a mixed snapshot of files from different revisions.
+          sha=$(gh pr view "$PR_NUMBER" --json headRefOid -q .headRefOid)
+          # Only accept paths under submissions/ that end in .yaml or .yml,
+          # restrict the character class so traversal segments (`..`) and
+          # exotic characters cannot reach `gh api`.
+          gh pr diff "$PR_NUMBER" --name-only \
+            | grep -E '^submissions/[A-Za-z0-9_./-]+\.(ya?ml)$' \
+            | grep -v -E '(^|/)\.\.(/|$)' \
+            | while read -r path; do
+                mkdir -p "_pr_submissions/$(dirname "$path")"
+                gh api "repos/${{ github.repository }}/contents/${path}?ref=${sha}" \
+                  --jq '.content' | base64 -d > "_pr_submissions/${path}"
+              done
+          echo "Fetched submissions:"
+          find _pr_submissions -type f
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install validator (no model code, no PR code executes)
+        run: |
+          python -m pip install --upgrade pip
+          pip install ".[models]" pyyaml
+
+      - name: Validate each submission against BenchmarkResult schema
+        id: validate
+        run: python scripts/leaderboard_validate_submissions.py
+
+      - name: Append validated entries to leaderboard store
+        run: python scripts/leaderboard_append_entries.py
+
+      - name: Open follow-up PR with updated leaderboard
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: |
+            leaderboard/leaderboard.json
+          branch: auto-leaderboard/pr-${{ github.event.pull_request.number }}
+          base: ${{ github.event.pull_request.base.ref }}
+          commit-message: |
+            chore(leaderboard): merge submission from PR #${{ github.event.pull_request.number }}
+          title: "Leaderboard update from #${{ github.event.pull_request.number }}"
+          body: |
+            Auto-generated from #${{ github.event.pull_request.number }}.
+
+            The submission YAML(s) in that PR were validated against
+            `BenchmarkResult` and appended to `leaderboard/leaderboard.json`.
+
+            See `docs/leaderboard-submission.md` for the submission policy.
+
+      - name: Comment on the originating PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: 'Submission YAML validated. Follow-up PR updating `leaderboard/leaderboard.json` has been opened — once that lands, this submission will appear on the leaderboard.'
+            })

@@ -1,0 +1,141 @@
+"""Abstract base class for lithography optimization models."""
+
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from typing import Any, ClassVar
+
+import torch
+
+
+@dataclass
+class PredictionResult:
+    """Result from a model prediction.
+
+    Output contract for ``mask``:
+
+    - **shape**: same as the input ``design`` (``(H, W)``, ``(C, H, W)``,
+      or ``(B, C, H, W)``).
+    - **dtype**: ``torch.float32``.
+    - **range**: values in ``[0, 1]``. Models that emit logits MUST apply
+      ``sigmoid`` (and any project-required binarization) before populating
+      this field.
+    - **binarization**: implementations should return *binarized* masks
+      (``mask > 0.5``) by default so downstream metrics (DRC/MRC, PV-band,
+      shot-count) see the same contract across baselines. Models that
+      benefit from emitting a soft mask for further processing should
+      document the deviation in their ``predict()`` docstring; the
+      default Neural-ILT and GAN-OPC adapters both binarize.
+
+    ``contour`` is optional and used for vector-mode visualization /
+    GDS export. ``metadata`` carries per-model side-channel info
+    (weights provenance, iteration count, ...).
+    """
+
+    mask: torch.Tensor
+    contour: torch.Tensor | None = None
+    metadata: dict[str, Any] = field(default_factory=dict)
+
+    def _repr_html_(self) -> str:
+        from openlithohub.jupyter._html import (
+            kv_table,
+            mask_thumbnail_png_b64,
+            panel,
+            png_b64_to_img_tag,
+        )
+
+        shape = "x".join(str(d) for d in tuple(self.mask.shape)) if self.mask is not None else "—"
+        rows = [
+            ("mask shape", shape),
+            ("mask dtype", str(self.mask.dtype) if self.mask is not None else "—"),
+            ("contour", "yes" if self.contour is not None else "no"),
+        ]
+        for k, v in self.metadata.items():
+            rows.append((f"meta:{k}", str(v)))
+
+        img = png_b64_to_img_tag(mask_thumbnail_png_b64(self.mask), alt="mask")
+        body = (
+            f'<div style="display:flex;gap:10px;align-items:flex-start;">'
+            f'<div style="flex:0 0 auto;">{img}</div>'
+            f'<div style="flex:1 1 auto;">{kv_table(rows)}</div>'
+            f"</div>"
+        )
+        return panel(title="PredictionResult", header_html="", body_html=body)
+
+
+class LithographyModel(ABC):
+    """Abstract interface for lithography optimization models.
+
+    Any model (heuristic OPC, U-Net, diffusion-based ILT, curvyILT)
+    can join the evaluation pipeline by implementing predict().
+
+    Subclasses MUST set the class-level ``NAME`` attribute. The registry
+    reads it without instantiating the class, so it cannot be set in
+    ``__init__``.
+    """
+
+    NAME: ClassVar[str]
+    SUPPORTS_CURVILINEAR: ClassVar[bool] = False
+    RECEPTIVE_FIELD_PX: ClassVar[int] = 0
+    """Half-width of the model's receptive field in pixels.
+
+    Tile inference adds at least this many pixels of halo on every side
+    so the model sees real layout context, not zero-padding, at tile
+    boundaries. Models with a static convolutional receptive field
+    should set this on the subclass; iterative optimizers that consume
+    their entire input (e.g. level-set ILT) can leave it 0 — their halo
+    comes from the optical interaction radius of the process node.
+    """
+
+    @property
+    def name(self) -> str:
+        """Human-readable model name for leaderboard display."""
+        return type(self).NAME
+
+    @property
+    def supports_curvilinear(self) -> bool:
+        """Whether this model produces curvilinear (non-Manhattan) output."""
+        return type(self).SUPPORTS_CURVILINEAR
+
+    @property
+    def receptive_field_px(self) -> int:
+        """Per-instance accessor for the class-level ``RECEPTIVE_FIELD_PX``."""
+        return type(self).RECEPTIVE_FIELD_PX
+
+    @abstractmethod
+    def predict(self, design: torch.Tensor, **kwargs: Any) -> PredictionResult:
+        """Run model inference on a design layout tensor.
+
+        Args:
+            design: Input design tensor of shape (H, W) or (B, C, H, W).
+            **kwargs: Model-specific parameters (process node, dose, etc.)
+
+        Returns:
+            PredictionResult with the optimized mask and optional contour.
+        """
+        ...
+
+    def setup(self) -> None:
+        """Optional setup hook (load weights, initialize GPU, etc.)."""
+
+    def teardown(self) -> None:
+        """Optional cleanup hook."""
+
+    def to_torch_module(self) -> torch.nn.Module:
+        """Return a single ``nn.Module`` that maps an input mask/design tensor
+        to an output mask tensor, suitable for ONNX / TorchScript export.
+
+        Default raises ``NotImplementedError``. Override this on models that
+        wrap a static ``nn.Module`` (e.g. Neural-ILT). Iterative optimizers
+        like Level-Set ILT do not have a single forward graph and cannot be
+        exported — those should keep the default.
+
+        The returned module must be in ``eval()`` mode and accept tensors
+        of shape ``(B, 1, H, W)`` in ``[0, 1]``, returning the same shape.
+        """
+        raise NotImplementedError(
+            f"Model {type(self).NAME!r} does not support export to a single "
+            "nn.Module — override LithographyModel.to_torch_module() if it "
+            "wraps a static forward graph."
+        )

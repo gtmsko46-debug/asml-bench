@@ -1,0 +1,142 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "37 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install linting tools
+        run: pip install ruff
+      - name: Ruff check
+        run: ruff check src/ tests/ spaces/ scripts/ klayout/ notebooks/
+      - name: Ruff format check
+        run: ruff format --check src/ tests/ spaces/ scripts/ klayout/ notebooks/
+      - name: README bilingual parity (English ⇄ Chinese)
+        run: python scripts/check_readme_parity.py
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install package with dev deps
+        run: pip install -e ".[dev]"
+      - name: Mypy (strict, per pyproject)
+        run: mypy src
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+        shard:
+          - name: models
+            paths: tests/test_models
+            xdist: "-n auto"
+          - name: workflow
+            paths: tests/test_workflow
+            xdist: ""  # parallel_tile_inference spawns subprocesses; xdist nesting deadlocks on Linux runners
+          - name: benchmark
+            paths: tests/test_benchmark tests/benchmarks tests/test_simulators
+            xdist: "-n auto"
+          - name: data-utils
+            paths: tests/test_data tests/test_utils tests/test_hackathon_manifest.py tests/test_tokens.py
+            xdist: "-n auto"
+          - name: other
+            paths: tests/test_cli tests/test_server tests/test_leaderboard tests/test_vis tests/test_synth tests/test_jupyter
+            xdist: "-n auto"
+    name: "test (${{ matrix.python-version }} / ${{ matrix.shard.name }})"
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install package with dev deps
+        run: pip install -e ".[dev]"
+      - name: Install export extras for CLI shard
+        # The test_cli shard exercises ONNX export + onnxruntime round-trip,
+        # so install onnx / onnxscript / onnxruntime here. Without this,
+        # those tests silently skip via importorskip and a regression in
+        # the dynamo exporter would ship green.
+        if: matrix.shard.name == 'other'
+        run: pip install -e ".[export]"
+      - name: Install workflow extras for benchmark shard
+        # benchmark/metrics/hotspot.py lazy-imports scipy.optimize at call
+        # time (kept out of the main module so other shards don't pay the
+        # scipy dep). The hotspot-detection tests in test_benchmark exercise
+        # that path, so scipy must be present on this shard.
+        if: matrix.shard.name == 'benchmark'
+        run: pip install -e ".[workflow]"
+      - name: Run tests
+        run: pytest ${{ matrix.shard.xdist }} --cov=openlithohub --cov-report=xml --cov-report= -v ${{ matrix.shard.paths }}
+      - name: Upload coverage
+        if: matrix.python-version == '3.12'
+        uses: codecov/codecov-action@v6
+        with:
+          files: ./coverage.xml
+          flags: ${{ matrix.shard.name }}
+        continue-on-error: true
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install package + security tools
+        run: |
+          pip install .
+          pip install pip-audit bandit
+      - name: pip-audit (installed environment)
+        run: |
+          # Build --ignore-vuln args from .github/pip-audit-ignore.txt (skip blanks/comments)
+          args=()
+          while IFS= read -r line; do
+            line="${line%%#*}"
+            line="${line//[[:space:]]/}"
+            [ -z "$line" ] || args+=(--ignore-vuln "$line")
+          done < .github/pip-audit-ignore.txt
+          echo "Ignoring ${#args[@]} entries"
+          pip-audit "${args[@]}"
+      - name: Bandit (gate on medium+ severity)
+        run: bandit -r src/ -ll
+
+  license-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install scancode-toolkit
+        run: pip install scancode-toolkit
+      - name: Scan for copyleft licenses
+        run: |
+          scancode --license --copyright --only-findings --strip-root src/openlithohub/ > scancode-report.txt 2>&1 || true
+          echo "--- Scan results ---"
+          cat scancode-report.txt
+          # Fail if any GPL/AGPL detected
+          if grep -qiE '(GPL|AGPL|copyleft)' scancode-report.txt; then
+            echo "::error::Copyleft license detected in source code"
+            exit 1
+          fi
+          echo "No copyleft licenses found."
