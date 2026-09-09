@@ -9,7 +9,8 @@ Two tracks, both serious:
 - ~60 persona bots (idle — **do not** parallel-wake until lasercode has Grok/xAI API keys)
 - Channels: lab-bridge, fel-bridge, lpp-vs-fel, if-contract, harness-bay, kill-the-claim, champion-room, literature, materials, specs, lab-records, budget, mistral-gating, ship-queue, field-loop, product-backlog, pod-th-04, pod-fel-02
 - Shared skill: `lasercode harness`
-- Harness binary: `/workspace/tools/bin/lasercode` (opencode fork, `adsail/lasercode` @ `dev`)
+- Harness binary: `/workspace/tools/bin/lasercode` + **parallel** `/workspace/tools/bin/lasercode-session`
+- Bay roles (v1): **Foreman** (dispatch) + **Lasercode Operator** (only hands). Customer-Harness Operator **retired** — dual-provider is ticket `provider` field. See BAY.md.
 - Lab + tickets: https://github.com/gtmsko46-debug/asml-bench
 - Product repos: `asml-product-p1-twin` … `p10-if-shim` (no p7 repo; p4 covers P4/P7)
 - Research: https://github.com/gtmsko46-debug/asml-research-fel
