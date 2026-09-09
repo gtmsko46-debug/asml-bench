@@ -38,3 +38,13 @@ No other provider tags on stamped tickets. Reject unknown values.
 - This file: lab-wide policy.
 - `HARNESS_TICKET.md` + `schemas/harness_ticket.schema.json`: ticket contract.
 - Each lab `program.md`: binds one thesis row, one assumption card, and the stamped provider for that run.
+
+## Model ids (Lasercode Operator)
+
+| Ticket `provider` | CLI model |
+|-------------------|-----------|
+| `grok` | `xai/grok-4.6` (add `--variant high` for STEM/long loops) |
+| `mock-mistral` | **`mistral/mistral-large-latest`** (also `…-2512`, `…-2411`) |
+
+Do **not** use bare `mistral/mistral-large` — not in the models catalog. See `/workspace/tools/HARNESS.md`.
+
