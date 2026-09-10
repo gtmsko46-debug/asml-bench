@@ -1,4 +1,5 @@
 thesis	run	hypothesis	provider	metric	decision	card
 fel-10-if-ownership	HT-1028	DUAL-KEEP with HT-1033	grok	pupil_err=0.0895;photons_kept=1.0000;digest=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be;DUAL_KEEP_with_HT-1033;critic_PASS;repro_PASS;soft_no_gain	KEEP	if-spec-fel10
+fel-10-if-ownership	HT-1029	FEL-10 mock SEED — Critic VOID hardcoded pupil_err=0	mock-mistral	HOLDOUT_SoT_d0dc1f8a;critic_VOID_hardcode_pupil_err_0;successor=HT-1032/HT-1033;no_dual_claims	VOID	if-spec-fel10
 fel-10-if-ownership	HT-1032	FEL-10 mock successor (VOID pupil_in−k / PUPIL_CORRECT)	mock-mistral	HOLDOUT_SoT_d0dc1f8a;critic_VOID_pupil_in_minus_k_PUPIL_CORRECT;successor=HT-1033_#75;no_dual_claims	VOID	if-spec-fel10
-fel-10-if-ownership	HT-1033	DUAL-KEEP with HT-1028	mock-mistral	pupil_err=0.0950;photons_kept=1.0000;digest=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be;DUAL_KEEP_with_HT-1028;critic_PASS;repro_PASS	KEEP	if-spec-fel10
+fel-10-if-ownership	HT-1033	DUAL-KEEP with HT-1028	mock-mistral	pupil_err=0.0950;photons_kept=1.0000;digest=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be;DUAL_KEEP_with_HT-1028;critic_PASS;repro_PASS;soft_no_gain	KEEP	if-spec-fel10
