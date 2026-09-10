@@ -1,0 +1,43 @@
+id: fel-scanner-twin-v1
+version: "1.0.0"
+title: FEL↔scanner digital twin IF coupling toys
+scope: P1 product lab synthetic twin (IF power, uniformity, first-mirror fluence, illuminator acceptance)
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: IF_COUPLING
+    value: 0.55
+    unit: "1"
+    source: "Synthetic FEL→illuminator IF coupling fraction for twin toys; not a fab IF measurement"
+    confidence: low
+    flags: [synthetic]
+  - name: MIRROR_LOAD
+    value: 0.12
+    unit: "J/(kW·Hz·deg-proxy)"
+    source: "Toy first-mirror fluence load coefficient; open-proxy order-of-magnitude only"
+    confidence: low
+    flags: [synthetic, open-proxy]
+  - name: undulator_efficiency_slope
+    value: 0.15
+    unit: "1/K_u"
+    source: "Synthetic undulator-K efficiency slope for IF power toy"
+    confidence: low
+    flags: [synthetic]
+  - name: pupil_uniformity_gain
+    value: 0.12
+    unit: "1"
+    source: "Synthetic pupil-fill → uniformity gain for twin metric"
+    confidence: med
+    flags: [synthetic]
+  - name: illuminator_acceptance_base
+    value: 0.70
+    unit: "1"
+    source: "Toy illuminator acceptance floor under nominal pupil fill"
+    confidence: low
+    flags: [synthetic]
+  - name: beam_split_photon_keep
+    value: 1.0
+    unit: "1"
+    source: "Truth keeps beam_split_ratio as delivered fraction; discarded-photon cheats fail cheat_trap"
+    confidence: med
+    flags: [synthetic]
+notes: "Guards: IF_COUPLING and MIRROR_LOAD must be non-zero when present; no platform==NXE forks; no confidential scanner numbers."
