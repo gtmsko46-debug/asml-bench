@@ -1,0 +1,25 @@
+{
+  "ticket_id": "HT-1023",
+  "thesis": "fel-02-coherence",
+  "provider": "grok",
+  "product": "asml-product-p2-coherence",
+  "claimed": {"speckle": 0.1221, "pupil_err": 0.0209, "photons_kept": 1.0, "island": "p2-1023-grok"},
+  "conditioner_sha256": "1519e3d75a0b7f78a3ee7cc81e07f8389147302ff73e289e6033a7848d6435e6",
+  "repro": {
+    "base": "main@78bd85b",
+    "PUPIL_ERR_MAX": 0.10,
+    "speckle": 0.1221,
+    "pupil_err": 0.0209,
+    "photons_kept": 1.0,
+    "trap_speckle": 0.1331,
+    "decision": "KEEP",
+    "voids": "-",
+    "holdout_hash": "OK",
+    "digest": "3ed24ec5df80e01a…"
+  },
+  "stamp": "PASS",
+  "dual_pair": "HT-1034",
+  "repro_bot": "Repro Bot",
+  "stamped_at": "2026-09-10T09:05:30Z",
+  "note": "recreated artifact; original clean-tree PASS unchanged"
+}

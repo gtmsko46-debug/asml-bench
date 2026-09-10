@@ -1,0 +1,26 @@
+{
+  "ticket_id": "HT-1034",
+  "thesis": "fel-02-coherence",
+  "provider": "mock-mistral",
+  "product": "asml-product-p2-coherence",
+  "claimed": {"speckle": 0.1220, "pupil_err": 0.0350, "photons_kept": 1.0, "island": "p2-1034-mistral", "commit": "f53bbee"},
+  "conditioner_sha256": "021d3cd91bbbb8ced6952abdcf646b0c656f3dfd0f0421fdcd4d94faa7511652",
+  "soft_notes": ["speckle = coherence * bandwidth * 120", "fill = 1 - pfe identity reconstruct", "HT-1022-class structure"],
+  "independence": {"neq_HT-1023": true, "neq_HT-1022": true},
+  "repro": {
+    "base": "main@9548785",
+    "PUPIL_ERR_MAX": 0.10,
+    "speckle": 0.1220,
+    "pupil_err": 0.0350,
+    "photons_kept": 1.0,
+    "trap_speckle": 0.1326,
+    "decision": "KEEP",
+    "voids": "-",
+    "holdout_hash": "OK",
+    "digest": "3ed24ec5df80e01a…"
+  },
+  "stamp": "PASS",
+  "dual_pair": "HT-1023",
+  "repro_bot": "Repro Bot",
+  "stamped_at": "2026-09-10T09:35:40Z"
+}

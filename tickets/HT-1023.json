@@ -1,0 +1,55 @@
+{
+  "ticket_id": "HT-1023",
+  "thesis": "fel-02-coherence",
+  "sandbox": "conditioner.py",
+  "lab_path": "labs/fel-02-coherence",
+  "provider": "grok",
+  "product": "asml-product-p2-coherence",
+  "budget": "closed island KEEP",
+  "must_not_touch": [
+    "eval.py",
+    "fixture/holdout*",
+    "fixture/cheat_trap.json",
+    "fixture/HOLDOUT.sha256",
+    "assumptions/*"
+  ],
+  "decision": "KEEP",
+  "critic": "PASS_island",
+  "dual_gate_pair": "HT-1034",
+  "branch": "exp/p2-coherence-HT-1023",
+  "required_holdout": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
+  "required_holdout_sha256": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
+  "hypothesis": "Illuminator-near conditioner productize: kaleidoscope reconstruct fill toward 0.72; pupil_err=|fill-0.72|; speckle from coh+bw; photons=1.0. Dual with honest mock HT-1034 after Critic+Repro.",
+  "metrics": {
+    "speckle": 0.1221,
+    "pupil_err": 0.0209,
+    "photons_kept": 1.0,
+    "trap_speckle": 0.1331,
+    "digest": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8"
+  },
+  "conditioner_sha256": "1519e3d75a0b7f78a3ee7cc81e07f8389147302ff73e289e6033a7848d6435e6",
+  "island": "/workspace/islands/p2-1023-grok",
+  "close_commit": "1faa293",
+  "guards": [
+    "pupil_frozen_eval",
+    "required_holdout_sha256=3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
+    "coherence-if-v1",
+    "dual_gate_pair_HT-1034",
+    "demoted_KEEP_to_RUN_until_honest_mock_dual",
+    "critic_island_PASS",
+    "partner_HT-1034_Critic_PASS",
+    "repro_PASS",
+    "awaiting_Diplomat_dual_HT-1034"
+  ],
+  "notes": "Restored 2026-09-10T09:36:05Z by Foreman (ticket JSON was missing). Critic island PASS 0.1221/0.0209/1.0; demoted KEEP\u2192RUN until honest mock dual. Partner HT-1024 VOID; successors 1030/1031 VOID; partner now HT-1034 Critic PASS \u2192 Repro+Diplomat. Soft notes travel from 1034 (*120 / 1\u2212pfe). | 2026-09-10T09:36:18Z: Partner HT-1034 Repro PASS. Awaiting Diplomat dual-KEEP stamp HT-1023\u2227HT-1034. | 2026-09-10T09:36:32Z: Diplomat DUAL-KEEP stamped HT-1023\u2227HT-1034. Soft notes travel (1034: *120 + 1\u2212pfe). Not auto-promote \u2014 Lab Dir+PM for product sync.",
+  "stamped_by": "Harness Foreman",
+  "stamped_at": "2026-09-10T09:36:05Z",
+  "prior_dual_pair": "HT-1024",
+  "repro": "PASS",
+  "dual_status": "DIPLOMAT_DUAL_KEEP",
+  "assumption_cards": [
+    "coherence-if-v1"
+  ],
+  "dual_gate": "DUAL_KEEP",
+  "diplomat": "DUAL_KEEP"
+}
