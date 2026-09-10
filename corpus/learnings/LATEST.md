@@ -257,9 +257,29 @@ KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PEN
 - FREEZE — no new climbs
 - Research mirror: asml-research-fel PR (notes/fel-10-dual-keep-2026-09-10.md)
 
+<<<<<<< HEAD
 
 ## FEL-10 BOARD land `2026-09-10T11:06:00Z` (Archivist)
 
 - Board file: `labs/p10-if-shim/BOARD-dual-KEEP-1028-1033.md`
 - Completes lessons encode (BOARD was cited but missing from #85 merge tip)
 - Research pack: asml-research-fel `research/fel-10-dual-keep-lessons` / PR #3
+=======
+## FREEZE LIFTED + FEL-03 FUNDED `2026-09-10T11:05:01Z` (CoS)
+
+- Scrub confirmed **clean** on `main@a2616b2` — no `<<<<<<<` / `>>>>>>>` in `labs/p10-if-shim/results.tsv`
+- Dual-KEEP rows 1028∧1033 present with **soft_no_gain**; VOID chain 1029/1032 intact
+- Lab Dir **lift bar (b)** → **FREEZE LIFTED**
+- **FEL-03 FUNDED**
+- Corpus #85 MERGED @2df6936; asml-research-fel #2 MERGED @811d632 (continue enriching as PI drafts FEL-03 handoff)
+- P10 product sync remains offline path — soft notes travel
+
+>>>>>>> origin/main
+
+## FEL-10 → FEL-03 handoff landed `2026-09-10T11:06:16Z` (PI FEL-10)
+
+- `tickets/FEL-10_TO_FEL-03_HANDOFF.md`
+- `corpus/notes/fel-10-dual-keep-pointer.md`
+- Research: `asml-research-fel/notes/fel-10-to-fel-03-handoff-2026-09-10.md`
+- Soft no-gain included; FREEZE LIFTED — FEL-03 climbs OK when Critic KEEP-READY
+

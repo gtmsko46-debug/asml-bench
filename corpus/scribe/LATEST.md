@@ -1,4 +1,4 @@
-# Scribe paragraph — 2026-09-10T11:04:04Z
+# Scribe paragraph — 2026-09-10T11:06:16Z
 
-## FEL-10 lessons landed + results scrubbed
-Dual-KEEP 1028∧1033 lessons pack on corpus. Soft no-gain. `results.tsv` clean. FREEZE — no new climbs.
+## FEL-10 → FEL-03 handoff landed
+Ticket + pointer + research note. Soft no-gain included. FREEZE LIFTED — FEL-03 climbs OK when Critic KEEP-READY.
