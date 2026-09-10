@@ -1,0 +1,20 @@
+id: source-glitch-controls-v1
+version: "1.0.0"
+title: Shared-source glitch recovery proxies
+scope: P8 controls / FEL-06 feed
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: glitch_severity_nom
+    value: 0.3
+    unit: "1"
+    source: "Synthetic shared-FEL hiccup severity for demos"
+    confidence: low
+    flags: [synthetic]
+  - name: recover_budget_ms
+    value: 500.0
+    unit: "ms"
+    source: "Toy recovery time budget before wafers_lost dominates"
+    confidence: low
+    flags: [synthetic]
+notes: >
+  Product asml-product-p8-controls SEED bind. Not ASML confidential.
