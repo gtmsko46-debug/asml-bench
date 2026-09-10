@@ -1,1 +1,3 @@
 thesis	run	hypothesis	provider	metric	decision	card
+fel-03-beam-split	HT-1036	FEL-03 dual-gate SEED (beam-split / first-mirror)	grok	HOLDOUT_SoT_f40a2019=f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac;SEED_dual_pair=HT-1037;Foreman_HELD;issue=#89;card=beam-split-first-mirror-v1;await_Critic_KEEP_READY_Warden_ACCEPT	SEED	beam-split-first-mirror-v1
+fel-03-beam-split	HT-1037	FEL-03 dual-gate SEED (beam-split / first-mirror)	mock-mistral	HOLDOUT_SoT_f40a2019=f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac;SEED_dual_pair=HT-1036;Foreman_HELD;issue=#89;card=beam-split-first-mirror-v1;await_Critic_KEEP_READY_Warden_ACCEPT	SEED	beam-split-first-mirror-v1
