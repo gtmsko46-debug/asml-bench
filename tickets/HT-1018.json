@@ -1,0 +1,41 @@
+{
+  "ticket_id": "HT-1018",
+  "thesis": "p1-twin",
+  "hypothesis": "A stamped fixture-harden regenerator writes a new coherent train+holdout+cheat_trap+HOLDOUT.sha256 set such that an HT-1013-class gen_fixtures.truth coefficient clone fails KEEP, while an HT-1014-class structural twin remains scoreable (not random void).",
+  "provider": "grok",
+  "assumption_cards": [
+    "fel-scanner-twin-v1"
+  ],
+  "lab_path": "labs/p1-twin",
+  "sandbox": "gen_fixtures_harden.py",
+  "metric": "holdout_hash_and_oracle_trap",
+  "budget": "2 ratchets / 45 min",
+  "must_not_touch": [
+    "eval.py",
+    "assumptions/fel-scanner-twin-v1.yaml",
+    "solver.py",
+    "twin.py"
+  ],
+  "decision": "KEEP",
+  "guards": [
+    "frozen_eval_untouched",
+    "no_mid_run_eval_edit",
+    "new_fixtures_via_stamped_ticket_only",
+    "regen_train_holdout_cheat_trap_and_sha256_together",
+    "trap_fails_exact_truth_clone",
+    "oracle_HT-1013_coef_vector_fails_KEEP",
+    "HT-1014_class_structural_twin_still_scoreable",
+    "nonlinear_holdout_terms",
+    "label_noise_present"
+  ],
+  "created_at": "2026-09-10T07:50:00Z",
+  "branch": "exp/p1-twin-HT-1018-fixture-harden",
+  "notes": "Twin PI review fix: sandbox is labs/p1-twin/gen_fixtures_harden.py (may import product gen_fixtures as library; product file not the sole sandbox). MUST regenerate train + holdout + cheat_trap + HOLDOUT.sha256 together \u2014 not holdout.json alone. eval.py stays frozen. Acceptance: (1) oracle twin / HT-1013 coef vector must FAIL KEEP on new trap; (2) HT-1014-class structural twin still scoreable (not random void). Eval Integrity owns fixture design. After harden lands \u2192 DEEP HT-1015/1016. Critic: holdout_nrmse\u22480 without Critic-approved truth-diff \u2192 automatic VOID. RECONCILE: Eval Integrity already landed harden v2 on disk (HOLDOUT.sha256=135edb5d2fada5f7960e137575a1744ffc77b87de96d2f61d21ad7856371ee2b, FIXTURE_HARDEN_v2.md, fixture_gen=v2-hardened-2026-09-10). Path: stamp-as-landed / record SEED\u2192RUN close noting fixtures already present \u2014 do NOT re-run empty gen_fixtures_harden.py stub against live v2. Foreman: hold DEEP 1015/1016 until EI explicit sign-off that Operator checkouts see 135edb5d (not fead9ed0) and CoS bay order clears FEL HT-1017 first. | EI REVISE+LAND 2026-09-10: sandbox=labs/p1-twin/gen_fixtures_harden.py; must_not_touch eval.py+twin.py+assumptions (gen_fixtures.py import-only v1 reference). Regen train+holdout+cheat_trap+HOLDOUT together. HOLDOUT.sha256=2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c fixture_gen=v2-ht1018-harden-2026-09-10. Acceptance: HT-1013 oracle \u2192 RESET (holdout_nrmse\u22481.12); HT-1014-class \u2192 SEED scoreable (\u22481.03); baseline \u2192 SEED. eval.py untouched (reverted pre-harden bar edits). Unlocks HT-1015/1016. | RECORD 2026-09-10T07:51:35Z: stamp-as-landed / do not re-run empty harden stub over live v2 digest 135edb5d2fada5f7960e137575a1744ffc77b87de96d2f61d21ad7856371ee2b.",
+  "baseline_solver": "products/asml-product-p1-twin/gen_fixtures.py (import-only reference)",
+  "metric_result": {
+    "holdout_sha256": "2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c",
+    "oracle_HT1013": "RESET holdout_nrmse\u22481.1233",
+    "honest_HT1014_class": "SEED holdout_nrmse\u22481.0280",
+    "baseline": "SEED holdout_nrmse\u22481.2666"
+  }
+}

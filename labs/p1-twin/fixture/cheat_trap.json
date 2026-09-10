@@ -1,7 +1,9 @@
 {
   "meta": {
     "synthetic": true,
-    "purpose": "RESET demo \u2014 constant / discarded-photon cheats"
+    "purpose": "RESET \u2014 constant / discard-photon / v1-oracle clones",
+    "fixture_gen": "v2-ht1018-harden-2026-09-10",
+    "ticket": "HT-1018"
   },
   "rows": [
     {
@@ -13,10 +15,10 @@
       "pulse_rep_hz": 200.0,
       "first_mirror_angle_deg": 10.0,
       "beam_split_ratio": 0.15,
-      "if_power_w": 957.0,
-      "uniformity": 0.9409,
-      "first_mirror_fluence": 1047.272727,
-      "illuminator_acceptance": 0.081518
+      "if_power_w": 953.387368,
+      "uniformity": 0.952085,
+      "first_mirror_fluence": 1262.026908,
+      "illuminator_acceptance": 0.091285
     },
     {
       "id": "p1-cheat-split-0-0001",
@@ -27,10 +29,10 @@
       "pulse_rep_hz": 200.0,
       "first_mirror_angle_deg": 10.0,
       "beam_split_ratio": 0.3,
-      "if_power_w": 1914.0,
-      "uniformity": 0.9454,
-      "first_mirror_fluence": 1047.272727,
-      "illuminator_acceptance": 0.163035
+      "if_power_w": 1746.764162,
+      "uniformity": 0.957047,
+      "first_mirror_fluence": 1276.771475,
+      "illuminator_acceptance": 0.173863
     },
     {
       "id": "p1-cheat-split-0-0002",
@@ -41,10 +43,10 @@
       "pulse_rep_hz": 200.0,
       "first_mirror_angle_deg": 10.0,
       "beam_split_ratio": 0.45,
-      "if_power_w": 2871.0,
-      "uniformity": 0.9499,
-      "first_mirror_fluence": 1047.272727,
-      "illuminator_acceptance": 0.244553
+      "if_power_w": 2438.585239,
+      "uniformity": 0.940201,
+      "first_mirror_fluence": 1296.492476,
+      "illuminator_acceptance": 0.232686
     },
     {
       "id": "p1-cheat-split-0-0003",
@@ -55,10 +57,10 @@
       "pulse_rep_hz": 200.0,
       "first_mirror_angle_deg": 10.0,
       "beam_split_ratio": 0.6,
-      "if_power_w": 3828.0,
-      "uniformity": 0.9544,
-      "first_mirror_fluence": 1047.272727,
-      "illuminator_acceptance": 0.32607
+      "if_power_w": 2990.142837,
+      "uniformity": 0.941158,
+      "first_mirror_fluence": 1246.760234,
+      "illuminator_acceptance": 0.331083
     },
     {
       "id": "p1-cheat-split-0-0004",
@@ -69,10 +71,10 @@
       "pulse_rep_hz": 200.0,
       "first_mirror_angle_deg": 10.0,
       "beam_split_ratio": 0.75,
-      "if_power_w": 4785.0,
-      "uniformity": 0.9589,
-      "first_mirror_fluence": 1047.272727,
-      "illuminator_acceptance": 0.407588
+      "if_power_w": 3644.629772,
+      "uniformity": 0.959723,
+      "first_mirror_fluence": 1276.6687,
+      "illuminator_acceptance": 0.400334
     },
     {
       "id": "p1-cheat-split-0-0005",
@@ -83,10 +85,10 @@
       "pulse_rep_hz": 200.0,
       "first_mirror_angle_deg": 10.0,
       "beam_split_ratio": 0.9,
-      "if_power_w": 5742.0,
-      "uniformity": 0.9634,
-      "first_mirror_fluence": 1047.272727,
-      "illuminator_acceptance": 0.489106
+      "if_power_w": 4100.428253,
+      "uniformity": 0.951404,
+      "first_mirror_fluence": 1290.116103,
+      "illuminator_acceptance": 0.500281
     },
     {
       "id": "p1-cheat-power-0-0000",
@@ -97,10 +99,10 @@
       "pulse_rep_hz": 150.0,
       "first_mirror_angle_deg": 8.0,
       "fel_power_kw": 5.0,
-      "if_power_w": 945.3125,
-      "uniformity": 0.9575,
-      "first_mirror_fluence": 160.615385,
-      "illuminator_acceptance": 0.34611
+      "if_power_w": 919.462175,
+      "uniformity": 0.97145,
+      "first_mirror_fluence": 184.825042,
+      "illuminator_acceptance": 0.343182
     },
     {
       "id": "p1-cheat-power-0-0001",
@@ -111,10 +113,10 @@
       "pulse_rep_hz": 150.0,
       "first_mirror_angle_deg": 8.0,
       "fel_power_kw": 12.0,
-      "if_power_w": 2268.75,
-      "uniformity": 0.9575,
-      "first_mirror_fluence": 385.476923,
-      "illuminator_acceptance": 0.34611
+      "if_power_w": 2037.698641,
+      "uniformity": 0.959595,
+      "first_mirror_fluence": 445.893062,
+      "illuminator_acceptance": 0.349302
     },
     {
       "id": "p1-cheat-power-0-0002",
@@ -125,10 +127,10 @@
       "pulse_rep_hz": 150.0,
       "first_mirror_angle_deg": 8.0,
       "fel_power_kw": 20.0,
-      "if_power_w": 3781.25,
-      "uniformity": 0.9575,
-      "first_mirror_fluence": 642.461538,
-      "illuminator_acceptance": 0.34611
+      "if_power_w": 3025.43268,
+      "uniformity": 0.971923,
+      "first_mirror_fluence": 726.335325,
+      "illuminator_acceptance": 0.339658
     },
     {
       "id": "p1-cheat-power-0-0003",
@@ -139,10 +141,10 @@
       "pulse_rep_hz": 150.0,
       "first_mirror_angle_deg": 8.0,
       "fel_power_kw": 28.0,
-      "if_power_w": 5293.75,
-      "uniformity": 0.9575,
-      "first_mirror_fluence": 899.446154,
-      "illuminator_acceptance": 0.34611
+      "if_power_w": 3750.824322,
+      "uniformity": 0.950966,
+      "first_mirror_fluence": 1018.667126,
+      "illuminator_acceptance": 0.336078
     },
     {
       "id": "p1-cheat-power-0-0004",
@@ -153,10 +155,10 @@
       "pulse_rep_hz": 150.0,
       "first_mirror_angle_deg": 8.0,
       "fel_power_kw": 36.0,
-      "if_power_w": 6806.25,
-      "uniformity": 0.9575,
-      "first_mirror_fluence": 1156.430769,
-      "illuminator_acceptance": 0.34611
+      "if_power_w": 4548.528054,
+      "uniformity": 0.95602,
+      "first_mirror_fluence": 1295.969765,
+      "illuminator_acceptance": 0.332633
     },
     {
       "id": "p1-cheat-photon-0-0000",
@@ -167,10 +169,10 @@
       "pupil_fill": 0.6,
       "pulse_rep_hz": 100.0,
       "first_mirror_angle_deg": 12.0,
-      "if_power_w": 907.5,
-      "uniformity": 0.923,
-      "first_mirror_fluence": 496.0,
-      "illuminator_acceptance": 0.087216
+      "if_power_w": 916.725381,
+      "uniformity": 0.918815,
+      "first_mirror_fluence": 653.639255,
+      "illuminator_acceptance": 0.09524
     },
     {
       "id": "p1-cheat-photon-0-0001",
@@ -181,10 +183,94 @@
       "pupil_fill": 0.6,
       "pulse_rep_hz": 100.0,
       "first_mirror_angle_deg": 12.0,
-      "if_power_w": 4537.5,
-      "uniformity": 0.947,
-      "first_mirror_fluence": 496.0,
-      "illuminator_acceptance": 0.43608
+      "if_power_w": 3397.726371,
+      "uniformity": 0.92903,
+      "first_mirror_fluence": 662.944802,
+      "illuminator_acceptance": 0.434448
+    },
+    {
+      "id": "p1-cheat-v1oracle-0-0000",
+      "fel_power_kw": 48.0,
+      "beam_split_ratio": 0.95,
+      "undulator_k": 2.8,
+      "scanner_na": 0.85,
+      "pupil_fill": 0.92,
+      "pulse_rep_hz": 360.0,
+      "first_mirror_angle_deg": 28.0,
+      "if_power_w": 8349.037725,
+      "uniformity": 1.0,
+      "first_mirror_fluence": 9017.500102,
+      "illuminator_acceptance": 0.730601
+    },
+    {
+      "id": "p1-cheat-v1oracle-0-0001",
+      "fel_power_kw": 42.0,
+      "beam_split_ratio": 0.92,
+      "undulator_k": 2.6,
+      "scanner_na": 0.85,
+      "pupil_fill": 0.92,
+      "pulse_rep_hz": 360.0,
+      "first_mirror_angle_deg": 26.0,
+      "if_power_w": 7645.46569,
+      "uniformity": 0.985215,
+      "first_mirror_fluence": 6998.354344,
+      "illuminator_acceptance": 0.720894
+    },
+    {
+      "id": "p1-cheat-v1oracle-0-0002",
+      "fel_power_kw": 8.0,
+      "beam_split_ratio": 0.22,
+      "undulator_k": 0.55,
+      "scanner_na": 0.85,
+      "pupil_fill": 0.92,
+      "pulse_rep_hz": 360.0,
+      "first_mirror_angle_deg": 5.0,
+      "if_power_w": 516.489025,
+      "uniformity": 0.966563,
+      "first_mirror_fluence": 481.690872,
+      "illuminator_acceptance": 0.146727
+    },
+    {
+      "id": "p1-cheat-v1oracle-0-0003",
+      "fel_power_kw": 52.0,
+      "beam_split_ratio": 0.98,
+      "undulator_k": 2.9,
+      "scanner_na": 0.85,
+      "pupil_fill": 0.92,
+      "pulse_rep_hz": 360.0,
+      "first_mirror_angle_deg": 29.0,
+      "if_power_w": 8794.617815,
+      "uniformity": 1.0,
+      "first_mirror_fluence": 10103.40391,
+      "illuminator_acceptance": 0.775007
+    },
+    {
+      "id": "p1-cheat-v1oracle-0-0004",
+      "fel_power_kw": 38.0,
+      "beam_split_ratio": 0.88,
+      "undulator_k": 2.4,
+      "scanner_na": 0.85,
+      "pupil_fill": 0.92,
+      "pulse_rep_hz": 360.0,
+      "first_mirror_angle_deg": 24.0,
+      "if_power_w": 6929.163764,
+      "uniformity": 1.0,
+      "first_mirror_fluence": 5886.787494,
+      "illuminator_acceptance": 0.671314
+    },
+    {
+      "id": "p1-cheat-v1oracle-0-0005",
+      "fel_power_kw": 55.0,
+      "beam_split_ratio": 0.99,
+      "undulator_k": 3.0,
+      "scanner_na": 0.85,
+      "pupil_fill": 0.92,
+      "pulse_rep_hz": 360.0,
+      "first_mirror_angle_deg": 30.0,
+      "if_power_w": 8945.778516,
+      "uniformity": 0.992679,
+      "first_mirror_fluence": 11183.790593,
+      "illuminator_acceptance": 0.76864
     }
   ]
 }

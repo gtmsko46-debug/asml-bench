@@ -1,1 +1,5 @@
 thesis	run	hypothesis	provider	metric	decision	card
+p1-twin	HT-1008	Weak-island dual-gate pair to HT-1007: same frozen eval/holdout under mock-mistral for P1 twin demo	mock-mistral	holdout_nrmse=0.6162	SEED	fel-scanner-twin-v1
+p1-twin	HT-1007	Physics-first FEL↔scanner twin: learn IF_COUPLING/MIRROR_LOAD to cut holdout NRMSE under fel-scanner-twin-v1 without NXE forks	grok	holdout_nrmse=0.6162	SEED	fel-scanner-twin-v1
+p1-twin	HT-1014	Paired weak-island structural refine; IF_COUPLING/MIRROR_LOAD held	mock-mistral	holdout_nrmse=0.2554;honest_island;dual_gate=INCOMPLETE;twin_HT-1013_VOID;not_ship_queue;await_HT-1018_then_1015/1016	RUN	fel-scanner-twin-v1
+p1-twin	HT-1013	Refine structural twin terms (undulator_eff, uniformity, acceptance) under fixed nonzero IF_COUPLING=0.55 and MIRROR_LOAD=0.12 to push holdout NRMSE below KEEP bar 0.55	grok	holdout_nrmse=0.0000;critic_VOID;oracle_gen_fixtures.truth;nrmse_exact_zero;no_KEEP_row_allowed;dual_gate_blocked	RESET	fel-scanner-twin-v1
