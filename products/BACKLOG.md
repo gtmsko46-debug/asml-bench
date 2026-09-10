@@ -1,6 +1,6 @@
 # Product backlog P1–P10 (Product Manager)
 
-Updated: 2026-09-10 (Diplomat **DUAL-KEEP HT-1015∧HT-1025**; Lab Director APPROVE #17).  
+Updated: 2026-09-10 (**Champion FREEZE** — no new hills; docs/READMEs/writeups only). (Diplomat **DUAL-KEEP HT-1015∧HT-1025**; Lab Director APPROVE #17).  
 **Factory:** Spec → Build → Review → Ship. [`FACTORY.md`](FACTORY.md) · Epic [#45](https://github.com/gtmsko46-debug/asml-bench/issues/45).  
 Bots orchestrate; **all product code** via lasercode (Foreman→Operator). Commit+push every change to `asml-product-p*`.
 
@@ -9,7 +9,7 @@ Bots orchestrate; **all product code** via lasercode (Foreman→Operator). Commi
 | Rank | ID | Status | Action |
 |------|----|--------|--------|
 | **P0** | **P1 Twin** | Diplomat **DUAL-KEEP** HT-1026∧HT-1027; `reference_twin` = **HT-1026** (0.1475) via product PR #4 | Soft IF-only on 1027 documented; next deepen/M2 as funded |
-| 1 | **P2 Coherence** | Diplomat **DUAL-KEEP** HT-1023∧HT-1034; Lab Dir+PM APPROVE product sync | Foreman→Operator → `reference_conditioner` PR; soft *120+1−pfe explicit | No Operator steal; Critic→Foreman on 1031 | Honest mistral successor HT-1030; no Operator steal for offline M1s |
+| 1 | **P2 Coherence** | **SHIPPED** `reference_conditioner`=HT-1023 (+1034 soft notes) | Docs/README polish under FREEZE | Foreman→Operator → `reference_conditioner` PR; soft *120+1−pfe explicit | No Operator steal; Critic→Foreman on 1031 | Honest mistral successor HT-1030; no Operator steal for offline M1s |
 | 2+ | P3–P10 | Spec Issues [#46](https://github.com/gtmsko46-debug/asml-bench/issues/46)–[#52](https://github.com/gtmsko46-debug/asml-bench/issues/52) | Real Spec→Build (starved list LIFTED) |
 
 ## Maturity
