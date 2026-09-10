@@ -257,3 +257,9 @@ KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PEN
 - FREEZE — no new climbs
 - Research mirror: asml-research-fel PR (notes/fel-10-dual-keep-2026-09-10.md)
 
+
+## FEL-10 BOARD land `2026-09-10T11:06:00Z` (Archivist)
+
+- Board file: `labs/p10-if-shim/BOARD-dual-KEEP-1028-1033.md`
+- Completes lessons encode (BOARD was cited but missing from #85 merge tip)
+- Research pack: asml-research-fel `research/fel-10-dual-keep-lessons` / PR #3
