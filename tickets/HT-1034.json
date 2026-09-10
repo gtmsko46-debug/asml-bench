@@ -63,7 +63,7 @@
     "DUAL_KEEP_STAMPED",
     "dual_with_HT-1023"
   ],
-  "notes": "DUAL-KEEP STAMPED HT-1023\u2227HT-1034 (Diplomat 2026-09-10). Critic PASS + Repro PASS both. Soft *120 + 1\u2212pfe travels. Promote/ship separate. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Metrics 0.1220/0.0350/1.0.",
+  "notes": "DUAL-KEEP STAMPED HT-1023\u2227HT-1034 (Diplomat 2026-09-10). Critic PASS + Repro PASS both. Soft *120 + 1\u2212pfe travels. Promote/ship separate. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Metrics 0.1220/0.0350/1.0. | SCRIBE 2026-09-10T09:37:02Z: Experimentalist \u2014 HT-1034 Repro PASS + Critic PASS; Diplomat dual-KEEP stamp ordered for 1023\u22271034. Formal single-lane still RUN until Diplomat stamps. 1028 climb still LIVE. | SCRIBE 2026-09-10T09:37:47Z: Diplomat **already DUAL-KEEP STAMPED** HT-1023\u2227HT-1034 \u2014 formal KEEP both (not RUN / not stamp-ordered). Soft *120 + 1\u2212pfe travels. Lab Dir APPROVE P2 product sync; PM PR path asml-product-p2-coherence (ship separate). 1028 climb still LIVE.",
   "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r2",
   "recipe": "HT-1022-class: fill = reconstruct(pfe); fill = correct(fill, 0.72); pupil_err = abs(fill - 0.72)  # NO *k; speckle = f(coherence, bandwidth)",
   "structure_sketch": [
@@ -73,5 +73,22 @@
     "speckle from field coherence \u00d7 bandwidth only",
     "photons_kept = 1.0 * photons_in"
   ],
-  "dual_status": "DUAL_KEEP_STAMPED"
+  "dual_gate": "DUAL_KEEP_STAMPED",
+  "dual_status": "DUAL_KEEP_STAMPED",
+  "diplomat": "DUAL_KEEP_STAMPED",
+  "repro": "PASS",
+  "critic": "PASS",
+  "metrics": {
+    "speckle": 0.122,
+    "pupil_err": 0.035,
+    "photons_kept": 1.0
+  },
+  "island_KEEP_PASS": true,
+  "promote_decision": "DUAL_KEEP_STAMPED",
+  "soft_notes": [
+    "*120 travels",
+    "1-pfe travels"
+  ],
+  "LabDir_P2_product_sync": "APPROVE",
+  "PM_PR_path": "asml-product-p2-coherence"
 }

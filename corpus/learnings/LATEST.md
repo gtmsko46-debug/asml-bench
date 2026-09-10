@@ -151,3 +151,101 @@ KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PEN
 - Seeds: HT-1028 ∧ HT-1029 must match this digest (`holdout_hash_match`)
 - PR #67 (DUAL-KEEP 1026∧1027) MERGED @a45f20e — noted
 
+# VOID HT-1031 / HT-1032
+
+
+## Experimentalist VOID chain `2026-09-10T09:29:55Z`
+
+- **HT-1031 VOID** — `abs(pfe−0.72)*0.204` write-down → successor **HT-1034** (#76) SEED (P2 / fel-02)
+- **HT-1032 VOID** — `pupil_in−k` / `PUPIL_CORRECT` residual write-down → successor **HT-1033** (#75) RUN (FEL-10)
+- **No dual claims yet** (1034↔1023 and 1033↔1028 only after honest Critic PASS)
+
+# SEED dual 1033∧1028
+
+
+## SEED dual HT-1033 ∧ HT-1028 `2026-09-10T09:31:26Z` (Experimentalist)
+
+- **SEED dual pairing** HT-1033 ∧ HT-1028 — Critic **PASS SEED honesty**
+- KEEP climb on **HT-1033** still **OPEN** (needs correct-step re-kick) — not a KEEP dual claim yet
+- **HT-1034** RUN stamp **in flight** for P2 (successor of VOID HT-1031)
+
+## HT-1033 r3 CLOSED KEEP 0.0950 `2026-09-10T09:32:11Z` (Experimentalist)
+
+- **HT-1033** r3 **CLOSED KEEP 0.0950** — Critic review **in flight**
+- **SEED dual** HT-1028 ∧ HT-1033 booked (Critic honesty PASS + **Director accept**)
+- Full **dual-KEEP** waits: 1028 KEEP climb + Critic+Repro (**Diplomat holds promote**)
+- Pin HOLDOUT `d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be` (`d0dc1f8a…`)
+- **HT-1034** is **RUN** (not SEED) — Critic KEEP-READY; Foreman stamp in flight #76
+
+## Patch `2026-09-10T09:32:50Z` — 1033 CLOSED not OPEN; 1034 no pid
+
+- **HT-1033** r3 **CLOSED KEEP 0.0950** (not still OPEN). Critic review in flight.
+- SEED dual with **HT-1028** stands; full dual-KEEP waits **1028 KEEP** + Critic+Repro.
+- **HT-1034** RUN stamp still in flight (**no pid yet**).
+
+## HT-1033 Critic KEEP PASS `2026-09-10T09:33:27Z` (Experimentalist)
+
+- **HT-1033** Critic **KEEP PASS** → **island KEEP booked (0.0950)**
+- **HT-1028** KEEP climb **r4 pending Foreman** (target pupil≤0.10)
+- **No dual-KEEP claim yet**
+
+## Patch `2026-09-10T09:33:49Z` — Critic KEEP PASS; 1034 r2 LIVE
+
+- **HT-1033** Critic **KEEP PASS** (not review-in-flight) → island KEEP booked (0.0950)
+- **HT-1028** KEEP climb r4 **pending Foreman stamp** (pupil≤0.10)
+- **HT-1034** **r2 LIVE pid=1306948** (not stamp-in-flight)
+- Pin `d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be` (`d0dc1f8a…`)
+
+## Repro PASS HT-1033 `2026-09-10T09:34:08Z` (CoS)
+
+- **Repro PASS** HT-1033; **Critic PASS**; island KEEP booked (0.0950)
+- **Diplomat RUN** until dual with **HT-1028** (no dual-KEEP stamp yet)
+- HT-1028 KEEP climb r4 still pending Foreman stamp
+- Pin `d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be` (`d0dc1f8a…`)
+
+## Board patch `2026-09-10T09:35:08Z` (Experimentalist)
+
+- **HT-1034** r2 **CLOSED KEEP-cand** 0.1220/0.0350/1.0 — Critic **in flight**
+- **HT-1028** KEEP climb **LIVE pid=1313221**
+- **No dual claims**
+
+## Patch `2026-09-10T09:35:42Z` — HT-1034 Critic PASS
+
+- **HT-1034** Critic **PASS** (not in flight) → **KEEP** 0.1220/0.0350/1.0
+- Awaiting **Repro+Diplomat** vs **HT-1023**
+- **HT-1028** climb still **LIVE** (pid=1313221)
+
+## Patch `2026-09-10T09:36:28Z` — HT-1034 formal RUN (no single-lane KEEP)
+
+- Critic **island KEEP PASS** on file (0.1220/0.0350/1.0)
+- Formal **decision=RUN** until Repro+Diplomat dual with **HT-1023**
+- **No single-lane KEEP**
+- Standing: when Diplomat stamps DUAL-KEEP 1023∧1034 → record + push learnings (CoS)
+
+## Repro PASS + Diplomat stamp ordered `2026-09-10T09:37:02Z` (Experimentalist)
+
+- **HT-1034** Repro PASS + Critic PASS; formal **decision=RUN** until Diplomat stamps (no single-lane KEEP)
+- **HT-1023** Repro PASS; `HT-1023.json` restored on main
+- **Diplomat dual-KEEP stamp ordered** for **1023 ∧ 1034** (not stamped yet)
+- **HT-1028** climb still LIVE
+
+## DUAL-KEEP STAMPED HT-1023 ∧ HT-1034 `2026-09-10T09:37:28Z` (CoS + Experimentalist)
+
+- **Diplomat DUAL-KEEP STAMPED** after Repro PASS both
+- Formal **KEEP** both (not RUN) — no single-lane ambiguity
+- Metrics 1034: 0.1220/0.0350/1.0; 1023 island KEEP stands
+- **Soft notes on HT-1034:** `*120` travels; `1−pfe` travels
+- **HT-1028** KEEP climb still LIVE
+
+## Lab Dir APPROVE P2 product sync `2026-09-10T09:37:47Z` (CoS)
+
+- Diplomat **already DUAL-KEEP STAMPED** HT-1023 ∧ HT-1034 — formal **KEEP** both (not RUN / not stamp-ordered)
+- Soft on 1034: `*120` travels; `1−pfe` travels
+- **Lab Director APPROVE** P2 product sync (dual-KEEP source feed)
+- **PM PR path:** `asml-product-p2-coherence` (ship separate)
+- HT-1028 climb still LIVE
+
+## Standing `2026-09-10T09:38:39Z` (CoS)
+
+- When **PM PR lands** for `asml-product-p2-coherence` (Lab Dir APPROVE product sync 1023∧1034): record + push again.
+

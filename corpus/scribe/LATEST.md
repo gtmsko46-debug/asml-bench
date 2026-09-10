@@ -1,4 +1,4 @@
-# Scribe paragraph — 2026-09-10T09:16:14Z
+# Scribe paragraph — 2026-09-10T09:37:47Z
 
-## SoT FEL-10 HOLDOUT
-CoS: authoritative HOLDOUT digest **`d0dc1f8a…`** (`d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be`). File `labs/p10-if-shim/fixture/HOLDOUT.sha256`. Seeds HT-1028∧1029 must match. PR #67 MERGED.
+## Lab Dir APPROVE P2 sync (1023∧1034)
+Diplomat **already DUAL-KEEP STAMPED** — formal KEEP both. Soft `*120` + `1−pfe`. Lab Dir APPROVE product sync → PM PR `asml-product-p2-coherence` (ship separate). 1028 climb still LIVE.
