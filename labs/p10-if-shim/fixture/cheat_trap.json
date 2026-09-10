@@ -1,66 +1,121 @@
-[
-  {
-    "id": "field-0",
-    "coherence": 0.7,
-    "pupil_fill_error": 0.25,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.001
+{
+  "meta": {
+    "synthetic": true,
+    "purpose": "photon-discard cheat",
+    "seed": 2046
   },
-  {
-    "id": "field-1",
-    "coherence": 0.72,
-    "pupil_fill_error": 0.245,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0011
-  },
-  {
-    "id": "field-2",
-    "coherence": 0.74,
-    "pupil_fill_error": 0.24,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0012000000000000001
-  },
-  {
-    "id": "field-3",
-    "coherence": 0.76,
-    "pupil_fill_error": 0.235,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.001
-  },
-  {
-    "id": "field-4",
-    "coherence": 0.7799999999999999,
-    "pupil_fill_error": 0.25,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0011
-  },
-  {
-    "id": "field-5",
-    "coherence": 0.7,
-    "pupil_fill_error": 0.245,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0012000000000000001
-  },
-  {
-    "id": "field-6",
-    "coherence": 0.72,
-    "pupil_fill_error": 0.24,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.001
-  },
-  {
-    "id": "field-7",
-    "coherence": 0.74,
-    "pupil_fill_error": 0.235,
-    "photons": 0.3,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0011
-  }
-]
+  "rows": [
+    {
+      "coherence": 0.3386,
+      "bandwidth": 0.0333,
+      "power_frac": 0.5037,
+      "pol_degree": 0.7949,
+      "pulse_structure": 0.9684,
+      "pointing_jitter": 0.3054,
+      "pupil_fill_error": 0.2356,
+      "photons": 0.3,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.475,
+      "bandwidth": 0.1815,
+      "power_frac": 0.5986,
+      "pol_degree": 0.7484,
+      "pulse_structure": 1.4192,
+      "pointing_jitter": 0.365,
+      "pupil_fill_error": 0.2098,
+      "photons": 0.2,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.5821,
+      "bandwidth": 0.0319,
+      "power_frac": 0.5334,
+      "pol_degree": 0.2319,
+      "pulse_structure": 1.0433,
+      "pointing_jitter": 0.0796,
+      "pupil_fill_error": 0.1863,
+      "photons": 0.2,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.502,
+      "bandwidth": 0.0985,
+      "power_frac": 0.5239,
+      "pol_degree": 0.6465,
+      "pulse_structure": 0.9832,
+      "pointing_jitter": 0.2601,
+      "pupil_fill_error": 0.2298,
+      "photons": 0.2,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.3905,
+      "bandwidth": 0.072,
+      "power_frac": 0.4456,
+      "pol_degree": 0.6344,
+      "pulse_structure": 0.788,
+      "pointing_jitter": 0.1186,
+      "pupil_fill_error": 0.2481,
+      "photons": 0.3,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.7003,
+      "bandwidth": 0.1245,
+      "power_frac": 0.6177,
+      "pol_degree": 0.8659,
+      "pulse_structure": 1.4133,
+      "pointing_jitter": 0.1921,
+      "pupil_fill_error": 0.2417,
+      "photons": 0.3,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.4846,
+      "bandwidth": 0.013,
+      "power_frac": 0.84,
+      "pol_degree": 0.6893,
+      "pulse_structure": 1.0315,
+      "pointing_jitter": 0.37,
+      "pupil_fill_error": 0.2409,
+      "photons": 0.3,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.3506,
+      "bandwidth": 0.0227,
+      "power_frac": 0.6509,
+      "pol_degree": 0.8511,
+      "pulse_structure": 1.0598,
+      "pointing_jitter": 0.0549,
+      "pupil_fill_error": 0.1999,
+      "photons": 0.3,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    }
+  ]
+}
