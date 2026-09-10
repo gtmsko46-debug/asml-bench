@@ -55,8 +55,8 @@
     "critic_KEEP_READY",
     "critic_falsifier_cleared"
   ],
-  "notes": "HT-1034 replaces VOID HT-1031 (*0.204). Critic KEEP-READY 2026-09-10. decision RUN. dual_gate_pair=HT-1023 only after close Critic PASS. PIN 3ed24ec5\u2026. program.md HT-1022-class recipe. Issue #76. Foreman stamp NOW.",
-  "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r1",
+  "notes": "HT-1034 replaces VOID HT-1031 (*0.204). Critic KEEP-READY 2026-09-10. decision RUN. dual_gate_pair=HT-1023 only after close Critic PASS. PIN 3ed24ec5\u2026. program.md HT-1022-class recipe. Issue #76. Foreman stamp NOW. r2 LIVE pid=1306948 (must-edit). dual 1023 after close Critic PASS.",
+  "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r2",
   "recipe": "HT-1022-class: fill = reconstruct(pfe); fill = correct(fill, 0.72); pupil_err = abs(fill - 0.72)  # NO *k; speckle = f(coherence, bandwidth)",
   "structure_sketch": [
     "fill = 1.0 - float(field.get('pupil_fill_error', ...))  # named fill; reconstruct from pfe",
