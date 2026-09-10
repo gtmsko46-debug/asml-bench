@@ -1,5 +1,8 @@
 # Champion freeze — product ship snapshot (2026-09-10)
 
+> **Champion docs:** [asml-factory-showcase](https://github.com/gtmsko46-debug/asml-factory-showcase) — single place for factory/product narrative (decks / business / products / research). Keep product repos thin.
+
+
 **Order:** FREEZE new hills. Docs / READMEs / research writeups only. No new harness tickets.
 
 ## What shipped (product)
