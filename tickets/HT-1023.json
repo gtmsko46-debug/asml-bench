@@ -45,7 +45,7 @@
     "soft_travel_speckle_times_120",
     "soft_travel_fill_eq_1_minus_pfe"
   ],
-  "notes": "DUAL-KEEP STAMPED HT-1023\u2227HT-1034 (Diplomat 2026-09-10). Critic PASS + Repro PASS both. Soft *120 + 1\u2212pfe travels. Promote/ship separate. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Metrics 0.1221/0.0209/1.0.",
+  "notes": "DUAL-KEEP STAMPED HT-1023\u2227HT-1034 (Diplomat 2026-09-10). Critic PASS + Repro PASS both. Soft *120 + 1\u2212pfe travels. Promote/ship separate. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Metrics 0.1221/0.0209/1.0. | SCRIBE 2026-09-10T09:37:02Z: Experimentalist \u2014 HT-1023 Repro PASS; Diplomat dual-KEEP stamp ordered for 1023\u22271034. Partner 1034 formal RUN until stamp (no single-lane KEEP). Ticket restored on main. | SCRIBE 2026-09-10T09:37:47Z: Diplomat **already DUAL-KEEP STAMPED** HT-1023\u2227HT-1034 \u2014 formal KEEP both (not RUN / not stamp-ordered). Soft *120 + 1\u2212pfe travels. Lab Dir APPROVE P2 product sync; PM PR path asml-product-p2-coherence (ship separate). 1028 climb still LIVE.",
   "stamped_by": "Harness Foreman",
   "stamped_at": "2026-09-10T09:36:05Z",
   "prior_dual_pair": "HT-1024",
@@ -54,6 +54,9 @@
   "assumption_cards": [
     "coherence-if-v1"
   ],
-  "dual_gate": "DUAL_KEEP",
-  "diplomat": "DUAL_KEEP"
+  "dual_gate": "DUAL_KEEP_STAMPED",
+  "diplomat": "DUAL_KEEP_STAMPED",
+  "promote_decision": "DUAL_KEEP_STAMPED",
+  "LabDir_P2_product_sync": "APPROVE",
+  "PM_PR_path": "asml-product-p2-coherence"
 }

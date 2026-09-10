@@ -56,10 +56,12 @@
   "created_at": "2026-09-10T09:16:40Z",
   "branch": "exp/p2-coherence-HT-1031",
   "baseline_solver": "HT-1023 honest path; ban HT-1030 abs(delta)*k",
-  "notes": "VOID/RESET \u2014 conditioner pupil_err=abs(pfe-0.72)*0.204 write-down (HT-1030/1019-class). Commit even flagged abs(pfe-0.72)*k. Metrics KEEP-looking struck. No dual with HT-1023. Successor=HT-1034. sha=173e582eb14d.",
+  "notes": "VOID/RESET \u2014 conditioner pupil_err=abs(pfe-0.72)*0.204 write-down (HT-1030/1019-class). Commit even flagged abs(pfe-0.72)*k. Metrics KEEP-looking struck. No dual with HT-1023. Successor=HT-1034. sha=173e582eb14d. | SCRIBE 2026-09-10T09:29:55Z: Experimentalist RECORD \u2014 VOID (*0.204 write-down abs(pfe-0.72)*0.204). Successor HT-1034 #76. No dual claims.",
   "dual_gate_pair": "HT-1023",
   "replaces": "HT-1030",
   "required_holdout_sha256": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
   "lasercode_session_id": "ticket-HT-1031-p2-coherence-mistral-r2",
-  "stamped_at": "2026-09-10T09:18:27Z"
+  "stamped_at": "2026-09-10T09:18:27Z",
+  "successor": "HT-1034",
+  "dual_gate": "NONE_no_dual_claims"
 }

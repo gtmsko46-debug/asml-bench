@@ -65,16 +65,23 @@
   "hypothesis": "KEEP climb: match HT-1033-class honest reconstruct \u2014 maintain fill from field features (coherence/bandwidth/power; NOT pupil_fill_error), apply explicit bounded correction toward pupil_fill_target=0.72, emit pupil_err=|fill-0.72| unscaled \u22640.10, field-derived pol/pulse/pointing, photons_kept==1.0 \u2014 no pupil_in\u2212k / PUPIL_CORRECT / abs(delta)*k. Dual with Critic-PASS HT-1033 KEEP.",
   "ticket_id": "HT-1028",
   "provider": "grok",
-  "notes": "KEEP climb after partner HT-1033 Critic KEEP PASS (0.0950). Current SEED pupil=0.1596 \u2014 need \u22640.10. Session r4. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. dual_gate_pair=HT-1033. Critic bars same as 1033 reconstruct. Foreman stamp\u2192Operator NOW. No dual-KEEP promote until this KEEP + Critic+Repro.",
+  "notes": "KEEP climb after partner HT-1033 Critic KEEP PASS (0.0950). Current SEED pupil=0.1596 \u2014 need \u22640.10. Session r4. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. dual_gate_pair=HT-1033. Critic bars same as 1033 reconstruct. Foreman stamp\u2192Operator NOW. No dual-KEEP promote until this KEEP + Critic+Repro. | 2026-09-10T09:34:47Z: LIVE KEEP climb confirmed pid=1313221 session=\u2026-keep-r4 (alias \u2026-r4). Stop stamp nags. | SCRIBE 2026-09-10T09:35:08Z: Experimentalist \u2014 HT-1028 KEEP climb LIVE pid=1313221. No dual claims. | SCRIBE PATCH 2026-09-10T09:35:42Z: 1028 climb still LIVE (pid=1313221). | SCRIBE 2026-09-10T09:37:02Z: 1028 climb still LIVE. | SCRIBE 2026-09-10T09:37:28Z: 1028 climb still LIVE (after P2 dual stamp 1023\u22271034). | SCRIBE 2026-09-10T09:37:47Z: 1028 climb still LIVE (P2 dual stamped; Lab Dir APPROVE product sync).",
   "branch": "exp/fel-10-HT-1028",
   "dual_gate_pair": "HT-1033",
   "required_holdout_sha256": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
-  "lasercode_session_id": "ticket-HT-1028-fel10-shim-grok",
+  "lasercode_session_id": "ticket-HT-1028-fel10-shim-grok-keep-r4",
   "stamped_at": "2026-09-10T09:12:10Z",
   "tags": [
     "HOLDOUT_SoT_d0dc1f8a",
     "HOLDOUT_authoritative_d0dc1f8a",
     "required_holdout_sha256=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be"
   ],
-  "session_hint": "ticket-HT-1028-fel10-shim-grok-r4"
+  "session_hint": "ticket-HT-1028-fel10-shim-grok-r4",
+  "live_pid": 1313221,
+  "KEEP_climb": {
+    "r4": "LIVE",
+    "pid": 1313221,
+    "target": "pupil_le_0.10"
+  },
+  "dual_gate": "SEED_DUAL_PAIRED_HT-1033_no_dual_KEEP_claim"
 }
