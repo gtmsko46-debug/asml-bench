@@ -1,0 +1,66 @@
+[
+  {
+    "id": "field-0",
+    "coherence": 0.7,
+    "pupil_fill_error": 0.25,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.001
+  },
+  {
+    "id": "field-1",
+    "coherence": 0.72,
+    "pupil_fill_error": 0.245,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.0011
+  },
+  {
+    "id": "field-2",
+    "coherence": 0.74,
+    "pupil_fill_error": 0.24,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.0012000000000000001
+  },
+  {
+    "id": "field-3",
+    "coherence": 0.76,
+    "pupil_fill_error": 0.235,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.001
+  },
+  {
+    "id": "field-4",
+    "coherence": 0.7799999999999999,
+    "pupil_fill_error": 0.25,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.0011
+  },
+  {
+    "id": "field-5",
+    "coherence": 0.7,
+    "pupil_fill_error": 0.245,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.0012000000000000001
+  },
+  {
+    "id": "field-6",
+    "coherence": 0.72,
+    "pupil_fill_error": 0.24,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.001
+  },
+  {
+    "id": "field-7",
+    "coherence": 0.74,
+    "pupil_fill_error": 0.235,
+    "photons": 0.3,
+    "if_loss_db": 0.8,
+    "bandwidth": 0.0011
+  }
+]
