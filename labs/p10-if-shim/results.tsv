@@ -1,1 +1,3 @@
 thesis	run	hypothesis	provider	metric	decision	card
+fel-10-if-ownership	HT-1032	FEL-10 mock successor (VOID pupil_in−k / PUPIL_CORRECT)	mock-mistral	HOLDOUT_SoT_d0dc1f8a;critic_VOID_pupil_in_minus_k_PUPIL_CORRECT;successor=HT-1033_#75;no_dual_claims	VOID	if-spec-fel10
+fel-10-if-ownership	HT-1033	Honest reconstruct/correct unscaled; ban pupil_in−k / PUPIL_CORRECT	mock-mistral	HOLDOUT_SoT_d0dc1f8a;RUN;successor_of_VOID_HT-1032;issue=#75;dual_gate=NONE_yet;critic_KEEP_READY	RUN	if-spec-fel10

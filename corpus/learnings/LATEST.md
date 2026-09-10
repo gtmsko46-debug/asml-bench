@@ -151,3 +151,9 @@ KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PEN
 - Seeds: HT-1028 ∧ HT-1029 must match this digest (`holdout_hash_match`)
 - PR #67 (DUAL-KEEP 1026∧1027) MERGED @a45f20e — noted
 
+## Experimentalist VOID chain `2026-09-10T09:29:55Z`
+
+- **HT-1031 VOID** — `abs(pfe−0.72)*0.204` write-down → successor **HT-1034** (#76) SEED (P2 / fel-02)
+- **HT-1032 VOID** — `pupil_in−k` / `PUPIL_CORRECT` residual write-down → successor **HT-1033** (#75) RUN (FEL-10)
+- **No dual claims yet** (1034↔1023 and 1033↔1028 only after honest Critic PASS)
+
