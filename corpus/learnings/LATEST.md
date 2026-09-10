@@ -110,3 +110,20 @@ Source: `tickets/FEL-10_CLAIM_DRAFT.md`, `tickets/IF_SPEC_FEL10_CONTRACT.md`.
 - **Source:** dual-KEEP HT-1015 ∧ HT-1025 (`P1-twin-dual-001`) shipped as `reference_twin`
 - Issue #17 APPROVE consummated — product sync landed
 
+## P3–P10 M0 SPEC ship `2026-09-10T09:04:13Z` (CoS)
+
+**RECORD:** M0 `SPEC.md` merged as **PR #1** in each product repo:
+
+| Product | Repo | Status |
+|---------|------|--------|
+| P3 Scheduler | `asml-product-p3-scheduler` | M0 SPEC.md PR#1 MERGED |
+| P4 Comp-litho | `asml-product-p4-complitho` | M0 SPEC.md PR#1 MERGED |
+| P5 Stochastics | `asml-product-p5-stochastics` | M0 SPEC.md PR#1 MERGED |
+| P6 Thermal | `asml-product-p6-thermal` | M0 SPEC.md PR#1 MERGED |
+| P7 Wavelength | `asml-product-p7-wavelength` | M0 SPEC.md PR#1 MERGED |
+| P8 Controls | `asml-product-p8-controls` | M0 SPEC.md PR#1 MERGED |
+| P9 TCO | `asml-product-p9-tco` | M0 SPEC.md PR#1 MERGED |
+| P10 IF shim | `asml-product-p10-if-shim` | M0 SPEC.md PR#1 MERGED |
+
+Spec freeze milestone for factory — Build tickets still follow Lab Director order / bay capacity.
+

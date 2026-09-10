@@ -21,3 +21,6 @@ See also: `corpus/learnings/LATEST.md`, `corpus/notes/fel-02-dual-keep-pointer.m
 ## Bay queue `2026-09-10T09:02:05Z`
 - **HT-1026∧HT-1027 ∥ P2** (not behind HT-1023∧1024).
 - Still before FEL-10 HT-1028∧1029.
+
+## Factory `2026-09-10T09:04:13Z`
+- **P3–P10 M0 SPEC.md PR#1 MERGED** each product repo.
