@@ -102,6 +102,9 @@ def main():
 
     src = (ROOT / "twin.py").read_text()
     voids = check_guards(src, train_c, hold_c)
+    # Critic: holdout saturation alone ⇒ generative recovery (independent of trap).
+    if hold_c < 1e-6:
+        voids.append("saturated: generative recovery")
 
     decision = "RESET"
     if voids:

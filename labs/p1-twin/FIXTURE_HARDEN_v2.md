@@ -11,6 +11,7 @@
 - Regen **together:** train + holdout + cheat_trap + HOLDOUT.sha256
 
 ## Landed
+- Critic: `eval.py` VOIDs if `holdout_nrmse < 1e-6` alone (`saturated: generative recovery`), independent of trap
 - `fixture_gen=v2-ht1018-harden-2026-09-10`
 - **HOLDOUT.sha256:** `2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c`
 - Nonlinear / saturation / cross terms + label jitter + OOD holdout + `p1-cheat-v1oracle` trap rows
