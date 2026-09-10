@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Frozen FEL-02 evaluator. Do not edit during a harness run."""
+"""Frozen FEL-02 evaluator (pupil-gated KEEP). Do not edit during a harness run."""
 from __future__ import annotations
 import json, hashlib, sys
 from pathlib import Path
@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 FIX = ROOT / "fixture"
 PHOTON_FLOOR = 0.55
+PUPIL_ERR_MAX = 0.10  # IF Spec pupil freeze — tickets/IF_SPEC_PUPIL_BOUND.md
 
 def load(name):
     return json.loads((FIX / name).read_text())
@@ -57,7 +58,7 @@ def main():
     decision = "RESET"
     if voids:
         decision = "VOID"
-    elif s_h < 0.15 and ph_h >= PHOTON_FLOOR:
+    elif s_h < 0.15 and ph_h >= PHOTON_FLOOR and p_h <= PUPIL_ERR_MAX:
         decision = "KEEP"
     elif s_h < 0.45:
         decision = "SEED"
