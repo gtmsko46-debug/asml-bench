@@ -1,1 +1,2 @@
 thesis	run	hypothesis	provider	metric	decision	card
+p1-twin	HT-1026	P1 deepen grok from HT-1015; pred≠1015/1025	grok	holdout_nrmse=0.1475;trap_nrmse=0.2534;trap_margin_PASS;digest=2c398448;critic_PENDING;dual=HT-1027	KEEP	fel-scanner-twin-v1
