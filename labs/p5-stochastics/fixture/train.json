@@ -1,0 +1,37 @@
+[
+  {
+    "dose_mj_cm2": 20.0,
+    "pulse_rate_mhz": 40.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.7978524730426422
+  },
+  {
+    "dose_mj_cm2": 25.0,
+    "pulse_rate_mhz": 60.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.5643935840237326
+  },
+  {
+    "dose_mj_cm2": 30.0,
+    "pulse_rate_mhz": 80.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.4086496299942157
+  },
+  {
+    "dose_mj_cm2": 35.0,
+    "pulse_rate_mhz": 100.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.2957522460769513
+  },
+  {
+    "dose_mj_cm2": 40.0,
+    "pulse_rate_mhz": 120.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.2084702616013703
+  }
+]

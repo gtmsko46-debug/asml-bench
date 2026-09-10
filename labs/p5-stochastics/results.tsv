@@ -1,0 +1,2 @@
+ticket	train_rmse	holdout_rmse	trap_rmse	decision
+local	0.0507	0.0373	1.4478	SEED

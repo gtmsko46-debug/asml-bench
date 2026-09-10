@@ -1,0 +1,9 @@
+[
+  {
+    "dose_mj_cm2": 30.0,
+    "pulse_rate_mhz": 100.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 0.0
+  }
+]

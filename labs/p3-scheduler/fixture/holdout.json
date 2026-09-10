@@ -1,0 +1,27 @@
+[
+  {
+    "n_tools": 5,
+    "priorities": [
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "bunch_drop_frac": 0.05,
+    "facility_source_kw": 5.0,
+    "truth_facility_wpd": 874.0000000000001
+  },
+  {
+    "n_tools": 4,
+    "priorities": [
+      1,
+      2,
+      1,
+      1
+    ],
+    "bunch_drop_frac": 0.0,
+    "facility_source_kw": 5.0,
+    "truth_facility_wpd": 920.0000000000001
+  }
+]
