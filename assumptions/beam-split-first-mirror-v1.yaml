@@ -1,0 +1,48 @@
+id: beam-split-first-mirror-v1
+version: "1.0.0"
+title: Multi-kW beam split + first-mirror survival
+scope: >-
+  Facility FEL source split to N tools; first-mirror fluence / ablation
+  proxies for FEL-03 (feeds P3 facility scheduler + P6). Synthetic toys only.
+flags: [synthetic, open-proxy, not-asml-confidential]
+parameters:
+  - name: facility_source_kw
+    value: 5.0
+    unit: "kW"
+    source: "Synthetic multi-kW facility FEL toy; not a measured source"
+    confidence: low
+    flags: [synthetic]
+  - name: n_tools_nom
+    value: 4
+    unit: "1"
+    source: "Nominal tool count for equal-split demos (P3 scheduler island)"
+    confidence: med
+    flags: [synthetic]
+  - name: first_mirror_fluence_limit_j_cm2
+    value: 0.15
+    unit: "J/cm2"
+    source: "Order-of-magnitude multilayer / grazing-mirror damage proxy from open EUV optics literature; scaled toy"
+    confidence: low
+    flags: [open-proxy, synthetic]
+  - name: peak_fluence_margin_min
+    value: 1.2
+    unit: "1"
+    source: "Required limit/peak fluence ratio before ablation_flag trips; synthetic guard"
+    confidence: med
+    flags: [synthetic]
+  - name: transport_loss_frac
+    value: 0.08
+    unit: "1"
+    source: "Toy split+transport loss fraction before tools; not fab metrology"
+    confidence: low
+    flags: [synthetic]
+  - name: dump_power_frac_max
+    value: 0.05
+    unit: "1"
+    source: "Max fraction of facility watts allowed into dump without counting as cheat; synthetic"
+    confidence: med
+    flags: [synthetic]
+notes: >-
+  FEL-03 owns split geometry + first-mirror survival, not wafer patterning.
+  Numbers are lab toys; LPP Reality Warden still requires any KEEP to beat
+  tin-LPP fixture class when claims leave the sandbox. Do not invent fab nm/yield.
