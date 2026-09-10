@@ -24,3 +24,6 @@ See also: `corpus/learnings/LATEST.md`, `corpus/notes/fel-02-dual-keep-pointer.m
 
 ## Factory `2026-09-10T09:04:13Z`
 - **P3–P10 M0 SPEC.md PR#1 MERGED** each product repo.
+
+## FEL-10 HOLDOUT SoT `2026-09-10T09:16:14Z`
+`d0dc1f8a…` full `d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be` — CoS RECORD after #67 MERGED.
