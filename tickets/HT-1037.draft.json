@@ -1,0 +1,46 @@
+{
+  "thesis": "fel-03-beam-split",
+  "lab_path": "labs/fel-03-beam-split",
+  "sandbox": "solver.py",
+  "assumption_cards": [
+    "beam-split-first-mirror-v1"
+  ],
+  "budget": "8 ratchets / 60 min",
+  "decision": "SEED",
+  "hypothesis": "SEED: A fluence-capped splitter that keeps first-mirror peak fluence under beam-split-first-mirror-v1 first_mirror_fluence_limit_j_cm2 (0.15) with margin\u22651.2 can feed n_tools_nom tools without dump_power_frac>0.05, without ablation hardcode, and without photon-starve \u2014 peak fluence from geometry only.",
+  "must_not_touch": [
+    "eval.py",
+    "fixture/holdout*",
+    "fixture/cheat_trap.json",
+    "fixture/HOLDOUT.sha256",
+    "assumptions/*"
+  ],
+  "guards": [
+    "dual_gate_pair_required",
+    "no_lpp-source-v2_on_SEED",
+    "dump_power_frac_le_0.05",
+    "peak_fluence_from_geometry_vs_card_0.15_margin_1.2",
+    "no_ablation_hardcode",
+    "no_photon_starve",
+    "no_p10_shim_paste",
+    "soft_notes_travel",
+    "beam-split-first-mirror-v1",
+    "frozen_eval_untouched",
+    "required_holdout_sha256=f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac",
+    "hold_Foreman_until_scaffold_HOLDOUT_Critic_Warden_FEL_PD",
+    "critic_PENDING_KEEP_READY",
+    "warden_PENDING",
+    "fel_pd_PENDING"
+  ],
+  "required_holdout_sha256": "f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac",
+  "feeds": [
+    "P3",
+    "P6"
+  ],
+  "ticket_id": "HT-1037",
+  "provider": "mock-mistral",
+  "dual_gate_pair": "HT-1036",
+  "branch": "exp/fel-03-HT-1037",
+  "session_hint": "ticket-HT-1037-fel03-split-mistral",
+  "notes": "FEL-03 dual-gate SEED draft. Critic falsifiers 2026-09-10 encoded. PIN f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac. Hold Foreman until EI HOLDOUT freeze + Critic KEEP-READY + Warden ACCEPT + FEL PD. No lpp-source-v2 on SEED. Soft notes travel."
+}

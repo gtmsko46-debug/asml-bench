@@ -1,0 +1,122 @@
+[
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.4,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 81.78802320586612
+  },
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 82.5115100837522
+  },
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 85.38629130198332
+  },
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.4,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 84.21639291362655
+  },
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 89.01999315532417
+  },
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 86.82368816529146
+  },
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.4,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 88.49967193357013
+  },
+  {
+    "facility_source_kw": 5.0,
+    "n_tools": 4,
+    "split_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "pulse_energy_j": 0.05,
+    "spot_area_cm2": 0.08,
+    "transport_loss_frac": 0.08,
+    "rep_rate_hz": 100.0,
+    "tool_throughput_wph": 85.2871616689397
+  }
+]
