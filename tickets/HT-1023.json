@@ -39,14 +39,18 @@
     "critic_island_PASS",
     "partner_HT-1034_Critic_PASS",
     "repro_PASS",
-    "awaiting_Diplomat_dual_HT-1034"
+    "DUAL_KEEP_STAMPED",
+    "dual_with_HT-1034",
+    "critic_PASS",
+    "soft_travel_speckle_times_120",
+    "soft_travel_fill_eq_1_minus_pfe"
   ],
-  "notes": "Restored 2026-09-10T09:36:05Z by Foreman (ticket JSON was missing). Critic island PASS 0.1221/0.0209/1.0; demoted KEEP\u2192RUN until honest mock dual. Partner HT-1024 VOID; successors 1030/1031 VOID; partner now HT-1034 Critic PASS \u2192 Repro+Diplomat. Soft notes travel from 1034 (*120 / 1\u2212pfe). | 2026-09-10T09:36:18Z: Partner HT-1034 Repro PASS. Awaiting Diplomat dual-KEEP stamp HT-1023\u2227HT-1034. | 2026-09-10T09:36:32Z: Diplomat DUAL-KEEP stamped HT-1023\u2227HT-1034. Soft notes travel (1034: *120 + 1\u2212pfe). Not auto-promote \u2014 Lab Dir+PM for product sync.",
+  "notes": "DUAL-KEEP STAMPED HT-1023\u2227HT-1034 (Diplomat 2026-09-10). Critic PASS + Repro PASS both. Soft *120 + 1\u2212pfe travels. Promote/ship separate. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Metrics 0.1221/0.0209/1.0.",
   "stamped_by": "Harness Foreman",
   "stamped_at": "2026-09-10T09:36:05Z",
   "prior_dual_pair": "HT-1024",
   "repro": "PASS",
-  "dual_status": "DIPLOMAT_DUAL_KEEP",
+  "dual_status": "DUAL_KEEP_STAMPED",
   "assumption_cards": [
     "coherence-if-v1"
   ],

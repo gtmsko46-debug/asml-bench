@@ -12,7 +12,7 @@
     "assumptions/*"
   ],
   "dual_gate_pair": "HT-1023",
-  "decision": "RUN",
+  "decision": "KEEP",
   "branch": "exp/p2-HT-1034",
   "required_holdout": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
   "hypothesis": "Honest mock-mistral P2 conditioner dual with HT-1023 must follow HT-1022-class structure as a template (NOT byte-paste): (1) reconstruct fill from input pupil_fill_error, (2) correct fill toward coherence-if-v1 pupil_fill_target=0.72 with a named fill variable, (3) emit pupil_err=abs(fill-0.72) with NO multiplicative scale (no *k, no *0.2, no *0.204), (4) derive speckle from field coherence\u00d7bandwidth only \u2014 WITHOUT abs(pfe\u22120.72)*k, WITHOUT forced fill, WITHOUT zeroing coh/bw, WITHOUT cloning HT-1023/1030/1031.",
@@ -55,17 +55,15 @@
     "critic_KEEP_READY",
     "critic_falsifier_cleared",
     "critic_PASS",
-    "awaiting_Repro",
-    "awaiting_Diplomat_dual_HT-1023",
     "critic_KEEP_PASS_island",
-    "formal_RUN_until_Repro_Diplomat",
     "soft_travel_speckle_times_120",
     "soft_travel_fill_eq_1_minus_pfe",
-    "no_single_lane_KEEP",
     "repro_PASS",
-    "partner_HT-1023_repro_PASS"
+    "partner_HT-1023_repro_PASS",
+    "DUAL_KEEP_STAMPED",
+    "dual_with_HT-1023"
   ],
-  "notes": "HT-1034 r2 Critic island KEEP PASS + Repro PASS exact 0.1220/0.0350/1.0 (sha 021d3cd9\u2026, f53bbee). Partner HT-1023 also Repro PASS. Awaiting Diplomat dual-KEEP stamp HT-1023\u2227HT-1034. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Soft *120 + 1\u2212pfe travels.",
+  "notes": "DUAL-KEEP STAMPED HT-1023\u2227HT-1034 (Diplomat 2026-09-10). Critic PASS + Repro PASS both. Soft *120 + 1\u2212pfe travels. Promote/ship separate. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Metrics 0.1220/0.0350/1.0.",
   "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r2",
   "recipe": "HT-1022-class: fill = reconstruct(pfe); fill = correct(fill, 0.72); pupil_err = abs(fill - 0.72)  # NO *k; speckle = f(coherence, bandwidth)",
   "structure_sketch": [
@@ -74,5 +72,6 @@
     "pupil_err = abs(fill - 0.72)  # UNSIZED \u2014 no *k / *0.2 / *0.204",
     "speckle from field coherence \u00d7 bandwidth only",
     "photons_kept = 1.0 * photons_in"
-  ]
+  ],
+  "dual_status": "DUAL_KEEP_STAMPED"
 }
