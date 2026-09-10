@@ -6,8 +6,8 @@
 
 | Order | Product | Backlog | Now |
 |-------|---------|---------|-----|
-| P0 | P1 Twin | #4 | HT-1015 KEEP_PENDING_DUAL; HT-1025 Critic PASS (0.2467/0.3356); #17 blocked on Repro+Diplomat |
-| 1 | P2 Coherence | #3 | M1 docs merged; HT-1023/1024 bay-queued; package code waits bay |
+| P0 | P1 Twin | #4 | Diplomat DUAL-KEEP HT-1015∧HT-1025; #17 Lab Director APPROVE ship-queue |
+| 1 | P2 Coherence | #3 | M1 package merged; HT-1023/1024 bay LIVE |
 | 2 | P4/P7 Comp-litho | #6 | Labs ready; open dual-gate product tickets when bay free |
 | 3 | P10 IF shim | #11 | Spec→eval scaffold |
 | 4 | P9 TCO | #10 | Spec→eval scaffold |
@@ -25,4 +25,4 @@
 
 ## Bay
 
-P1 HT-1025 dual pending Repro+Diplomat; then free bay for P2 HT-1023/1024. Starved list LIFTED — Spec→Build for P5/P8 too.
+P1 #17 ship-queue + deepen 1026/1027; P2 HT-1023/1024 bay LIVE (CoS keep-bay-hot). Starved list LIFTED.
