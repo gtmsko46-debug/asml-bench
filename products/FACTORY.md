@@ -1,3 +1,5 @@
+> Champion FREEZE 2026-09-10: no new hills. Docs only.
+
 # Product factory schedule (Champion 2026-09-10)
 
 **Rule:** Spec → Build → Review → Ship. Bots orchestrate; all product *code* via lasercode (Foreman→Operator). Every change lands on `asml-product-p*` via commit+push.
