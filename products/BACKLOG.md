@@ -9,7 +9,7 @@ Bots orchestrate; **all product code** via lasercode (Foreman→Operator). Commi
 | Rank | ID | Status | Action |
 |------|----|--------|--------|
 | **P0** | **P1 Twin** | Diplomat **DUAL-KEEP** HT-1026∧HT-1027; `reference_twin` = **HT-1026** (0.1475) via product PR #4 | Soft IF-only on 1027 documented; next deepen/M2 as funded |
-| 1 | **P2 Coherence** | M1 package merged; HT-1024 **VOID** forced-fill; dual retarget **HT-1030**; HT-1023 single-lane RUN | Honest mistral successor HT-1030; no Operator steal for offline M1s |
+| 1 | **P2 Coherence** | HT-1030 **VOID**; successor **HT-1031**; HT-1023 dual target; FEL-10: only HT-1028 live (1029→1032) | No Operator steal; Critic→Foreman on 1031 | Honest mistral successor HT-1030; no Operator steal for offline M1s |
 | 2+ | P3–P10 | Spec Issues [#46](https://github.com/gtmsko46-debug/asml-bench/issues/46)–[#52](https://github.com/gtmsko46-debug/asml-bench/issues/52) | Real Spec→Build (starved list LIFTED) |
 
 ## Maturity
