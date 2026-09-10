@@ -13,7 +13,9 @@
   ],
   "dual_gate_pair": "HT-1023",
   "decision": "SEED",
-  "hypothesis": "Honest mock-mistral P2 conditioner dual with HT-1023: reconstruct fill from field features (NOT from pupil_fill_error), correct toward coherence-if-v1 pupil_fill_target=0.72, emit pupil_err=|fill\u22120.72| with NO scale factor (no *k, no *0.204), speckle from field coherence\u00d7bandwidth \u2014 WITHOUT abs(pfe\u22120.72)*k write-down (VOID HT-1031 path).",
+  "branch": "exp/p2-HT-1034",
+  "required_holdout": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
+  "hypothesis": "Honest mock-mistral P2 conditioner dual with HT-1023 must follow HT-1022-class structure as a template (NOT byte-paste): (1) reconstruct fill from input pupil_fill_error, (2) correct fill toward coherence-if-v1 pupil_fill_target=0.72 with a named fill variable, (3) emit pupil_err=abs(fill-0.72) with NO multiplicative scale (no *k, no *0.2, no *0.204), (4) derive speckle from field coherence\u00d7bandwidth only \u2014 WITHOUT abs(pfe\u22120.72)*k, WITHOUT forced fill, WITHOUT zeroing coh/bw, WITHOUT cloning HT-1023/1030/1031.",
   "guards": [
     "pupil_frozen_eval",
     "if_spec_pupil_err_max=0.10",
@@ -27,14 +29,19 @@
     "no_write_down_abs_delta_scale",
     "no_abs_pfe_minus_072_times_k",
     "no_abs_delta_scale_write_down",
+    "no_any_scale_on_abs_fill_minus_072",
     "no_multiply_abs_delta_by_any_k",
     "no_literal_0.204_scale",
+    "no_literal_0.2_scale",
+    "ban_1031_0.204_path",
     "no_forced_fill_to_0.72",
     "no_zero_coh_bw_terms",
     "pupil_fill_target_literal_0.72",
+    "require_named_fill_variable",
+    "require_reconstruct_then_correct_steps",
+    "structure_hint_HT-1022_not_paste",
     "use_field_coherence_and_bandwidth",
     "correct_fill_then_abs_fill_minus_0.72_unscaled",
-    "reconstruct_fill_NOT_from_pupil_fill_error",
     "no_invented_coherence_from_pupil_err",
     "no_byte_clone_of_HT-1023",
     "no_HT-1030_write_down_path",
@@ -43,10 +50,18 @@
     "successor_of_VOID_HT-1031",
     "dual_gate_pair_HT-1023",
     "product_asml-product-p2-coherence",
-    "FEL10_continues_parallel",
-    "critic_PENDING_KEEP_READY"
+    "critic_falsifier_before_foreman",
+    "critic_PENDING_KEEP_READY",
+    "program_md_HT-1022_class_recipe"
   ],
-  "notes": "HT-1034 replaces VOID HT-1031 (abs(pfe-0.72)*0.204 write-down). PIN 3ed24ec5\u2026. dual_gate_pair=HT-1023 only after Critic PASS. Critic before Foreman. SEED until KEEP-READY.",
+  "notes": "HT-1034 replaces VOID HT-1031 (abs(pfe-0.72)*0.204 \u2014 third write-down after 1024/1030/1031). PIN 3ed24ec5\u2026. dual_gate_pair=HT-1023 only after Critic PASS. Structure recipe in labs/fel-02-coherence/program.md (HT-1022-class; hint not paste). Critic KEEP-READY before Foreman. Issue #76. Parallel with HT-1033 LIVE OK.",
   "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r1",
-  "recipe": "honest reconstruct fill\u2192correct\u2192|fill-0.72| unscaled; ban any *k on abs(delta)"
+  "recipe": "HT-1022-class: fill = reconstruct(pfe); fill = correct(fill, 0.72); pupil_err = abs(fill - 0.72)  # NO *k; speckle = f(coherence, bandwidth)",
+  "structure_sketch": [
+    "fill = 1.0 - float(field.get('pupil_fill_error', ...))  # named fill; reconstruct from pfe",
+    "fill = fill + gain * (0.72 - fill); fill = clip(fill, 0, 1)  # named fill correction step",
+    "pupil_err = abs(fill - 0.72)  # UNSIZED \u2014 no *k / *0.2 / *0.204",
+    "speckle from field coherence \u00d7 bandwidth only",
+    "photons_kept = 1.0 * photons_in"
+  ]
 }
