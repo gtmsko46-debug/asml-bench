@@ -12,3 +12,8 @@ See also: `corpus/learnings/LATEST.md`, `corpus/notes/fel-02-dual-keep-pointer.m
 
 ## Update `2026-09-10T08:58:19Z`
 - HT-1025 **CLOSED KEEP** @exit0; Critic PASS; dual pending Repro+Diplomat vs HT-1015. Mid-climb death false-alarm retracted.
+
+## Update `2026-09-10T09:00:53Z`
+- Diplomat DUAL-KEEP HT-1015∧HT-1025.
+- Lab Director **Issue #17 APPROVE**.
+- FEL-10 SEED **HT-1028∧HT-1029** (#57).
