@@ -1,1 +1,2 @@
 thesis	run	hypothesis	provider	metric	decision	card
+p10-if-shim	HT-1028	FEL-10 IF shim SEED grok pin d0dc1f8a	grok	pupil_err=0.1596;photons_kept=1.0000;if_loss_db=0.8399;pol=0.1913;pulse=12.9290;pointing=0.5171;if_compat=0.8404;digest=d0dc1f8a;decision=SEED	SEED	if-spec-fel10
