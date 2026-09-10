@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Frozen FEL-10 / P10 IF-shim evaluator. Do not edit during a harness run.
 
-SEED: all five axes present + non-null; photons_kept == 1.0 hard; no missing fields.
-KEEP: pupil_fill_error ≤ 0.10 AND photons_kept ≥ 0.55 (dual AND). Soft score never KEEPs alone.
+SEED: all five IF Spec axes present + non-null; photons_kept == 1.0 hard; no missing fields.
+KEEP: pupil_fill_error ≤ 0.10 AND photons_kept ≥ 0.55 (dual AND). Soft if_compat_score never KEEPs alone.
 Cite: tickets/IF_SPEC_FEL10_CONTRACT.md
 """
 from __future__ import annotations
@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent
 FIX = ROOT / "fixture"
 PUPIL_ERR_MAX = 0.10
 PHOTON_FLOOR = 0.55
-PHOTON_HARD = 1.0  # Director hard for SEED scaffold
+PHOTON_HARD = 1.0  # Director hard — discard on holdout → VOID
 AXES = (
     "pupil_fill_error",
     "photons_kept",
@@ -30,10 +30,13 @@ AXES = (
 
 
 def load(name: str):
-    return json.loads((FIX / name).read_text())
+    data = json.loads((FIX / name).read_text())
+    if isinstance(data, dict) and "rows" in data:
+        return data["rows"]
+    return data
 
 
-def mean(xs):
+def mean(xs: list[float]) -> float:
     return sum(xs) / len(xs)
 
 
@@ -51,29 +54,22 @@ def main() -> int:
     spec.loader.exec_module(mod)
 
     def score(fields):
-        rows = []
-        for f in fields:
-            o = mod.shim(f)
-            rows.append(o)
-        return rows
+        return [mod.shim(f) for f in fields]
 
     train, hold, trap = load("train.json"), load("holdout.json"), load("cheat_trap.json")
-    rows_h = score(hold)
-    rows_t = score(trap)
-    rows_tr = score(train)
+    rows_h, rows_t = score(hold), score(trap)
 
     voids: list[str] = []
-    for i, o in enumerate(rows_h):
+    for o in rows_h:
         for ax in AXES:
             if ax not in o or o[ax] is None:
                 voids.append(f"missing_axis:{ax}")
-            else:
-                try:
-                    v = float(o[ax])
-                    if math.isnan(v):
-                        voids.append(f"nan_axis:{ax}")
-                except (TypeError, ValueError):
-                    voids.append(f"bad_axis:{ax}")
+                continue
+            try:
+                if math.isnan(float(o[ax])):
+                    voids.append(f"nan_axis:{ax}")
+            except (TypeError, ValueError):
+                voids.append(f"bad_axis:{ax}")
 
     pupil = mean([float(o["pupil_fill_error"]) for o in rows_h])
     photons = mean([float(o["photons_kept"]) for o in rows_h])
@@ -94,13 +90,11 @@ def main() -> int:
                 except Exception:
                     pass
 
+    # Director hard: holdout must not discard photons
     if photons < PHOTON_HARD - 1e-6:
         voids.append("photon_discard")
-    if trap_photons < 0.55:
-        # cheat_trap designed to discard; detecting discard path is OK — not a void on holdout
-        pass
 
-    # ranking-only soft score (never alone decides KEEP)
+    # ranking-only soft score (must include pupil; never alone decides KEEP)
     soft = max(0.0, 1.0 - pupil) * min(1.0, photons)
 
     decision = "RESET"
@@ -108,7 +102,7 @@ def main() -> int:
         decision = "VOID"
     elif pupil <= PUPIL_ERR_MAX and photons >= PHOTON_FLOOR:
         decision = "KEEP"
-    elif not voids and all(ax in rows_h[0] for ax in AXES):
+    elif not voids:
         decision = "SEED"
 
     print(
@@ -121,7 +115,7 @@ def main() -> int:
         f"\tpointing={pointing:.4f}"
         f"\tif_compat_score={soft:.4f}"
         f"\tdecision={decision}"
-        f"\tvoids={','.join(voids) or '-'}"
+        f"\tvoids={','.join(dict.fromkeys(voids)) or '-'}"
         f"\ttrap_photons={trap_photons:.4f}"
     )
     return 0 if decision != "VOID" else 3

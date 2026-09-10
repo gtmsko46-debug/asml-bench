@@ -1,98 +1,235 @@
-[
-  {
-    "id": "field-0",
-    "coherence": 0.7,
-    "pupil_fill_error": 0.22,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.001
+{
+  "meta": {
+    "synthetic": true,
+    "seed": 1046,
+    "n": 16,
+    "frozen": true,
+    "lab": "p10-if-shim"
   },
-  {
-    "id": "field-1",
-    "coherence": 0.72,
-    "pupil_fill_error": 0.215,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0011
-  },
-  {
-    "id": "field-2",
-    "coherence": 0.74,
-    "pupil_fill_error": 0.21,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0012000000000000001
-  },
-  {
-    "id": "field-3",
-    "coherence": 0.76,
-    "pupil_fill_error": 0.20500000000000002,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.001
-  },
-  {
-    "id": "field-4",
-    "coherence": 0.7799999999999999,
-    "pupil_fill_error": 0.22,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0011
-  },
-  {
-    "id": "field-5",
-    "coherence": 0.7,
-    "pupil_fill_error": 0.215,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0012000000000000001
-  },
-  {
-    "id": "field-6",
-    "coherence": 0.72,
-    "pupil_fill_error": 0.21,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.001
-  },
-  {
-    "id": "field-7",
-    "coherence": 0.74,
-    "pupil_fill_error": 0.20500000000000002,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0011
-  },
-  {
-    "id": "field-8",
-    "coherence": 0.76,
-    "pupil_fill_error": 0.22,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0012000000000000001
-  },
-  {
-    "id": "field-9",
-    "coherence": 0.7799999999999999,
-    "pupil_fill_error": 0.215,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.001
-  },
-  {
-    "id": "field-10",
-    "coherence": 0.7,
-    "pupil_fill_error": 0.21,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0011
-  },
-  {
-    "id": "field-11",
-    "coherence": 0.72,
-    "pupil_fill_error": 0.20500000000000002,
-    "photons": 1.0,
-    "if_loss_db": 0.8,
-    "bandwidth": 0.0012000000000000001
-  }
-]
+  "rows": [
+    {
+      "coherence": 0.7656,
+      "bandwidth": 0.0269,
+      "power_frac": 0.6184,
+      "pol_degree": 0.3316,
+      "pulse_structure": 1.3685,
+      "pointing_jitter": 0.3411,
+      "pupil_fill_error": 0.2261,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.6543,
+      "bandwidth": 0.0439,
+      "power_frac": 0.4446,
+      "pol_degree": 0.3782,
+      "pulse_structure": 1.2422,
+      "pointing_jitter": 0.2365,
+      "pupil_fill_error": 0.2665,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.4888,
+      "bandwidth": 0.0859,
+      "power_frac": 0.5328,
+      "pol_degree": 0.7218,
+      "pulse_structure": 1.0484,
+      "pointing_jitter": 0.0857,
+      "pupil_fill_error": 0.238,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.5218,
+      "bandwidth": 0.0371,
+      "power_frac": 0.4989,
+      "pol_degree": 0.7334,
+      "pulse_structure": 1.4534,
+      "pointing_jitter": 0.0894,
+      "pupil_fill_error": 0.1815,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.815,
+      "bandwidth": 0.0854,
+      "power_frac": 0.6324,
+      "pol_degree": 0.5898,
+      "pulse_structure": 1.1265,
+      "pointing_jitter": 0.0606,
+      "pupil_fill_error": 0.2649,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.7796,
+      "bandwidth": 0.0469,
+      "power_frac": 0.492,
+      "pol_degree": 0.4309,
+      "pulse_structure": 1.0059,
+      "pointing_jitter": 0.2062,
+      "pupil_fill_error": 0.277,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.6896,
+      "bandwidth": 0.0569,
+      "power_frac": 0.4888,
+      "pol_degree": 0.5565,
+      "pulse_structure": 1.4546,
+      "pointing_jitter": 0.0866,
+      "pupil_fill_error": 0.2021,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.8565,
+      "bandwidth": 0.049,
+      "power_frac": 0.9552,
+      "pol_degree": 0.5351,
+      "pulse_structure": 1.1252,
+      "pointing_jitter": 0.1765,
+      "pupil_fill_error": 0.2171,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.2774,
+      "bandwidth": 0.0515,
+      "power_frac": 0.9879,
+      "pol_degree": 0.6903,
+      "pulse_structure": 1.0335,
+      "pointing_jitter": 0.2503,
+      "pupil_fill_error": 0.1846,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.2677,
+      "bandwidth": 0.0713,
+      "power_frac": 0.4127,
+      "pol_degree": 0.4609,
+      "pulse_structure": 1.4587,
+      "pointing_jitter": 0.2317,
+      "pupil_fill_error": 0.2116,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.838,
+      "bandwidth": 0.0421,
+      "power_frac": 0.7279,
+      "pol_degree": 0.7799,
+      "pulse_structure": 0.6097,
+      "pointing_jitter": 0.3523,
+      "pupil_fill_error": 0.1942,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.8509,
+      "bandwidth": 0.0719,
+      "power_frac": 0.5302,
+      "pol_degree": 0.4851,
+      "pulse_structure": 0.5438,
+      "pointing_jitter": 0.1908,
+      "pupil_fill_error": 0.1842,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.5151,
+      "bandwidth": 0.1834,
+      "power_frac": 0.5728,
+      "pol_degree": 0.4327,
+      "pulse_structure": 0.5,
+      "pointing_jitter": 0.3725,
+      "pupil_fill_error": 0.1878,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.6018,
+      "bandwidth": 0.0747,
+      "power_frac": 0.472,
+      "pol_degree": 0.7606,
+      "pulse_structure": 1.333,
+      "pointing_jitter": 0.1977,
+      "pupil_fill_error": 0.1816,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.308,
+      "bandwidth": 0.0268,
+      "power_frac": 0.4884,
+      "pol_degree": 0.3733,
+      "pulse_structure": 1.2881,
+      "pointing_jitter": 0.2062,
+      "pupil_fill_error": 0.2004,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    },
+    {
+      "coherence": 0.5995,
+      "bandwidth": 0.0502,
+      "power_frac": 0.9501,
+      "pol_degree": 0.4865,
+      "pulse_structure": 0.6471,
+      "pointing_jitter": 0.3895,
+      "pupil_fill_error": 0.1926,
+      "photons": 1.0,
+      "if_loss_db": 0.8,
+      "pol_contrast_proxy": 0.35,
+      "pulse_envelope_proxy": 12.0,
+      "pointing_err_proxy": 0.3
+    }
+  ]
+}
