@@ -1,4 +1,4 @@
-# Scribe paragraph — 2026-09-10T11:05:01Z
+# Scribe paragraph — 2026-09-10T11:06:16Z
 
-## FREEZE LIFTED; FEL-03 FUNDED
-Scrub clean @`a2616b2`. Lab Dir lift bar (b). **FEL-03 FUNDED**. Corpus #85 + research-fel #2 already merged.
+## FEL-10 → FEL-03 handoff landed
+Ticket + pointer + research note. Soft no-gain included. FREEZE LIFTED — FEL-03 climbs OK when Critic KEEP-READY.
