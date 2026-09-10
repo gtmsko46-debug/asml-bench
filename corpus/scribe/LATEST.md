@@ -1,4 +1,4 @@
-# Scribe paragraph — 2026-09-10T09:04:13Z
+# Scribe paragraph — 2026-09-10T09:12:13Z
 
-## Factory — P3–P10 M0 SPEC
-CoS record: **M0 `SPEC.md` PR #1 MERGED** in each of P3–P10 product repos. Spec freeze milestone; builds still bay-gated.
+## DUAL-KEEP HT-1026 ∧ HT-1027
+Diplomat stamped. Lab Director **ACCEPT** twin bump **1015 → 1026**. Soft IF note on **HT-1027** (thin-IF travels).
