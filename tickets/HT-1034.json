@@ -12,7 +12,7 @@
     "assumptions/*"
   ],
   "dual_gate_pair": "HT-1023",
-  "decision": "RUN",
+  "decision": "KEEP",
   "branch": "exp/p2-HT-1034",
   "required_holdout": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
   "hypothesis": "Honest mock-mistral P2 conditioner dual with HT-1023 must follow HT-1022-class structure as a template (NOT byte-paste): (1) reconstruct fill from input pupil_fill_error, (2) correct fill toward coherence-if-v1 pupil_fill_target=0.72 with a named fill variable, (3) emit pupil_err=abs(fill-0.72) with NO multiplicative scale (no *k, no *0.2, no *0.204), (4) derive speckle from field coherence\u00d7bandwidth only \u2014 WITHOUT abs(pfe\u22120.72)*k, WITHOUT forced fill, WITHOUT zeroing coh/bw, WITHOUT cloning HT-1023/1030/1031.",
@@ -53,9 +53,13 @@
     "critic_falsifier_before_foreman",
     "program_md_HT-1022_class_recipe",
     "critic_KEEP_READY",
-    "critic_falsifier_cleared"
+    "critic_falsifier_cleared",
+    "critic_PASS",
+    "KEEP_0.1220_0.0350_1.0",
+    "awaiting_Repro",
+    "awaiting_Diplomat_dual_HT-1023"
   ],
-  "notes": "HT-1034 replaces VOID HT-1031 (*0.204). Critic KEEP-READY 2026-09-10. decision RUN. dual_gate_pair=HT-1023 only after close Critic PASS. PIN 3ed24ec5\u2026. program.md HT-1022-class recipe. Issue #76. Foreman stamp NOW. r2 LIVE pid=1306948 (must-edit). dual 1023 after close Critic PASS.",
+  "notes": "HT-1034 r2 CLOSED KEEP 0.1220/0.0350/1.0. Critic PASS 2026-09-10 (no *k/*0.204/forced-fill; named fill). Dual with HT-1023 after Repro+Diplomat. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Successor of VOID HT-1031.",
   "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r2",
   "recipe": "HT-1022-class: fill = reconstruct(pfe); fill = correct(fill, 0.72); pupil_err = abs(fill - 0.72)  # NO *k; speckle = f(coherence, bandwidth)",
   "structure_sketch": [
