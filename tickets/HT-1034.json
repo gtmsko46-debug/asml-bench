@@ -12,7 +12,7 @@
     "assumptions/*"
   ],
   "dual_gate_pair": "HT-1023",
-  "decision": "KEEP",
+  "decision": "RUN",
   "branch": "exp/p2-HT-1034",
   "required_holdout": "3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
   "hypothesis": "Honest mock-mistral P2 conditioner dual with HT-1023 must follow HT-1022-class structure as a template (NOT byte-paste): (1) reconstruct fill from input pupil_fill_error, (2) correct fill toward coherence-if-v1 pupil_fill_target=0.72 with a named fill variable, (3) emit pupil_err=abs(fill-0.72) with NO multiplicative scale (no *k, no *0.2, no *0.204), (4) derive speckle from field coherence\u00d7bandwidth only \u2014 WITHOUT abs(pfe\u22120.72)*k, WITHOUT forced fill, WITHOUT zeroing coh/bw, WITHOUT cloning HT-1023/1030/1031.",
@@ -55,11 +55,15 @@
     "critic_KEEP_READY",
     "critic_falsifier_cleared",
     "critic_PASS",
-    "KEEP_0.1220_0.0350_1.0",
     "awaiting_Repro",
-    "awaiting_Diplomat_dual_HT-1023"
+    "awaiting_Diplomat_dual_HT-1023",
+    "critic_KEEP_PASS_island",
+    "formal_RUN_until_Repro_Diplomat",
+    "soft_travel_speckle_times_120",
+    "soft_travel_fill_eq_1_minus_pfe",
+    "no_single_lane_KEEP"
   ],
-  "notes": "HT-1034 r2 CLOSED KEEP 0.1220/0.0350/1.0. Critic PASS 2026-09-10 (no *k/*0.204/forced-fill; named fill). Dual with HT-1023 after Repro+Diplomat. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Successor of VOID HT-1031.",
+  "notes": "HT-1034 r2 Critic KEEP PASS (island) on file \u2014 metrics 0.1220/0.0350/1.0. Formal decision=RUN until Repro PASS then Diplomat dual with HT-1023 (no single-lane KEEP promote). Soft travels: *120 speckle scale + 1\u2212pfe reconstruct path. PIN 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8. Repro queued.",
   "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r2",
   "recipe": "HT-1022-class: fill = reconstruct(pfe); fill = correct(fill, 0.72); pupil_err = abs(fill - 0.72)  # NO *k; speckle = f(coherence, bandwidth)",
   "structure_sketch": [
