@@ -1,6 +1,6 @@
 """IF shim sandbox (FEL-10 / P10). Harness may edit this file only."""
 
-PUPIL_CORRECT = 0.02
+PUPIL_CORRECT = 0.12
 PHOTON_KEEP = 1.0
 IF_LOSS_DB = 0.8
 POL_CONTRAST_PROXY = 0.35
