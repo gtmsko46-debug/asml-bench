@@ -1,1 +1,3 @@
 thesis	run	hypothesis	provider	metric	decision	card
+fel-10-if-ownership	HT-1028	KEEP climb r4 toward pupil≤0.10 dual with HT-1033 KEEP	grok	pupil_err=0.1596_SEED;target_le_0.10;digest=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be;partner_1033_KEEP_0.0950;session_r4	RUN	if-spec-fel10
+fel-10-if-ownership	HT-1033	r3 CLOSED KEEP Critic PASS; island KEEP booked	mock-mistral	pupil_err=0.0950;digest=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be;SEED_dual_HT-1028;critic_KEEP_PASS;full_dual_waits_1028_climb	KEEP	if-spec-fel10
