@@ -63,14 +63,14 @@
   "created_at": "2026-09-10T09:23:57Z",
   "branch": "exp/fel-10-HT-1033",
   "baseline_solver": "HT-1028 SEED unpaired; ban HT-1029/1032 write-down paths",
-  "notes": "DUAL-KEEP STAMPED HT-1028\u2227HT-1033 (Diplomat 2026-09-10). Critic+Repro PASS both. Soft no-gain travels. FREEZE closeout; promote separate. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. Metrics pupil_err=0.0950;photons_kept=1.0000.",
+  "notes": "DUAL-KEEP STAMPED HT-1028\u2227HT-1033 (Diplomat 2026-09-10). Critic+Repro PASS both. Soft no-gain travels. FREEZE closeout; promote separate. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. Metrics pupil_err=0.0950;photons_kept=1.0000. | SCRIBE 2026-09-10T11:02:05Z: DUAL-KEEP STAMPED HT-1028\u2227HT-1033 under d0dc1f8a\u2026. Formal KEEP both. Soft **no-gain** travels on 1033. | SCRIBE 2026-09-10T11:04:04Z: Lab Dir APPROVE corpus \u2014 DUAL-KEEP STAMPED HT-1028\u2227HT-1033; soft no-gain; FREEZE closeout; promote later; results.tsv scrub-clean.",
   "dual_gate_pair": "HT-1028",
   "replaces": "HT-1032",
   "required_holdout_sha256": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
   "cheat_trap_expected": true,
   "lasercode_session_id": "ticket-HT-1033-fel10-shim-mistral",
   "stamped_at": "2026-09-10T09:25:35Z",
-  "dual_gate": "SEED_DUAL_PAIRED_HT-1028_Diplomat_RUN_until_1028_KEEP",
+  "dual_gate": "DUAL_KEEP_STAMPED",
   "island_metric": "pupil_err=0.0950",
   "pupil_err": 0.095,
   "KEEP_status": {
@@ -99,6 +99,12 @@
   "critic_KEEP": "PASS",
   "critic": "PASS",
   "repro": "PASS",
-  "diplomat": "RUN_until_dual_HT-1028",
-  "dual_status": "DUAL_KEEP_STAMPED"
+  "diplomat": "DUAL_KEEP_STAMPED",
+  "dual_status": "DUAL_KEEP_STAMPED",
+  "promote_decision": "DUAL_KEEP_STAMPED",
+  "soft_notes": [
+    "no-gain travels"
+  ],
+  "FREEZE": "closeout",
+  "promote": "later"
 }
