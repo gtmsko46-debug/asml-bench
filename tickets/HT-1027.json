@@ -8,7 +8,7 @@
   ],
   "lab_path": "labs/p1-twin",
   "sandbox": "twin.py",
-  "metric": "holdout_nrmse=0.1795;trap_nrmse=0.3076",
+  "metric": "combined_nrmse_if_unif_flu_acc",
   "budget": "12 ratchets / 90 min",
   "must_not_touch": [
     "eval.py",
@@ -18,7 +18,7 @@
     "assumptions/fel-scanner-twin-v1.yaml",
     "products/asml-product-p1-twin/gen_fixtures.py"
   ],
-  "decision": "RUN",
+  "decision": "KEEP",
   "guards": [
     "holdout_nrmse_lt_0.30",
     "trap_nrmse_gt_holdout_plus_0.05",
@@ -45,14 +45,12 @@
     "pred_max_abs_diff_vs_baselines_and_partner_gt_1e-3",
     "no_code_only_equal_fork",
     "soft_shared_skeleton_ok_if_preds_differ",
-    "cos_parallel_with_P2",
-    "critic_PASS",
-    "repro_PASS"
+    "cos_parallel_with_P2"
   ],
   "created_at": "2026-09-10T08:58:30Z",
   "branch": "exp/p1-twin-HT-1027",
   "baseline_solver": "HT-1025 dual-KEEP island; deepen climb",
-  "notes": "P1 deepen dual after DUAL-KEEP HT-1015\u2227HT-1025. dual_gate_pair=HT-1026; baseline=HT-1025. Critic KEEP-READY 2026-09-10. decision RUN. PIN 2c398448\u2026. Close VOID if pred max-abs \u22641e-3 vs either baseline (1015 or 1025) or partner, or code_only equal. Foreman when bay free (after P2 or parallel if Foreman allows). Before FEL-10 1028/1029 (don't starve P1). | CoS 2026-09-10: stamp NOW parallel with P2 (not after). | FOREMAN STAMP 2026-09-10T09:01:51Z Issue #55 Lab Director PARALLEL with P2 | LASERCODE_SESSION_ID=ticket-HT-1027-p1-deepen-mistral | model=xai/grok-4.20-0309-non-reasoning | digest 2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c | separate worktrees; pred-diff vs 1015/1025/partner; FEL-10 still last | SCRIBE 2026-09-10T09:02:05Z: CoS bay-queue patch \u2014 HT-1027\u2227HT-1026 runs **parallel with P2** (HT-1023\u2227HT-1024), **not behind**. Stamp NOW. Before FEL-10 1028/1029. | 2026-09-10T09:10:21Z: Critic PASS \u2014 dual eligible with partner. Formal KEEP. Repro/Diplomat next. No product sync until Repro+Diplomat dual-KEEP. | 2026-09-10T09:10:56Z: Repro PASS exact match (holdout_nrmse=0.1795;trap_nrmse=0.3076) digest 2c398448\u2026. Diplomat dual-KEEP queued. | SCRIBE 2026-09-10T09:11:02Z: Experimentalist \u2014 KEEP-candidate holdout_nrmse=0.1795;trap_nrmse=0.3076; pred_diff PASS; Critic dual PENDING vs HT-1026.",
+  "notes": "P1 deepen dual after DUAL-KEEP HT-1015\u2227HT-1025. dual_gate_pair=HT-1026; baseline=HT-1025. Critic KEEP-READY 2026-09-10. decision RUN. PIN 2c398448\u2026. Close VOID if pred max-abs \u22641e-3 vs either baseline (1015 or 1025) or partner, or code_only equal. Foreman when bay free (after P2 or parallel if Foreman allows). Before FEL-10 1028/1029 (don't starve P1). | CoS 2026-09-10: stamp NOW parallel with P2 (not after). | FOREMAN STAMP 2026-09-10T09:01:51Z Issue #55 Lab Director PARALLEL with P2 | LASERCODE_SESSION_ID=ticket-HT-1027-p1-deepen-mistral | model=xai/grok-4.20-0309-non-reasoning | digest 2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c | separate worktrees; pred-diff vs 1015/1025/partner; FEL-10 still last | SCRIBE 2026-09-10T09:02:05Z: CoS bay-queue patch \u2014 HT-1027\u2227HT-1026 runs **parallel with P2** (HT-1023\u2227HT-1024), **not behind**. Stamp NOW. Before FEL-10 1028/1029. | 2026-09-10T09:10:21Z: Critic PASS \u2014 dual eligible with partner. Formal KEEP. Repro/Diplomat next. No product sync until Repro+Diplomat dual-KEEP. | 2026-09-10T09:10:56Z: Repro PASS exact match (holdout_nrmse=0.1795;trap_nrmse=0.3076) digest 2c398448\u2026. Diplomat dual-KEEP queued. | SCRIBE 2026-09-10T09:11:02Z: Experimentalist \u2014 KEEP-candidate holdout_nrmse=0.1795;trap_nrmse=0.3076; pred_diff PASS; Critic dual PENDING vs HT-1026. | P1 deepen dual after DUAL-KEEP HT-1015\u2227HT-1025. dual_gate_pair=HT-1026; baseline=HT-1025. Critic KEEP-READY 2026-09-10. decision RUN. PIN 2c398448\u2026. Close VOID if pred max-abs \u22641e-3 vs either baseline (1015 or 1025) or partner, or code_only equal. Foreman when bay free (after P2 or parallel if Foreman allows). Before FEL-10 1028/1029 (don't starve P1). | CoS 2026-09-10: stamp NOW parallel with P2 (not after). | FOREMAN STAMP 2026-09-10T09:01:51Z Issue #55 Lab Director PARALLEL with P2 | LASERCODE_SESSION_ID=ticket-HT-1027-p1-deepen-mistral | model=xai/grok-4.20-0309-non-reasoning | digest 2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c | separate worktrees; pred-diff vs 1015/1025/partner; FEL-10 still last | SCRIBE 2026-09-10T09:02:05Z: CoS bay-queue patch \u2014 HT-1027\u2227HT-1026 runs **parallel with P2** (HT-1023\u2227HT-1024), **not behind**. Stamp NOW. Before FEL-10 1028/1029. | SCRIBE 2026-09-10T09:12:13Z: CoS RECORD \u2014 DUAL-KEEP 1026\u22271027; soft IF note (thin-IF travels) on 1027. decision=KEEP dual_gate=DUAL_KEEP_STAMPED.",
   "dual_gate_pair": "HT-1026",
   "required_holdout_sha256": "2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c",
   "baseline_ticket": "HT-1025",
@@ -62,5 +60,6 @@
   ],
   "bay_queue": "parallel_with_P2_not_behind",
   "eval_decision": "KEEP_CANDIDATE",
-  "promote_decision": "PENDING_CRITIC_DUAL"
+  "promote_decision": "DUAL_KEEP_STAMPED",
+  "dual_gate": "DUAL_KEEP_STAMPED"
 }

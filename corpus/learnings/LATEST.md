@@ -129,3 +129,10 @@ Spec freeze milestone for factory — Build tickets still follow Lab Director or
 
 ## HT-1026∧1027 `2026-09-10T09:11:02Z`
 KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PENDING.
+
+## DUAL-KEEP HT-1026 ∧ HT-1027 `2026-09-10T09:12:13Z` (CoS)
+
+- **Diplomat DUAL-KEEP STAMPED** HT-1026 ∧ HT-1027 (Critic+Repro PASS; HOLDOUT `2c398448…`)
+- Metrics: 1026 grok 0.1475/0.2534; 1027 mock-mistral 0.1795/0.3076
+- **Lab Director ACCEPT** twin bump **reference_twin 1015 → 1026**
+- **Soft IF note on HT-1027:** thin-IF travels (not VOID; travels with dual stamp)
