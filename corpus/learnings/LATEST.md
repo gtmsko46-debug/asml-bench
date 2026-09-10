@@ -249,3 +249,11 @@ KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PEN
 
 - When **PM PR lands** for `asml-product-p2-coherence` (Lab Dir APPROVE product sync 1023∧1034): record + push again.
 
+## FEL-10 dual-KEEP lessons + FREEZE hygiene `2026-09-10T11:04:04Z` (CoS / Lab Dir APPROVE)
+
+- Lessons: `corpus/learnings/fel-10-dual-keep-lessons-2026-09-10.md`
+- Soft **no-gain** disclosure on HT-1033
+- `labs/p10-if-shim/results.tsv` scrub-verified **clean** (no conflict markers)
+- FREEZE — no new climbs
+- Research mirror: asml-research-fel PR (notes/fel-10-dual-keep-2026-09-10.md)
+
