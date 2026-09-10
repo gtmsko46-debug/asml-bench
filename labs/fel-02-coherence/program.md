@@ -1,37 +1,28 @@
-# program.md — FEL-02 coherence
+# program.md — P2 coherence — HT-1023
 
 ## Bindings
+- **ticket_id:** HT-1023
+- **provider:** grok → xai/grok-4.6 --variant high
+- **sandbox:** conditioner.py (`labs/fel-02-coherence/conditioner.py`)
+- **HOLDOUT pin:** 3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8
+- **pupil freeze:** main@84520ee
+- **dual_gate_pair:** HT-1024
+- **budget:** 12 ratchets / 90m
+- **product:** asml-product-p2-coherence (importable conditioner)
 
-- **thesis:** `fel-02-coherence`
-- **assumption_card:** `coherence-if-v1` (pair with `fel-source-v1` only if ticket lists both; primary card is coherence)
-- **provider:** stamp per ticket — `grok` for solver/thesis work; `mock-mistral` for docs/scaffold/weak-island baseline
-- **sandbox:** `solver.py`
-- **metric:** speckle contrast, pupil-fill RMSE, photons_kept (cheat = discard photons)
-- **budget:** stamp on ticket
-- **ticket_id:** stamp on ticket
+## Hypothesis
+Illuminator-near conditioner productize off FEL-02 dual-KEEP HT-1011∧HT-1022 under pupil-frozen eval.
 
-## Hypothesis (one sentence)
+## KEEP (pupil-frozen)
+- pupil_err ≤ 0.10
+- speckle < 0.15
+- photons_kept ≥ 0.55
+- literal pupil_fill_target=0.72; field coherence+bandwidth; pupil_err=|fill-0.72|
 
-Stamp exactly one hypothesis on the Harness Ticket; copy it here for the run.
+## FORBIDDEN
+- abs(delta)*k write-down; invented coherence from pupil_err
+- byte clone of twin / HT-1011 / HT-1022 / other island
+- touch eval.py / fixture / assumptions / EVAL_PUPIL_FREEZE.md
 
-## Guards
-
-- Photons are not discarded to fake coherence metrics
-- Frozen eval + holdout remain untouched
-- Metrics stay synthetic / assumption-card bound
-
-## Must not touch
-
-- `eval.py`
-- `fixture/holdout*`
-- `fixture/cheat_trap.json`
-- `fixture/HOLDOUT.sha256`
-- assumption cards under `assumptions/`
-
-## Cheat-trap / RESET notes
-
-Discarding photons is the designed cheat. RESET only when trap fires as designed; holdout hash must still match `HOLDOUT.sha256`.
-
-## Dual-island note
-
-Same frozen `eval.py` + holdout for both `mock-mistral` and `grok` tickets. Single-provider demos blocked. Do not trash Mistral in writeups.
+## Close
+Commit+push experiment branch before claiming close.
