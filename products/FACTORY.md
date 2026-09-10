@@ -26,3 +26,10 @@
 ## Bay
 
 P1 #17 ship-queue + deepen 1026/1027; P2 HT-1023/1024 bay LIVE (CoS keep-bay-hot). Starved list LIFTED.
+
+<!-- scribe-bay-queue-2026-09-10 -->
+Scribe: **HT-1026∧HT-1027 ∥ P2** (not behind). Before FEL-10 1028∧1029.
+Scribe `2026-09-10T09:02:05Z`: **HT-1026∧HT-1027 ∥ P2** (not behind). Before FEL-10 1028∧1029.
+
+<!-- scribe-p3-p10-m0 -->
+Scribe: P3–P10 M0 SPEC.md PR#1 MERGED `2026-09-10T09:04:13Z`.

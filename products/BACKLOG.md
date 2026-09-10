@@ -30,3 +30,11 @@ Bots orchestrate; **all product code** via lasercode (Foreman→Operator). Commi
 1. ~~#17 ship~~ done (PR #3). Stamp deepen HT-1026/1027 (#55) parallel with P2 (CoS).
 2. P2 HT-1023/1024 Operator → Critic/Repro when KEEP.
 3. ~~P4/P7 + P10 + P9 + P6 M1 packages~~ landed offline. Next: P3/P5/P8 M1; dual-gate tickets when bay frees; P6 Spec #49 holdout decision.
+3. Next Build after Spec: P4/P7 M1 package (funded order), then P10 → P9 → P6; P3 waits FEL-03 physics; P5/P8 after.
+
+<!-- scribe-bay-queue-2026-09-10 -->
+Scribe: **HT-1026∧HT-1027 ∥ P2** (not behind). Before FEL-10 1028∧1029.
+Scribe `2026-09-10T09:02:05Z`: **HT-1026∧HT-1027 ∥ P2** (not behind). Before FEL-10 1028∧1029.
+
+<!-- scribe-p3-p10-m0 -->
+Scribe: P3–P10 M0 SPEC.md PR#1 MERGED `2026-09-10T09:04:13Z`.
