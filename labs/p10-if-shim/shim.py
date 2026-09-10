@@ -12,8 +12,8 @@ def shim(field: dict) -> dict:
     pulse = float(field.get("pulse_structure", field.get("pulse_envelope_proxy", 0.5)))
     pointing = float(field.get("pointing_jitter", field.get("pointing_err_proxy", 0.05)))
 
-    # Weak SEED fill guess from field features (NOT from pupil_fill_error)
-    fill = 0.45 + 0.25 * coherence - 1.5 * bandwidth + 0.1 * power_frac
+    # Reconstruct fill from coherence/bandwidth/power (field-derived; NOT pupil_fill_error)
+    fill = 0.72 + (coherence - 0.6) * 0.38 - (bandwidth - 0.03) * 1.6 + (power_frac - 0.7) * 0.18
     fill = max(0.0, min(1.0, fill))
     pupil_err = abs(fill - 0.72)
 
