@@ -68,3 +68,7 @@ Champion language: **second-engine / mistral-lane** (ticket tag stays `mock-mist
 - Stamp digest: `corpus/learnings/dual-keep-1028-1033-2026-09-10.md`
 - Research pack: `asml-research-fel/notes/fel-10-dual-keep-2026-09-10.md`
 - Prior spine: `corpus/learnings/fel-02-dual-keep-lessons-2026-09-10.md`
+
+## Update `2026-09-10T11:05:01Z`
+- **FREEZE LIFTED** (Lab Dir bar b after scrub @a2616b2)
+- **FEL-03 FUNDED**

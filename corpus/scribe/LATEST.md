@@ -1,4 +1,4 @@
-# Scribe paragraph — 2026-09-10T11:04:04Z
+# Scribe paragraph — 2026-09-10T11:05:01Z
 
-## FEL-10 lessons landed + results scrubbed
-Dual-KEEP 1028∧1033 lessons pack on corpus. Soft no-gain. `results.tsv` clean. FREEZE — no new climbs.
+## FREEZE LIFTED; FEL-03 FUNDED
+Scrub clean @`a2616b2`. Lab Dir lift bar (b). **FEL-03 FUNDED**. Corpus #85 + research-fel #2 already merged.
