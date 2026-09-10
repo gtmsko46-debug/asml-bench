@@ -46,16 +46,35 @@
     "parallel_ok_with_HT-1030",
     "cos_fel10_next_after_1030_up",
     "required_holdout_sha256=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
-    "HOLDOUT_sha256_d0dc1f8a"
+    "HOLDOUT_sha256_d0dc1f8a",
+    "SEED_dual_HT-1028_AND_HT-1033",
+    "critic_PASS_SEED_honesty",
+    "director_accept_SEED_dual",
+    "KEEP_climb_pupil_le_0.10",
+    "partner_HT-1033_critic_KEEP_PASS",
+    "explicit_correct_toward_0.72",
+    "reconstruct_fill_NOT_from_pupil_fill_error",
+    "no_pupil_in_minus_k_family",
+    "no_PUPIL_CORRECT_any_name",
+    "no_abs_delta_scale_write_down",
+    "pupil_err_equals_abs_fill_minus_072_unscaled",
+    "session_r4",
+    "critic_KEEP_READY_climb"
   ],
   "created_at": "2026-09-10T08:56:55Z",
-  "hypothesis": "SEED: IF shim reports all five IF Spec axes (pupil/etendue, power, pol, pulse, pointing) under coherence/IF cards without discarding photons.",
+  "hypothesis": "KEEP climb: match HT-1033-class honest reconstruct \u2014 maintain fill from field features (coherence/bandwidth/power; NOT pupil_fill_error), apply explicit bounded correction toward pupil_fill_target=0.72, emit pupil_err=|fill-0.72| unscaled \u22640.10, field-derived pol/pulse/pointing, photons_kept==1.0 \u2014 no pupil_in\u2212k / PUPIL_CORRECT / abs(delta)*k. Dual with Critic-PASS HT-1033 KEEP.",
   "ticket_id": "HT-1028",
   "provider": "grok",
-  "notes": "FEL-10 SEED dual-gate. dual_gate_pair=HT-1029. Model xai/grok-4.6. Critic KEEP-READY + IF Spec SEATED + Warden ACCEPT. Contract IF_SPEC_FEL10_CONTRACT.md + FEL-10_CLAIM_DRAFT.md. photons_kept_eq_1.0 hard (Director); IF Spec \u22650.55 secondary. NO lpp-source-v2 / tin_not_softened / if_power_axis_uses_v2 on SEED. Foreman stamp only when P2 bay slot \u2014 do not starve P1/P2. Issue #57. | SCRIBE 2026-09-10T09:00:53Z: CoS LATEST encode \u2014 FEL-10 SEED dual pair HT-1028\u2227HT-1029 on books (Issue #57). | FOREMAN STAMP 2026-09-10T09:12:10Z Issue #57 Critic KEEP-READY | LASERCODE_SESSION_ID=ticket-HT-1028-fel10-shim-grok | model=xai/grok-4.6 --variant high | digest b5b334a45f1cecc8\u2026 | dual_gate_pair=HT-1029 | parallel with HT-1030 (P1 deepen done) | SEED climb photons=1.0 hard | 2026-09-10T09:12:22Z: PIN corrected to live fixture digest d1cefa68bb0d4312\u2026 (Experimentalist b5b334a4 was stale vs card/file d1cefa68). | EI freeze HOLDOUT=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
+  "notes": "KEEP climb after partner HT-1033 Critic KEEP PASS (0.0950). Current SEED pupil=0.1596 \u2014 need \u22640.10. Session r4. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. dual_gate_pair=HT-1033. Critic bars same as 1033 reconstruct. Foreman stamp\u2192Operator NOW. No dual-KEEP promote until this KEEP + Critic+Repro.",
   "branch": "exp/fel-10-HT-1028",
-  "dual_gate_pair": "HT-1029",
+  "dual_gate_pair": "HT-1033",
   "required_holdout_sha256": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
   "lasercode_session_id": "ticket-HT-1028-fel10-shim-grok",
-  "stamped_at": "2026-09-10T09:12:10Z"
+  "stamped_at": "2026-09-10T09:12:10Z",
+  "tags": [
+    "HOLDOUT_SoT_d0dc1f8a",
+    "HOLDOUT_authoritative_d0dc1f8a",
+    "required_holdout_sha256=d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be"
+  ],
+  "session_hint": "ticket-HT-1028-fel10-shim-grok-r4"
 }
