@@ -127,3 +127,10 @@ Source: `tickets/FEL-10_CLAIM_DRAFT.md`, `tickets/IF_SPEC_FEL10_CONTRACT.md`.
 
 Spec freeze milestone for factory — Build tickets still follow Lab Director order / bay capacity.
 
+## DUAL-KEEP HT-1026 ∧ HT-1027 `2026-09-10T09:12:13Z` (CoS)
+
+- **Diplomat DUAL-KEEP STAMPED** HT-1026 ∧ HT-1027 (Critic+Repro PASS; HOLDOUT `2c398448…`)
+- Metrics: 1026 grok 0.1475/0.2534; 1027 mock-mistral 0.1795/0.3076
+- **Lab Director ACCEPT** twin bump **reference_twin 1015 → 1026**
+- **Soft IF note on HT-1027:** thin-IF travels (not VOID; travels with dual stamp)
+

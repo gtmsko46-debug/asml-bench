@@ -15,3 +15,6 @@ P1 product **MERGED** `asml-product-p1-twin#3` — dual-KEEP 1015∧1025 shipped
 
 ## Factory `2026-09-10T09:04:13Z`
 P3–P10 M0 `SPEC.md` PR#1 MERGED each product repo (CoS).
+
+## DUAL-KEEP 1026∧1027 `2026-09-10T09:12:13Z`
+Stamped. Lab Dir ACCEPT twin bump 1015→1026. Soft IF note on 1027.
