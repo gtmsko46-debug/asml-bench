@@ -11,6 +11,16 @@ Pointers and *why* — **not** pirated PDFs. Prefer DOI / publisher / arXiv / op
 | `corpus/papers/` | OA PDFs + `corpus.bib` + `ABSTRACTS.md` |
 | `corpus/datasets/` | Licensed clones + `README.md` + per-clone `CLONE_NOTE.md` |
 
+## Lab-log (Archivist)
+
+| Path | Contents |
+|------|----------|
+| [`lab-log/`](lab-log/) | Single continuous lab-log: Scribe lifts + citeable KEEP register |
+| [`lab-log/LATEST.md`](lab-log/LATEST.md) | Current digest |
+| [`lab-log/keeps/REGISTER.md`](lab-log/keeps/REGISTER.md) | Only KEEPs Scorekeeper/Briefing may cite |
+| [`learnings/`](learnings/) | Scribe-encoded CoS/Critic/PI durable learnings |
+| [`learnings/LATEST.md`](learnings/LATEST.md) | Current champion/lab learnings digest |
+
 ## Starter notes (local)
 
 | Note | Path | Ties to |

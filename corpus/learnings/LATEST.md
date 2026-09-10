@@ -104,3 +104,9 @@ Source: `tickets/FEL-10_CLAIM_DRAFT.md`, `tickets/IF_SPEC_FEL10_CONTRACT.md`.
 - Stamp NOW when Foreman capacity allows — do not wait for P2 close.
 - Still **before** FEL-10 HT-1028∧HT-1029 (don't starve P1).
 
+## P1 product ship `2026-09-10T09:03:45Z` (CoS)
+
+- **MERGED:** `asml-product-p1-twin` PR **#3**
+- **Source:** dual-KEEP HT-1015 ∧ HT-1025 (`P1-twin-dual-001`) shipped as `reference_twin`
+- Issue #17 APPROVE consummated — product sync landed
+
