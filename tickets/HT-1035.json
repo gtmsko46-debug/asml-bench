@@ -51,9 +51,12 @@
     "CoS_STOP",
     "successor_path=Illuminator_offline_PR"
   ],
-  "notes": "WITHDRAWN/VOID \u2014 CoS STOP: product sync is offline PR only (no Foreman/Operator bay). Lab Dir EXPLICIT OK for offline asml-product-p2-coherence PR. Soft *120+1\u2212pfe still mandatory in SPEC/README. Issue #82 closed as withdrawn Foreman path. Dual-KEEP 1023\u22271034 already stamped.",
+  "notes": "WITHDRAWN/VOID \u2014 CoS STOP: product sync is offline PR only (no Foreman/Operator bay). Lab Dir EXPLICIT OK for offline asml-product-p2-coherence PR. Soft *120+1\u2212pfe still mandatory in SPEC/README. Issue #82 closed as withdrawn Foreman path. Dual-KEEP 1023\u22271034 already stamped. | SCRIBE 2026-09-10T11:01:27Z: Experimentalist BOARD \u2014 HT-1035 VOID/withdrawn (offline product PR #3). Issue #82 withdrawn Foreman path. FREEZE no new stamps.",
   "soft_travels": [
     "speckle = coherence * bandwidth * 120",
     "fill = 1 - pfe identity reconstruct (HT-1022-class)"
-  ]
+  ],
+  "withdrawn": true,
+  "withdrawn_reason": "offline_product_PR_3",
+  "dual_gate": "NONE"
 }

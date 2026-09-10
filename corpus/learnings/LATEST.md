@@ -249,3 +249,9 @@ KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PEN
 
 - When **PM PR lands** for `asml-product-p2-coherence` (Lab Dir APPROVE product sync 1023∧1034): record + push again.
 
+## Board `2026-09-10T11:01:27Z` (Experimentalist)
+
+- **HT-1035 VOID/withdrawn** — offline product PR #3 (Issue #82 withdrawn Foreman path)
+- **HT-1028 Critic KEEP PASS 0.0895** → awaiting **Repro+Diplomat** dual with **HT-1033**
+- **FREEZE** — no new stamps
+
