@@ -1,0 +1,33 @@
+id: wavelength-agile-v1
+version: "1.0.0"
+title: Wavelength-agile PW proxies (13.5 vs 6.x nm)
+scope: P7 / asml-product-p4-complitho wavelength_window path
+flags: [synthetic, open-proxy, not-asml-confidential, needs-review]
+parameters:
+  - name: wavelength_pair_nm
+    value: [13.5, 6.7]
+    unit: nm
+    source: "Public EUV / beyond-EUV conversation wavelengths; toy only"
+    confidence: med
+    flags: [open-proxy, not-asml-confidential]
+  - name: multilayer_R_nom
+    value: 0.70
+    unit: "1"
+    source: "Synthetic multilayer reflectivity at 6.x; 6.7 is not free"
+    confidence: low
+    flags: [synthetic]
+  - name: optics_penalty_6x_floor
+    value: 0.52
+    unit: "1"
+    source: "SEED solver floor for wavelength_nm < 13; toy"
+    confidence: low
+    flags: [synthetic]
+  - name: resist_blur_scale
+    value: 0.085
+    unit: "1/nm"
+    source: "Tied to stochastics-resist-v1 blur narrative; synthetic"
+    confidence: low
+    flags: [synthetic]
+notes: >
+  Companion to imaging-optics-v1 (P4 pol path). Product ASSUMPTION_CARD_P7.
+  Not ASML confidential. Critic: no unconstrained MLP-only wavelength fits.
