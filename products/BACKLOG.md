@@ -1,5 +1,8 @@
 # Product backlog P1–P10 (Product Manager)
 
+> **Champion docs:** [asml-factory-showcase](https://github.com/gtmsko46-debug/asml-factory-showcase) — single place for factory/product narrative (decks / business / products / research). Keep product repos thin.
+
+
 Updated: 2026-09-10 (**Champion FREEZE** — no new hills; docs/READMEs/writeups only). (Diplomat **DUAL-KEEP HT-1015∧HT-1025**; Lab Director APPROVE #17).  
 **Factory:** Spec → Build → Review → Ship. [`FACTORY.md`](FACTORY.md) · Epic [#45](https://github.com/gtmsko46-debug/asml-bench/issues/45).  
 Bots orchestrate; **all product code** via lasercode (Foreman→Operator). Commit+push every change to `asml-product-p*`.
