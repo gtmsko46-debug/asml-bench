@@ -17,7 +17,7 @@
     "fixture/HOLDOUT.sha256",
     "assumptions/*"
   ],
-  "decision": "RUN",
+  "decision": "KEEP",
   "guards": [
     "if_spec_fel10_contract_bound",
     "if_spec_pupil_err_max=0.10",
@@ -71,7 +71,7 @@
   "hypothesis": "KEEP climb: match HT-1033-class honest reconstruct \u2014 maintain fill from field features (coherence/bandwidth/power; NOT pupil_fill_error), apply explicit bounded correction toward pupil_fill_target=0.72, emit pupil_err=|fill-0.72| unscaled \u22640.10, field-derived pol/pulse/pointing, photons_kept==1.0 \u2014 no pupil_in\u2212k / PUPIL_CORRECT / abs(delta)*k. Dual with Critic-PASS HT-1033 KEEP.",
   "ticket_id": "HT-1028",
   "provider": "grok",
-  "notes": "HT-1028 r4 CLOSED KEEP-cand pupil_err=0.0895 photons=1.0. Critic KEEP PASS (FILL_GAIN correct). sha=f82062a. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. Dual with HT-1033 after Repro+Diplomat (Diplomat holds promote). Repro PASS both sides ready for Diplomat dual-KEEP HT-1028\u2227HT-1033.",
+  "notes": "HT-1028 r4 CLOSED KEEP-cand pupil_err=0.0895 photons=1.0. Critic KEEP PASS (FILL_GAIN correct). sha=f82062a. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. Dual with HT-1033 after Repro+Diplomat (Diplomat holds promote). Repro PASS both sides ready for Diplomat dual-KEEP HT-1028\u2227HT-1033. | 2026-09-10T11:01:11Z: Diplomat DUAL-KEEP stamped HT-1028\u2227HT-1033. Soft no-gain partner 1033 travels. FREEZE; promote/ship separate. | SCRIBE 2026-09-10T11:01:27Z: Experimentalist BOARD \u2014 HT-1028 Critic KEEP PASS 0.0895 \u2192 awaiting Repro+Diplomat dual with HT-1033. FREEZE no new stamps.",
   "branch": "exp/fel-10-HT-1028",
   "dual_gate_pair": "HT-1033",
   "required_holdout_sha256": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
@@ -89,5 +89,18 @@
     "pid": 1313221,
     "target": "pupil_le_0.10"
   },
-  "dual_gate": "SEED_DUAL_PAIRED_HT-1033_no_dual_KEEP_claim"
+  "dual_gate": "PENDING_Repro+Diplomat_vs_HT-1033",
+  "dual_status": "DIPLOMAT_DUAL_KEEP",
+  "diplomat": "DUAL_KEEP",
+  "repro": "PASS",
+  "critic": "PASS",
+  "metrics": {
+    "pupil_err": 0.0895,
+    "photons_kept": 1.0,
+    "digest": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be"
+  },
+  "critic_KEEP": "PASS",
+  "pupil_err": 0.0895,
+  "island_KEEP": true,
+  "FREEZE": "no_new_stamps"
 }
