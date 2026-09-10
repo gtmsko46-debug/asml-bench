@@ -7,7 +7,7 @@
   "product_repo": "asml-product-p2-coherence",
   "provider": "grok",
   "budget": "6 ratchets / 45 min",
-  "decision": "SEED",
+  "decision": "VOID",
   "dual_gate_pair": "HT-1023\u2227HT-1034",
   "source_dual_keep": [
     "HT-1023",
@@ -45,11 +45,13 @@
     "soft_travel_disclosure_required",
     "provider_grok_STEM_sync",
     "required_holdout_sha256=3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8",
-    "critic_PENDING_KEEP_READY",
-    "Foreman_after_Critic",
-    "path_Foreman_Operator_commit_push_PR_LabDir_merge"
+    "path_Foreman_Operator_commit_push_PR_LabDir_merge",
+    "WITHDRAWN_offline_product_PR_only",
+    "no_Foreman_Operator",
+    "CoS_STOP",
+    "successor_path=Illuminator_offline_PR"
   ],
-  "notes": "Lab Dir GREENLIGHT via Illuminator. Product sync off DUAL-KEEP HT-1023\u2227HT-1034. Soft *120 + 1\u2212pfe must be explicit in SPEC.md + README.md. Path: Foreman\u2192Operator\u2192commit+push\u2192PR\u2192Lab Dir merge review. Critic KEEP-READY before Foreman. decision SEED until Critic; flip RUN on KEEP-READY.",
+  "notes": "WITHDRAWN/VOID \u2014 CoS STOP: product sync is offline PR only (no Foreman/Operator bay). Lab Dir EXPLICIT OK for offline asml-product-p2-coherence PR. Soft *120+1\u2212pfe still mandatory in SPEC/README. Issue #82 closed as withdrawn Foreman path. Dual-KEEP 1023\u22271034 already stamped.",
   "soft_travels": [
     "speckle = coherence * bandwidth * 120",
     "fill = 1 - pfe identity reconstruct (HT-1022-class)"
