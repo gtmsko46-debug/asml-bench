@@ -1,45 +1,30 @@
-# program.md — P1 FEL↔scanner digital twin
+# program.md — P1 twin — HT-1025
 
 ## Bindings
+- **ticket_id:** HT-1025
+- **session:** ticket-HT-1016-p1-deepen-mistral-r3 (NOT -r2)
+- **provider:** mock-mistral → xai/grok-4.20-0309-non-reasoning
+- **sandbox:** twin.py (`labs/p1-twin/twin.py`)
+- **HOLDOUT pin:** 2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c
+- **dual_gate_pair:** HT-1015
+- **replaces:** HT-1020 (VOID comment-fork)
+- **budget:** 12 ratchets / 90m
+- **start:** fresh SEED (not HT-1015 paste); twin.py.1015ref reference only
 
-- **thesis:** `p1-twin`
-- **assumption_card:** `fel-scanner-twin-v1`
-- **provider:** stamp per ticket — `grok` for twin/thesis work; `mock-mistral` for docs/scaffold/weak-island baseline
-- **sandbox:** `twin.py` (only file harness may edit)
-- **metrics:** `if_power_w`, `uniformity`, `first_mirror_fluence`, `illuminator_acceptance` (combined normalized RMSE vs holdout)
-- **budget:** stamp on ticket
-- **ticket_id:** stamp on ticket
-- **product:** `asml-product-p1-twin`
+## Hypothesis
+Independent mock-mistral twin with executable coef/structure change on HOLDOUT 2c398448 that clears holdout_nrmse<0.30 and trap_nrmse>holdout+0.05 with holdout prediction vector materially different from HT-1015 (max abs diff > 1e-3) — not a comment/sha-only fork or metric paste.
 
-## Hypothesis (one sentence)
+## KEEP bar
+- holdout_nrmse < 0.30
+- trap_nrmse > holdout + 0.05
+- IF_COUPLING & MIRROR_LOAD nonzero
+- max abs pred diff vs HT-1015 > 1e-3 (`python3 /workspace/tmp/check-pred-diff-vs-1015.py`)
 
-Stamp exactly one hypothesis on the Harness Ticket; copy it here for the run.
-
-## Guards
-
-- IF / thermal coupling terms (`IF_COUPLING`, `MIRROR_LOAD`) must be non-zero when present in `twin.py`
-- No `platform==NXE` special-case forks
-- Do not edit eval or fixtures
-- Metrics stay synthetic / assumption-card bound; no confidential scanner numbers
-- Unconstrained mlp/torch/sklearn fits that crush train while failing holdout → VOID
+## VOID if
+- preds ≈ HT-1015 (diff ≤1e-3)
+- comment-only fork
+- truth_v2 / gen_fixtures.truth clone
+- restart 1016 / reuse r2 / paste 1015 twin
 
 ## Must not touch
-
-- `eval.py`
-- `fixture/holdout*`
-- `fixture/cheat_trap.json`
-- `fixture/HOLDOUT.sha256`
-- `assumptions/fel-scanner-twin-v1.yaml`
-- other labs' eval/fixtures
-
-## Cheat-trap / RESET notes
-
-Cheat-trap punishes naive constant predictors and discarded-photon cheats (ignoring `beam_split_ratio`). RESET only when trap fires as designed; holdout hash must still match `HOLDOUT.sha256`.
-
-## Dual-island note
-
-Same frozen `eval.py` + holdout for both `mock-mistral` and `grok` tickets. Single-provider demos blocked. Do not trash Mistral or tin-LPP in writeups.
-
-## Promotion gate
-
-Promotion needs dual-provider SEED→KEEP path. Product ship path goes through Product Manager Bot backlog, not thesis KEEP alone.
+eval.py, fixture/*, assumptions/*, gen_fixtures.py
