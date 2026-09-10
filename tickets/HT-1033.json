@@ -46,12 +46,15 @@
     "no_abs_delta_scale_write_down",
     "Foreman_ban_pupil_in_minus_k",
     "no_forced_fill_to_0.72",
-    "reconstruct_fill_NOT_from_pupil_fill_error"
+    "reconstruct_fill_NOT_from_pupil_fill_error",
+    "SEED_dual_with_HT-1028",
+    "critic_PASS_SEED_honesty",
+    "needs_explicit_correct_step_rekick"
   ],
   "created_at": "2026-09-10T09:23:57Z",
   "branch": "exp/fel-10-HT-1033",
   "baseline_solver": "HT-1028 SEED unpaired; ban HT-1029/1032 write-down paths",
-  "notes": "HT-1033 replaces VOID HT-1032. Critic KEEP-READY (six falsifiers locked). Director OK reconstruct design. PIN d0dc1f8a\u2026. dual_gate_pair=HT-1028 only after honest close PASS. Issue #75. Foreman stamp NOW. | FOREMAN STAMP 2026-09-10T09:25:35Z Issue #75 Critic KEEP-READY | LASERCODE_SESSION_ID=ticket-HT-1033-fel10-shim-mistral | model=xai/grok-4.20-0309-non-reasoning | digest d0dc1f8a\u2026 | branch exp/fel-10-HT-1033 | dual HT-1028 after honest PASS only | clean start without PUPIL_CORRECT DNA",
+  "notes": "HT-1033 replaces VOID HT-1032. Critic KEEP-READY (six falsifiers locked). Director OK reconstruct design. PIN d0dc1f8a\u2026. dual_gate_pair=HT-1028 only after honest close PASS. Issue #75. Foreman stamp NOW. | FOREMAN STAMP 2026-09-10T09:25:35Z Issue #75 Critic KEEP-READY | LASERCODE_SESSION_ID=ticket-HT-1033-fel10-shim-mistral | model=xai/grok-4.20-0309-non-reasoning | digest d0dc1f8a\u2026 | branch exp/fel-10-HT-1033 | dual HT-1028 after honest PASS only | clean start without PUPIL_CORRECT DNA Critic PASS SEED honesty; SEED dual with HT-1028 booked. KEEP climb needs explicit correct-step re-kick.",
   "dual_gate_pair": "HT-1028",
   "replaces": "HT-1032",
   "required_holdout_sha256": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
