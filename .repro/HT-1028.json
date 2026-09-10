@@ -1,0 +1,26 @@
+{
+  "ticket_id": "HT-1028",
+  "thesis": "fel-10-if-ownership",
+  "provider": "grok",
+  "lab": "labs/p10-if-shim",
+  "sandbox": "shim.py",
+  "claimed": {"pupil_err": 0.0895, "photons_kept": 1.0, "island": "p10-grok", "commit": "f82062a"},
+  "shim_sha256": "6d56ddd7524999d02b0a336baf681d4a28edcb8bb83e3fb7659981fcbc11f9a5",
+  "structure": "FILL_GAIN after coh/bw/power reconstruct; pupil_err=|fill-0.72| unscaled",
+  "repro": {
+    "base": "main@2e2af62",
+    "pupil_err": 0.0895,
+    "photons_kept": 1.0,
+    "if_compat_score": 0.9105,
+    "decision": "KEEP",
+    "voids": "-",
+    "holdout_hash": "OK",
+    "digest": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be"
+  },
+  "partner_HT-1033_confirm": {"pupil_err": 0.0950, "photons_kept": 1.0, "decision": "KEEP", "same_main": true},
+  "stamp": "PASS",
+  "dual_pair": "HT-1033",
+  "scope": "docs/bank FREEZE — no new climbs",
+  "repro_bot": "Repro Bot",
+  "stamped_at": "2026-09-10T11:00:30Z"
+}

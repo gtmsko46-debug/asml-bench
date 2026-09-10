@@ -63,14 +63,15 @@
     "critic_KEEP_PASS",
     "pupil_0.0895",
     "FILL_GAIN_correct",
-    "awaiting_Repro",
-    "awaiting_Diplomat_dual_HT-1033"
+    "awaiting_Diplomat_dual_HT-1033",
+    "repro_PASS",
+    "awaiting_Diplomat_dual_KEEP"
   ],
   "created_at": "2026-09-10T08:56:55Z",
   "hypothesis": "KEEP climb: match HT-1033-class honest reconstruct \u2014 maintain fill from field features (coherence/bandwidth/power; NOT pupil_fill_error), apply explicit bounded correction toward pupil_fill_target=0.72, emit pupil_err=|fill-0.72| unscaled \u22640.10, field-derived pol/pulse/pointing, photons_kept==1.0 \u2014 no pupil_in\u2212k / PUPIL_CORRECT / abs(delta)*k. Dual with Critic-PASS HT-1033 KEEP.",
   "ticket_id": "HT-1028",
   "provider": "grok",
-  "notes": "HT-1028 r4 CLOSED KEEP-cand pupil_err=0.0895 photons=1.0. Critic KEEP PASS (FILL_GAIN correct). sha=f82062a. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. Dual with HT-1033 after Repro+Diplomat (Diplomat holds promote).",
+  "notes": "HT-1028 r4 CLOSED KEEP-cand pupil_err=0.0895 photons=1.0. Critic KEEP PASS (FILL_GAIN correct). sha=f82062a. PIN d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be. Dual with HT-1033 after Repro+Diplomat (Diplomat holds promote). Repro PASS both sides ready for Diplomat dual-KEEP HT-1028\u2227HT-1033.",
   "branch": "exp/fel-10-HT-1028",
   "dual_gate_pair": "HT-1033",
   "required_holdout_sha256": "d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be",
