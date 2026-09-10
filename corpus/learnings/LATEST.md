@@ -127,3 +127,5 @@ Source: `tickets/FEL-10_CLAIM_DRAFT.md`, `tickets/IF_SPEC_FEL10_CONTRACT.md`.
 
 Spec freeze milestone for factory — Build tickets still follow Lab Director order / bay capacity.
 
+## HT-1026∧1027 `2026-09-10T09:11:02Z`
+KEEP-candidates 0.1475/0.2534 ∧ 0.1795/0.3076; pred_diff PASS; Critic dual PENDING.
