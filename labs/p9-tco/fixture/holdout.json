@@ -1,0 +1,24 @@
+[
+  {
+    "wafers_per_day": 900.0,
+    "fel_capital_m_usd": 170.0,
+    "horizon_years": 6.0,
+    "lpp_capital_m_usd": 150.0,
+    "lpp_consumables_per_wafer_usd": 5.0,
+    "fel_consumables_per_wafer_usd": 3.5,
+    "fel_collector_m_usd_per_year": 8.0,
+    "lpp_source_m_usd_per_year": 12.0,
+    "truth_delta": -6.956499999999977
+  },
+  {
+    "wafers_per_day": 1100.0,
+    "fel_capital_m_usd": 190.0,
+    "horizon_years": 5.0,
+    "lpp_capital_m_usd": 150.0,
+    "lpp_consumables_per_wafer_usd": 5.0,
+    "fel_consumables_per_wafer_usd": 3.5,
+    "fel_collector_m_usd_per_year": 8.0,
+    "lpp_source_m_usd_per_year": 12.0,
+    "truth_delta": 16.98875000000001
+  }
+]

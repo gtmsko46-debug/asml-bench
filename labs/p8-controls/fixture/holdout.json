@@ -1,0 +1,18 @@
+[
+  {
+    "n_tools": 4,
+    "glitch_severity": 0.35,
+    "glitch_duration_ms": 55.0,
+    "overlay_open_nm": 2.0,
+    "wafers_per_min": 2.0,
+    "truth_t_recover_ms": 83.875
+  },
+  {
+    "n_tools": 3,
+    "glitch_severity": 0.5,
+    "glitch_duration_ms": 80.0,
+    "overlay_open_nm": 2.0,
+    "wafers_per_min": 2.0,
+    "truth_t_recover_ms": 122.5
+  }
+]

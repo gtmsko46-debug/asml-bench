@@ -1,0 +1,23 @@
+[
+  {
+    "dose_mj_cm2": 45.0,
+    "pulse_rate_mhz": 140.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.1378215386702393
+  },
+  {
+    "dose_mj_cm2": 50.0,
+    "pulse_rate_mhz": 160.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.0787755394368501
+  },
+  {
+    "dose_mj_cm2": 55.0,
+    "pulse_rate_mhz": 180.0,
+    "photons_per_pulse": 1000000000000.0,
+    "resist_blur_nm": 8.0,
+    "truth_lcdu": 1.0282902986825548
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "n_tools": 4,
+    "priorities": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "bunch_drop_frac": 0.0,
+    "facility_source_kw": 5.0,
+    "truth_facility_wpd": 9999.0
+  }
+]

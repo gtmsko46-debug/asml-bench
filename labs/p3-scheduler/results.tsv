@@ -1,0 +1,2 @@
+ticket	train_rmse	holdout_rmse	trap_rmse	decision
+local	44.8942	44.8647	9125.0000	SEED

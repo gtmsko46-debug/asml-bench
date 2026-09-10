@@ -1,0 +1,34 @@
+[
+  {
+    "n_tools": 4,
+    "glitch_severity": 0.2,
+    "glitch_duration_ms": 40.0,
+    "overlay_open_nm": 2.0,
+    "wafers_per_min": 2.0,
+    "truth_t_recover_ms": 52.0
+  },
+  {
+    "n_tools": 4,
+    "glitch_severity": 0.4,
+    "glitch_duration_ms": 60.0,
+    "overlay_open_nm": 2.0,
+    "wafers_per_min": 2.0,
+    "truth_t_recover_ms": 96.0
+  },
+  {
+    "n_tools": 2,
+    "glitch_severity": 0.3,
+    "glitch_duration_ms": 50.0,
+    "overlay_open_nm": 2.0,
+    "wafers_per_min": 2.0,
+    "truth_t_recover_ms": 54.375
+  },
+  {
+    "n_tools": 6,
+    "glitch_severity": 0.25,
+    "glitch_duration_ms": 45.0,
+    "overlay_open_nm": 2.0,
+    "wafers_per_min": 2.0,
+    "truth_t_recover_ms": 77.34375
+  }
+]

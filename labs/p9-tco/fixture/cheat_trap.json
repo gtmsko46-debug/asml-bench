@@ -1,0 +1,13 @@
+[
+  {
+    "wafers_per_day": 1000.0,
+    "fel_capital_m_usd": 172.5,
+    "horizon_years": 5.0,
+    "lpp_capital_m_usd": 150.0,
+    "lpp_consumables_per_wafer_usd": 5.0,
+    "fel_consumables_per_wafer_usd": 3.5,
+    "fel_collector_m_usd_per_year": 8.0,
+    "lpp_source_m_usd_per_year": 12.0,
+    "truth_delta": -1000000000.0
+  }
+]

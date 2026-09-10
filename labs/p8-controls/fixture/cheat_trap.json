@@ -1,0 +1,10 @@
+[
+  {
+    "n_tools": 4,
+    "glitch_severity": 0.3,
+    "glitch_duration_ms": 50.0,
+    "overlay_open_nm": 2.0,
+    "wafers_per_min": 2.0,
+    "truth_t_recover_ms": 0.0
+  }
+]
