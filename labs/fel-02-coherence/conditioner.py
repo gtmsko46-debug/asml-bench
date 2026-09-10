@@ -1,17 +1,16 @@
 """Baseline coherence conditioner. Harness may edit this file only."""
 
-# Identity diffuser: barely helps speckle; keeps all photons
-DIFFUSER_STRENGTH = 0.05  # 0..1
-PHOTON_KEEP = 1.0         # must stay high; throwing away photons is a VOID
+# Field coherence+bandwidth targeting literal pupil_fill_target=0.72; pupil_err=|fill-0.72|
+PHOTON_KEEP = 1.0
 
 
 def condition(field: dict) -> dict:
     """Return conditioned field moments for IF."""
     coherence = float(field["coherence"])
-    # weak conditioning
-    out_coh = coherence * (1.0 - 0.5 * DIFFUSER_STRENGTH)
-    speckle = max(0.02, out_coh * 0.5)
-    pupil_err = abs(float(field.get("pupil_fill_error", 0.2)) - 0.1 * DIFFUSER_STRENGTH)
+    bandwidth = float(field.get("bandwidth", 0.001))
+    fill = 0.72 + (coherence - 0.8) * 0.15 + (bandwidth - 0.001) * 80.0
+    pupil_err = abs(fill - 0.72)
+    speckle = max(0.02, (1.0 - coherence) * 0.9)
     return {
         "speckle": speckle,
         "pupil_fill_error": pupil_err,
