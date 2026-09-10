@@ -18,15 +18,15 @@ Bots orchestrate; **all product code** via lasercode (Foreman→Operator). Commi
 |----|---------|------|------|-------|--------|------|---------|
 | P1 | Twin | `asml-product-p1-twin` | yes | M1 + DUAL-KEEP | Critic+Repro+Diplomat | **#17 APPROVE** | **ship-queue** |
 | P2 | Coherence | `asml-product-p2-coherence` | yes M1 | HT-1023/1024 live | — | — | **build / bay hot** |
-| P3 | Scheduler | `asml-product-p3-scheduler` | [#46](https://github.com/gtmsko46-debug/asml-bench/issues/46) | — | — | — | **spec** |
-| P4/P7 | Comp-litho | `asml-product-p4-complitho` | [#47](https://github.com/gtmsko46-debug/asml-bench/issues/47) | — | — | — | **spec** |
-| P5 | Stochastics | `asml-product-p5-stochastics` | [#48](https://github.com/gtmsko46-debug/asml-bench/issues/48) | — | — | — | **spec** |
-| P6 | Thermal | `asml-product-p6-thermal` | [#49](https://github.com/gtmsko46-debug/asml-bench/issues/49) | — | — | — | **spec** |
-| P8 | Controls | `asml-product-p8-controls` | [#50](https://github.com/gtmsko46-debug/asml-bench/issues/50) | — | — | — | **spec** |
-| P9 | TCO | `asml-product-p9-tco` | [#51](https://github.com/gtmsko46-debug/asml-bench/issues/51) | — | — | — | **spec** |
-| P10 | IF shim | `asml-product-p10-if-shim` | [#52](https://github.com/gtmsko46-debug/asml-bench/issues/52) | — | — | — | **spec** |
+| P3 | Scheduler | `asml-product-p3-scheduler` | M0 SPEC [#46](https://github.com/gtmsko46-debug/asml-bench/issues/46) | — | — | — | **spec** |
+| P4/P7 | Comp-litho | `asml-product-p4-complitho` | M0 SPEC [#47](https://github.com/gtmsko46-debug/asml-bench/issues/47) | — | — | — | **spec** |
+| P5 | Stochastics | `asml-product-p5-stochastics` | M0 SPEC [#48](https://github.com/gtmsko46-debug/asml-bench/issues/48) | — | — | — | **spec** |
+| P6 | Thermal | `asml-product-p6-thermal` | M0 SPEC [#49](https://github.com/gtmsko46-debug/asml-bench/issues/49) | — | — | — | **spec** |
+| P8 | Controls | `asml-product-p8-controls` | M0 SPEC [#50](https://github.com/gtmsko46-debug/asml-bench/issues/50) | — | — | — | **spec** |
+| P9 | TCO | `asml-product-p9-tco` | M0 SPEC [#51](https://github.com/gtmsko46-debug/asml-bench/issues/51) | — | — | — | **spec** |
+| P10 | IF shim | `asml-product-p10-if-shim` | M0 SPEC [#52](https://github.com/gtmsko46-debug/asml-bench/issues/52) | — | — | — | **spec** |
 
 ## PM next
-1. Land Twin PI `reference_twin` PR → close #17 when merged.
-2. Stamp deepen HT-1026/1027 (#55) without starving P2 Operator.
-3. Drive Spec Issues #46–#52 → real SPEC.md on each `asml-product-p*`.
+1. ~~#17 ship~~ done (PR #3). Stamp deepen HT-1026/1027 (#55) parallel with P2 (CoS).
+2. P2 HT-1023/1024 Operator → Critic/Repro when KEEP.
+3. Next Build after Spec: P4/P7 M1 package (funded order), then P10 → P9 → P6; P3 waits FEL-03 physics; P5/P8 after.
