@@ -1,1 +1,4 @@
 thesis	run	hypothesis	provider	metric	decision	card
+fel-10-if-ownership	HT-1028	FEL-10 IF ownership SEED (grok island)	grok	HOLDOUT_SoT_d0dc1f8a;SEED_dual_paired_HT-1033;critic_PASS_SEED_honesty;partner_KEEP_climb_open_on_1033	SEED	if-spec-fel10
+fel-10-if-ownership	HT-1032	FEL-10 mock successor (VOID pupil_in−k / PUPIL_CORRECT)	mock-mistral	HOLDOUT_SoT_d0dc1f8a;critic_VOID_pupil_in_minus_k_PUPIL_CORRECT;successor=HT-1033_#75;no_dual_claims	VOID	if-spec-fel10
+fel-10-if-ownership	HT-1033	Honest reconstruct/correct; SEED dual with HT-1028	mock-mistral	HOLDOUT_SoT_d0dc1f8a;SEED_dual_paired_HT-1028;critic_PASS_SEED_honesty;KEEP_climb=OPEN_correct_step_rekick;no_KEEP_dual_yet;issue=#75	RUN	if-spec-fel10

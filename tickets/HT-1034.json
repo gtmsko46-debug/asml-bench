@@ -55,7 +55,7 @@
     "critic_KEEP_READY",
     "critic_falsifier_cleared"
   ],
-  "notes": "HT-1034 replaces VOID HT-1031 (*0.204). Critic KEEP-READY 2026-09-10. decision RUN. dual_gate_pair=HT-1023 only after close Critic PASS. PIN 3ed24ec5\u2026. program.md HT-1022-class recipe. Issue #76. Foreman stamp NOW.",
+  "notes": "HT-1034 replaces VOID HT-1031 (*0.204). Critic KEEP-READY 2026-09-10. decision RUN. dual_gate_pair=HT-1023 only after close Critic PASS. PIN 3ed24ec5\u2026. program.md HT-1022-class recipe. Issue #76. Foreman stamp NOW. | SCRIBE 2026-09-10T09:29:55Z: Experimentalist \u2014 successor to VOID HT-1031 (#76). SEED until Critic KEEP-READY. No dual claims yet (pair HT-1023 after Critic PASS). | SCRIBE 2026-09-10T09:31:26Z: Experimentalist \u2014 HT-1034 RUN stamp in flight for P2 (successor of VOID HT-1031). dual_gate_pair=HT-1023 after Critic PASS only.",
   "session_hint": "ticket-HT-1034-p2-conditioner-mistral-r1",
   "recipe": "HT-1022-class: fill = reconstruct(pfe); fill = correct(fill, 0.72); pupil_err = abs(fill - 0.72)  # NO *k; speckle = f(coherence, bandwidth)",
   "structure_sketch": [
@@ -64,5 +64,7 @@
     "pupil_err = abs(fill - 0.72)  # UNSIZED \u2014 no *k / *0.2 / *0.204",
     "speckle from field coherence \u00d7 bandwidth only",
     "photons_kept = 1.0 * photons_in"
-  ]
+  ],
+  "replaces": "HT-1031",
+  "dual_gate": "NONE_yet_stamp_in_flight"
 }
