@@ -1,42 +1,35 @@
 # Product backlog P1–P10 (Product Manager)
 
-Last map: 2026-09-09. Gate: a thesis KEEP is **not** a product. Product needs frozen eval + sandbox + ticket path + champion-facing job.
+Updated: 2026-09-10 (Champion: build **all** P1–P10 as real products).  
+**Factory:** Spec → Build → Review → Ship. Schedule: [`FACTORY.md`](FACTORY.md) · Epic [#45](https://github.com/gtmsko46-debug/asml-bench/issues/45).  
+Bots orchestrate; **all product code** via lasercode (Foreman→Operator). Commit+push every change to `asml-product-p*`.
 
-Repos: `gtmsko46-debug/asml-product-*`. Shared tickets: `asml-bench`. No hill-climbs until lasercode has provider credentials (currently **0**).
+## Live bay
 
-## Maturity matrix
+| Rank | ID | Status | Action |
+|------|----|--------|--------|
+| **P0** | **P1 Twin** | HT-1015 KEEP_PENDING_DUAL @ HOLDOUT `2c398448…`; HT-1020 VOID (metric reuse); **HT-1025** independent mock Operator `-r3` | Wait Critic+Repro; no `#17` / `reference_twin` sync until honest dual |
+| 1 | **P2 Coherence** | M1 docs merged (PR #1); HT-1023/1024 stamped ready | Bay-queued — package code when CoS frees Operator |
+| 2+ | P3–P10 | Spec Issues open | Spec-only until bay capacity |
 
-| ID | Product | Repo | Bench lab | Frozen eval | Sandbox | Ticket path | Champion job | Verdict |
-|----|---------|------|-----------|-------------|---------|-------------|--------------|---------|
-| P1 | FEL↔scanner digital twin | `asml-product-p1-twin` | `labs/p1-twin/` empty | no | no | none | twin IF power/uncertainty | **scaffold** |
-| P2 | Coherence / etendue conditioner | `asml-product-p2-coherence` | feeds `fel-02-coherence` | yes (live) | `conditioner.py` | [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3) + [#2](https://github.com/gtmsko46-debug/asml-bench/issues/2) | illuminator-near module | **closest** — research SEED, product still thin |
-| P3 | Beam-split facility scheduler | `asml-product-p3-scheduler` | none | no | no | none | wafers/day under dropouts | **scaffold** |
-| P4 | Polarization-aware comp-litho | `asml-product-p4-complitho` | `labs/p4-polarization/` | yes | `solver.py` | none yet | Applications-recognizable toys | **lab ready**, no SEED ticket |
-| P5 | Stochastic / resist dose | `asml-product-p5-stochastics` | `labs/p5-stochastics/` empty | no | no | none | dose vs pulse structure | **scaffold** |
-| P6 | Optic survival / thermal | `asml-product-p6-thermal` | none (TH-04 is research) | research yes | research `solver.py` | [#1](https://github.com/gtmsko46-debug/asml-bench/issues/1) research | thermal control product | **research ahead of product** |
-| P7 | Wavelength-agile (6.x) | *same repo as P4* | `labs/p7-wavelength/` | yes | `solver.py` | none yet | λ-agile without special-case forks | **lab ready**, no SEED ticket |
-| P8 | Source-interface controls | `asml-product-p8-controls` | none | no | no | none | glitch recovery / IF control | **scaffold** |
-| P9 | LPP vs FEL TCO | `asml-product-p9-tco` | `labs/p9-tco/` empty | no | no | none | decision product, may lose | **scaffold** |
-| P10 | IF compatibility shim | `asml-product-p10-if-shim` | `labs/p10-if-shim/` empty | no | no | none | own IF even without linac | **scaffold** |
+## Maturity
 
-## Live bench (not product yet)
+| ID | Product | Repo | Lab | Spec | Build | Review | Ship | Verdict |
+|----|---------|------|-----|------|-------|--------|------|---------|
+| P1 | Twin | `asml-product-p1-twin` | `labs/p1-twin/` | yes | M1 API + deepen | dual pending 1025 | blocked #17 | **KEEP climb** |
+| P2 | Coherence | `asml-product-p2-coherence` | `labs/fel-02-coherence/` | yes M1 | package pending | — | — | **build / bay-queued** |
+| P3 | Scheduler | `asml-product-p3-scheduler` | waits FEL-03 | [#46](https://github.com/gtmsko46-debug/asml-bench/issues/46) | — | — | — | **spec** |
+| P4/P7 | Comp-litho | `asml-product-p4-complitho` | p4+p7 labs | [#47](https://github.com/gtmsko46-debug/asml-bench/issues/47) | — | — | — | **spec** |
+| P5 | Stochastics | `asml-product-p5-stochastics` | scaffold | [#48](https://github.com/gtmsko46-debug/asml-bench/issues/48) | — | — | — | **spec** |
+| P6 | Thermal | `asml-product-p6-thermal` | TH-04 inherit? | [#49](https://github.com/gtmsko46-debug/asml-bench/issues/49) | — | — | — | **spec** |
+| P8 | Controls | `asml-product-p8-controls` | TBD | [#50](https://github.com/gtmsko46-debug/asml-bench/issues/50) | — | — | — | **spec** |
+| P9 | TCO | `asml-product-p9-tco` | scaffold | [#51](https://github.com/gtmsko46-debug/asml-bench/issues/51) | — | — | — | **spec** |
+| P10 | IF shim | `asml-product-p10-if-shim` | scaffold | [#52](https://github.com/gtmsko46-debug/asml-bench/issues/52) | — | — | — | **spec** |
 
-| Lab | Eval smoke | Decision | Notes |
-|-----|------------|----------|-------|
-| `th-04-reticle-heat` | holdout_rmse≈0.07 | KEEP | Primary demo island — still research until P6 product contract |
-| `fel-02-coherence` | photons_kept=1.0 | SEED | Feeds P2; pull demos back to `conditioner.py` + RESET when they become FEL seminars |
+Parents: [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3)–[#11](https://github.com/gtmsko46-debug/asml-bench/issues/11).
 
-## Blockers
-
-1. **Lasercode credentials = 0** (`lasercode providers list`). Foreman choke stays closed for hill-climbs.
-2. Product repos are README/LAB stubs only — no package layout, no champion demo path.
-3. Empty product lab dirs (P1/P5/P9/P10) have no `eval.py` / holdout / sandbox.
-4. Do **not** parallel-wake ~60 persona bots until keys exist.
-
-## PM next moves (ordered)
-
-1. Wire Grok (+ mock-mistral) into lasercode — unblocks Foreman.
-2. Promote P4/P7: open paired SEED tickets (grok + mock-mistral); keep demos on `solver.py`.
-3. Productize P2 off FEL-02: champion job + product sandbox contract in `asml-product-p2-coherence`.
-4. Decide whether P6 inherits TH-04 frozen eval or needs a separate product holdout.
-5. Stub frozen evals for P1/P3/P5/P8/P9/P10 before any island fan-out.
+## PM next
+1. Close HT-1025 → Critic → Repro → only then `#17` / weight sync.
+2. When CoS frees bay: P2 package + HT-1023/1024.
+3. Drive Spec Issues #46–#52 (docs on product repos; no bay steal).
+4. After Spec freeze: dual-gate Build tickets in Lab Director order (P4/P7 → P10 → P9 → P6; P3 after FEL-03; P5/P8 last).

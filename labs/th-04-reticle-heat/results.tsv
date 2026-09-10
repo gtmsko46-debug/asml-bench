@@ -1,1 +1,2 @@
-thesis\trun\thypothesis\tprovider\tmetric\tdecision\tcard\n
+thesis	run	hypothesis	provider	metric	decision	card
+th-04-reticle-heat	HT-1001	Establish SEED baseline RMSE on holdout under overlay-thermal-v1	grok	holdout_rmse=0.0311	KEEP	overlay-thermal-v1

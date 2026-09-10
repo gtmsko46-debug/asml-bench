@@ -1,0 +1,29 @@
+{
+  "ticket_id": "HT-1001",
+  "thesis": "th-04-reticle-heat",
+  "hypothesis": "Establish SEED baseline RMSE on holdout under overlay-thermal-v1",
+  "provider": "grok",
+  "assumption_cards": [
+    "overlay-thermal-v1"
+  ],
+  "lab_path": "labs/th-04-reticle-heat",
+  "sandbox": "solver.py",
+  "metric": "holdout_rmse",
+  "budget": "1 ratchet",
+  "must_not_touch": [
+    "eval.py",
+    "fixture/holdout.json",
+    "fixture/holdout*",
+    "fixture/cheat_trap.json",
+    "fixture/HOLDOUT.sha256",
+    "assumptions/*"
+  ],
+  "decision": "SEED",
+  "guards": [
+    "thermal_term_nonzero",
+    "no_nxe_platform_fork"
+  ],
+  "created_at": "2026-09-09T21:52:13Z",
+  "notes": "Issue #1. Closed 2026-09-09T21:52:13Z: holdout_rmse=0.0311 KEEP voids=-; THERMAL_COEF 0.05\u21921.0; holdout hash OK. Outcome KEEP.",
+  "branch": "exp/th-04-HT-1001"
+}

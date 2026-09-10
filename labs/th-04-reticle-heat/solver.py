@@ -2,7 +2,7 @@
 import math
 
 # Intentionally weak SEED: constant + tiny duty term (missing proper thermal coupling)
-THERMAL_COEF = 0.05  # nm per duty-cycle unit; should be learned upward
+THERMAL_COEF = 1.0  # nm per absorbed unit; overlay-thermal-v1: 0.5 ppm/K * 2 K * 1 nm/ppm
 
 
 def predict_overlay(lot: dict) -> list[float]:

@@ -1,0 +1,28 @@
+{
+  "ticket_id": "HT-1002",
+  "thesis": "fel-02-coherence",
+  "hypothesis": "Establish SEED baseline speckle/pupil/photons_kept under coherence-if-v1",
+  "provider": "grok",
+  "assumption_cards": [
+    "coherence-if-v1"
+  ],
+  "lab_path": "labs/fel-02-coherence",
+  "sandbox": "conditioner.py",
+  "metric": "speckle_pupil_photons_kept",
+  "budget": "1 ratchet",
+  "must_not_touch": [
+    "eval.py",
+    "fixture/holdout*",
+    "fixture/cheat_trap.json",
+    "fixture/HOLDOUT.sha256",
+    "assumptions/*"
+  ],
+  "decision": "SEED",
+  "guards": [
+    "no_photon_discard_cheat",
+    "frozen_eval_untouched"
+  ],
+  "created_at": "2026-09-09T21:52:13Z",
+  "notes": "Issue #2. Closed 2026-09-09T21:53:17Z: SEED speckle=0.4119 pupil_err=0.2250 photons_kept=1.0000 voids=-; conditioner.py unchanged (valid SEED); holdout hash OK.",
+  "branch": "exp/fel-02-HT-1002"
+}
