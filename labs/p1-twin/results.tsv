@@ -1,1 +1,2 @@
 thesis	run	hypothesis	provider	metric	decision	card
+p1-twin	HT-1027	Paired mock-mistral deepen dual with HT-1026 from SEED; independent vs 1015/1025	mock-mistral	holdout_nrmse=0.1795;trap_nrmse=0.3076;trap_margin_PASS(+0.1281);IF=0.55;MIR=0.13;digest=2c398448;max_abs_diff_vs_HT-1015=1212.38;max_abs_diff_vs_HT-1025=473.219;pred_diff_PASS;critic_PENDING;dual=HT-1026	KEEP	fel-scanner-twin-v1
