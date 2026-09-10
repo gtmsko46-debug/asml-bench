@@ -4,7 +4,7 @@
 
 - **thesis:** `p1-twin`
 - **assumption_card:** `fel-scanner-twin-v1`
-- **provider:** stamp per ticket — `grok` for twin/thesis work; `mock-mistral` for docs/scaffold/weak-island baseline
+- **provider:** stamp per ticket — `grok` for twin/thesis work; `mock-mistral` for docs/scaffold/mistral-lane baseline
 - **sandbox:** `twin.py` (only file harness may edit)
 - **metrics:** `if_power_w`, `uniformity`, `first_mirror_fluence`, `illuminator_acceptance` (combined normalized RMSE vs holdout)
 - **budget:** stamp on ticket
