@@ -14,3 +14,7 @@ Tin-LPP-class fixture on `lpp-source-v2` matches or beats FEL shim/compat score 
 - Dual-gate required; bay behind P1; no upstairs without Warden+TCO; not product KEEP
 
 See also: `corpus/learnings/LATEST.md`, `corpus/notes/if-ownership-fel-10.md`.
+
+## SoT HOLDOUT pin `2026-09-10T09:16:14Z`
+- Authoritative: `d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be`
+- File: `labs/p10-if-shim/fixture/HOLDOUT.sha256`
