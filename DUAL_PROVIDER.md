@@ -41,10 +41,10 @@ No other provider tags on stamped tickets. Reject unknown values.
 
 ## Model ids (Lasercode Operator)
 
-| Ticket `provider` | CLI model |
-|-------------------|-----------|
-| `grok` | `xai/grok-4.6` (add `--variant high` for STEM/long loops) |
-| `mock-mistral` | **`mistral/mistral-large-latest`** (also `…-2512`, `…-2411`) |
+| Ticket `provider` | CLI model | Role in eval |
+|-------------------|-----------|----------------|
+| `grok` | `xai/grok-4.6` (+ `--variant high` for STEM/long loops) | Strong STEM engine |
+| `mock-mistral` | **`xai/grok-4.20-0309-non-reasoning`** | **Mistral stand-in** — intentionally weaker (grok 4.2-class). Score this island as Mistral. |
 
-Do **not** use bare `mistral/mistral-large` — not in the models catalog. See `/workspace/tools/HARNESS.md`.
+Keep the ticket tag **`mock-mistral`**. Do **not** route mock-mistral to grok-4.6 or to `mistral/*` catalog stubs. Dual-gate KEEP/PROMOTE requires both islands on identical frozen eval.
 
