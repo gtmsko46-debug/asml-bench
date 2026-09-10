@@ -17,3 +17,7 @@ See also: `corpus/learnings/LATEST.md`, `corpus/notes/fel-02-dual-keep-pointer.m
 - Diplomat DUAL-KEEP HT-1015∧HT-1025.
 - Lab Director **Issue #17 APPROVE**.
 - FEL-10 SEED **HT-1028∧HT-1029** (#57).
+
+## Bay queue `2026-09-10T09:02:05Z`
+- **HT-1026∧HT-1027 ∥ P2** (not behind HT-1023∧1024).
+- Still before FEL-10 HT-1028∧1029.

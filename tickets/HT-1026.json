@@ -1,0 +1,62 @@
+{
+  "ticket_id": "HT-1026",
+  "thesis": "p1-twin",
+  "hypothesis": "Deepen from HT-1015 baseline on HOLDOUT 2c398448\u2026: executable coef/structure refine of twin.py to improve holdout_nrmse while keeping trap_nrmse>holdout+0.05, IF_COUPLING/MIRROR_LOAD nonzero, predictions materially different from partner/baseline (no metric reuse / no oracle / no comment fork).",
+  "provider": "grok",
+  "assumption_cards": [
+    "fel-scanner-twin-v1"
+  ],
+  "lab_path": "labs/p1-twin",
+  "sandbox": "twin.py",
+  "metric": "combined_nrmse_if_unif_flu_acc",
+  "budget": "12 ratchets / 90 min",
+  "must_not_touch": [
+    "eval.py",
+    "fixture/holdout*",
+    "fixture/cheat_trap.json",
+    "fixture/HOLDOUT.sha256",
+    "assumptions/fel-scanner-twin-v1.yaml",
+    "products/asml-product-p1-twin/gen_fixtures.py"
+  ],
+  "decision": "RUN",
+  "guards": [
+    "holdout_nrmse_lt_0.30",
+    "trap_nrmse_gt_holdout_plus_0.05",
+    "nonzero_IF_COUPLING_MIRROR_LOAD",
+    "required_holdout_sha256=2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c",
+    "HOLDOUT_sha256_v2_2c398448",
+    "no_gen_fixtures_truth_coefficient_clone",
+    "no_truth_v2_clone",
+    "no_oracle",
+    "no_metric_reuse",
+    "no_comment_only_fork",
+    "predictions_not_identical_to_baseline",
+    "executable_coef_or_structure_change_required",
+    "frozen_eval_untouched",
+    "fresh_eval_required",
+    "no_NXE_platform_fork",
+    "no_unconstrained_mlp",
+    "after_dual_KEEP_HT-1015_HT-1025",
+    "champion_deepen_request",
+    "critic_KEEP_READY",
+    "predictions_not_identical_to_HT-1015",
+    "predictions_not_identical_to_HT-1025",
+    "predictions_not_identical_to_partner_island",
+    "pred_max_abs_diff_vs_baselines_and_partner_gt_1e-3",
+    "no_code_only_equal_fork",
+    "soft_shared_skeleton_ok_if_preds_differ",
+    "cos_parallel_with_P2"
+  ],
+  "created_at": "2026-09-10T08:58:30Z",
+  "branch": "exp/p1-twin-HT-1026",
+  "baseline_solver": "HT-1015 dual-KEEP island; deepen climb",
+  "notes": "P1 deepen dual after DUAL-KEEP HT-1015\u2227HT-1025. dual_gate_pair=HT-1027; baseline=HT-1015. Critic KEEP-READY 2026-09-10. decision RUN. PIN 2c398448\u2026. Close VOID if pred max-abs \u22641e-3 vs either baseline (1015 or 1025) or partner, or code_only equal. Foreman when bay free (after P2 or parallel if Foreman allows). Before FEL-10 1028/1029 (don't starve P1). | CoS 2026-09-10: stamp NOW parallel with P2 (not after). | FOREMAN STAMP 2026-09-10T09:01:51Z Issue #55 Lab Director PARALLEL with P2 | LASERCODE_SESSION_ID=ticket-HT-1026-p1-deepen-grok | model=xai/grok-4.6 --variant high | digest 2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c | separate worktrees; pred-diff vs 1015/1025/partner; FEL-10 still last | SCRIBE 2026-09-10T09:02:05Z: CoS bay-queue patch \u2014 HT-1026\u2227HT-1027 runs **parallel with P2** (HT-1023\u2227HT-1024), **not behind**. Stamp NOW. Before FEL-10 1028/1029.",
+  "dual_gate_pair": "HT-1027",
+  "required_holdout_sha256": "2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c",
+  "baseline_ticket": "HT-1015",
+  "research_feed": [
+    "HT-1015",
+    "HT-1025"
+  ],
+  "bay_queue": "parallel_with_P2_not_behind"
+}

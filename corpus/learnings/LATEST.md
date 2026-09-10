@@ -98,3 +98,9 @@ Source: `tickets/FEL-10_CLAIM_DRAFT.md`, `tickets/IF_SPEC_FEL10_CONTRACT.md`.
 - Foreman stamp when P2 bay slot — do not starve P1/P2
 - No `lpp-source-v2` on SEED
 
+## Bay queue patch `2026-09-10T09:02:05Z` (CoS)
+
+- **HT-1026 ∧ HT-1027** (P1 deepen dual after 1015∧1025): bay position = **∥ P2** (parallel with HT-1023∧HT-1024), **not behind** P2.
+- Stamp NOW when Foreman capacity allows — do not wait for P2 close.
+- Still **before** FEL-10 HT-1028∧HT-1029 (don't starve P1).
+
