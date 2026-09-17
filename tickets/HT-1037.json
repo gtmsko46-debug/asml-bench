@@ -63,7 +63,7 @@
   "dual_gate_pair": "HT-1036",
   "branch": "exp/fel-03-beam-split-mistral-SEED",
   "session_hint": "ticket-HT-1037-fel03-split-mistral",
-  "notes": "Critic KEEP-READY (reaffirm). FEL PD CLEAR. EI freeze CLEAR pin f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac. Warden SEED CLEAR + Lab Dir supersede prior Warden ACCEPT hold. Foreman stamp released \u2014 dual SEED HT-1036\u2227HT-1037. Soft Critic notes travel; re-enter at close.",
+  "notes": "Critic KEEP-READY (reaffirm). FEL PD CLEAR. EI freeze CLEAR pin f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac. Warden SEED CLEAR + Lab Dir supersede prior Warden ACCEPT hold. Foreman stamp released \u2014 dual SEED HT-1036\u2227HT-1037. Soft Critic notes travel; re-enter at close. | 2026-09-17T13:37:28Z: STAMPED+kicked; digest f40a2019\u2026 printed. BLOCKED: XAI_API_KEY invalid (api.x.ai 400). Awaiting key rewire; no climb progress.",
   "metric": "tools_served,fluence_margin,facility_wafers_day_proxy,ablation_flag,dump_power_frac",
   "cheat_trap_expected": true,
   "baseline_solver": "labs/fel-03-beam-split/solver.py"
