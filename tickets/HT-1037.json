@@ -6,7 +6,7 @@
     "beam-split-first-mirror-v1"
   ],
   "budget": "6 ratchets / 45 min",
-  "decision": "SEED",
+  "decision": "RUN",
   "hypothesis": "A fluence-capped splitter that keeps first-mirror peak fluence under first_mirror_fluence_limit_j_cm2 \u00d7 peak_fluence_margin_min can feed n_tools_nom tools at equal photon share without dump_power_frac exceeding dump_power_frac_max, without raising the fluence limit in-solver.",
   "must_not_touch": [
     "eval.py",
@@ -42,18 +42,16 @@
     "peak_fluence_from_geometry_vs_card_0.15_margin_1.2",
     "soft_notes_travel",
     "beam-split-first-mirror-v1",
-    "hold_Foreman_until_scaffold_HOLDOUT_Critic_Warden_FEL_PD",
     "fel_pd_PENDING",
     "knob_only_ignore_n_tools_RESET_not_KEEP",
     "no_mutate_assumption_cards",
     "critic_DRAFT_PAIR_CLEAR",
-    "hold_Foreman_until_Critic_Warden_FEL_PD_EI",
     "no_vs_LPP_on_SEED",
     "fel_pd_CLEAR",
     "ei_HOLDOUT_CLEAR_freeze",
     "critic_KEEP_READY",
-    "warden_HOLD_pending_ACCEPT",
-    "required_holdout_sha256=f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac"
+    "required_holdout_sha256=f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac",
+    "Foreman_stamp_released"
   ],
   "required_holdout_sha256": "f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac",
   "feeds": [
@@ -65,7 +63,7 @@
   "dual_gate_pair": "HT-1036",
   "branch": "exp/fel-03-beam-split-mistral-SEED",
   "session_hint": "ticket-HT-1037-fel03-split-mistral",
-  "notes": "Critic KEEP-READY 2026-09-10. FEL PD CLEAR. EI freeze CLEAR pin f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac (reject litho-lab cf0b96a4\u2026 \u2014 not asml-bench main). Warden: guards restored on origin/main; claim at tickets/FEL-03_SEED_CLAIM_DRAFT.md \u2014 ACCEPT pending. Foreman held until Warden ACCEPT. Soft Critic notes travel.",
+  "notes": "Critic KEEP-READY (reaffirm). FEL PD CLEAR. EI freeze CLEAR pin f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac. Warden SEED CLEAR + Lab Dir supersede prior Warden ACCEPT hold. Foreman stamp released \u2014 dual SEED HT-1036\u2227HT-1037. Soft Critic notes travel; re-enter at close.",
   "metric": "tools_served,fluence_margin,facility_wafers_day_proxy,ablation_flag,dump_power_frac",
   "cheat_trap_expected": true,
   "baseline_solver": "labs/fel-03-beam-split/solver.py"
