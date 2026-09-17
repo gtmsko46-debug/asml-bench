@@ -1,1 +1,3 @@
 thesis	run	hypothesis	provider	metric	decision	card
+fel-03-beam-split	HT-1036	FEL-03 dual SEED STAMPED Critic KEEP-READY	grok	digest=f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac;decision=RUN;Foreman_STAMPED;critic_KEEP_READY;fel_pd_CLEAR;ei_pin_f40a2019;dual_pair=HT-1037;no_vs_LPP;no_lpp_v2_SEED	RUN	beam-split-first-mirror-v1
+fel-03-beam-split	HT-1037	FEL-03 dual SEED STAMPED Critic KEEP-READY	mock-mistral	digest=f40a201987a3c9723bf2ec2afcbd4a08b5498c0bd9f9730889a3c4235d4f66ac;decision=RUN;Foreman_STAMPED;critic_KEEP_READY;fel_pd_CLEAR;ei_pin_f40a2019;dual_pair=HT-1036;no_vs_LPP;no_lpp_v2_SEED	RUN	beam-split-first-mirror-v1
